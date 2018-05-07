@@ -1,7 +1,0 @@
-
-#ifndef PCSensitiveDetector_h
-#define PCSensitiveDetector_h 1
-
-#include "G4VSensitiveDetector.hh"
-
-class

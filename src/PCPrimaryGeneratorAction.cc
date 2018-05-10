@@ -2,9 +2,7 @@
 
 #include "PCPrimaryGeneratorAction.hh"
 
-#include "G4LogicalVolumeStore.hh"
-#include "G4LogicalVolume.hh"
-#include "G4Box.hh"
+
 #include "G4RunManager.hh"
 #include "G4ParticleGun.hh"
 #include "G4ParticleTable.hh"
@@ -35,9 +33,9 @@ PCPrimaryGeneratorAction::PCPrimaryGeneratorAction()
 */
   
 
-  fParticleGun->SetParticlePosition(G4ThreeVector(0.,-30.*cm, 0.));
-  fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,1.,0.));
-  fParticleGun->SetParticleEnergy(3.5*MeV);
+//  fParticleGun->SetParticlePosition(G4ThreeVector(0.,-30.*cm, 0.));
+//  fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,1.,0.));
+  fParticleGun->SetParticleEnergy(3.5*MeV); // Kinematic Energy for muon momentum = 27.4 MeV
 }
 
 
@@ -52,10 +50,12 @@ void PCPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 {
   //this function is called at the begining of ecah event
 
+  G4double StartPointY = -270.*mm; // where muon launched = MirrorToChmaberCenterY + 0.5*ChamberY + delta(about 100mm)
+  
 	G4ParticleDefinition* particle;
 	particle = fParticleGun->GetParticleDefinition();
-	G4double Ekin = 3.5*MeV; // Kinematic Energy for muon momentum = 27.4 MeV
-	fParticleGun->SetParticleEnergy(Ekin);
+	//	G4double Ekin = 4.1*MeV; 
+	//	fParticleGun->SetParticleEnergy(Ekin);
 //	G4Random::setTheEngine(CLHEP::HepRandomEngine*);
 //	HepRandom::setTHeSeed(2);
 	G4double anglex = G4RandGauss::shoot(0,0.07878);
@@ -71,7 +71,7 @@ void PCPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
         positiony *= mm;
 
 	// G4cout<<"position = "<<positionx<<":"<<positiony<<G4endl;
-        fParticleGun->SetParticlePosition(G4ThreeVector(positionx,-30.*cm,positiony));
+        fParticleGun->SetParticlePosition(G4ThreeVector(positionx,StartPointY,positiony));
 
 	//	fParticleGun->SetParticlePosition(G4ThreeVector(positionx,positiony,(-78.28-200.)*mm));
 //	fParticleGun->SetParticlePosition(G4ThreeVector(positionx,positiony,(-1000.)*mm));

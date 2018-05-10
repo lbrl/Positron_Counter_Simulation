@@ -3,20 +3,27 @@
 #include "G4SDManager.hh"
 
 #include "PCTrackerSD.hh"
+#include "MCTrackerSD.hh"
 
 
 G4int fPC1TotalCount, fPC2TotalCount, fPC3TotalCount, f23Coin, fallCoin;
+G4int fMCTotalCount ;
+G4int fTotalEvent;
 
 PCRun::PCRun()
   : G4Run(),
-    fPCTrackerCollID(-1)
+    fPCTrackerCollID(-1),
+    fMCTrackerCollID(-1)
 {
-  // set totalcount,coincount of Positroncounters to 0 for each Run
+  // set totalcount,coincount of Positroncounters,Muoncounter to 0 for each Run
   fPC1TotalCount=0;
   fPC2TotalCount=0;
   fPC3TotalCount=0;
   f23Coin=0;
   fallCoin=0;
+  fMCTotalCount=0;
+  // Count total event (launched muon number) from zero
+  fTotalEvent=0;
   
   G4SDManager* SDman = G4SDManager::GetSDMpointer();
   if(fPCTrackerCollID<0)
@@ -24,7 +31,11 @@ PCRun::PCRun()
       G4String colName;
       fPCTrackerCollID = SDman->GetCollectionID(colName="PositronCollection");
     }
-
+  if(fMCTrackerCollID<0)
+    {
+      G4String colName;
+      fMCTrackerCollID = SDman->GetCollectionID(colName="MuonCollection");
+    }
     
 }
 
@@ -37,27 +48,32 @@ PCRun::~PCRun()
 //  is accumulated during a Run.
 void PCRun::RecordEvent(const G4Event* event)
 {
- G4HCofThisEvent* HCE = event->GetHCofThisEvent();
+  fTotalEvent+=1;
+  
+  G4HCofThisEvent* HCE = event->GetHCofThisEvent();
   PCTrackerHitsCollection* PCHC=0;
+  MCTrackerHitsCollection* MCHC=0;
   
   if(HCE)
     {
       PCHC = (PCTrackerHitsCollection*)(HCE->GetHC(fPCTrackerCollID));
+      MCHC = (MCTrackerHitsCollection*)(HCE->GetHC(fMCTrackerCollID));
     }
   
     // Reset the count,time for each event
   G4int PC1count = 0, PC2count = 0, PC3count = 0;
   G4double PC1time = 0., PC2time = 0., PC3time =0. ;
- 
-     G4int nofHits = PCHC->entries();
+  G4int MCcount=0;
+  
+     G4int nofPCHits = PCHC->entries();
      //    G4int nofHits2 = PCHC2->entries();
      //     G4int nofHits3 = PCHC3->entries();
 
      if(PCHC)
        {
-	 for ( G4int i=0 ; i < nofHits ; i++ )
+	 for ( G4int i=0 ; i < nofPCHits ; i++ )
 	   {
-	     PCTrackerHit *PCHit = (*PCHC)[nofHits-1-i];
+	     PCTrackerHit *PCHit = (*PCHC)[nofPCHits-1-i];
 	     if(PCHit->GetPhysV()->GetName()=="PositronCounter1")
 	       {
 		 PC1count=1;
@@ -75,7 +91,23 @@ void PCRun::RecordEvent(const G4Event* event)
 	       }
 	   }
        }
-   
+
+          G4int nofMCHits = MCHC->entries();
+
+     if(MCHC)
+       {
+	 for ( G4int i=0 ; i < nofMCHits ; i++ )
+	   {
+	     MCTrackerHit *MCHit = (*MCHC)[nofMCHits-1-i];
+	     if(MCHit->GetPhysV()->GetName()=="Foil_5um")
+	       MCcount=1;
+	   }
+        }
+     
+
+     if(MCcount==1)
+       fMCTotalCount+=1;
+     
 
      /*     G4cout << G4endl
 	    << "PC1count = " << PC1count << G4endl
@@ -99,6 +131,8 @@ void PCRun::RecordEvent(const G4Event* event)
 	 if(PC1time*PC2time!=0 && PC1time < PC2time && PC2time < PC3time)
 	   fallCoin+=1;
 
+
+
 }
 
 
@@ -117,6 +151,8 @@ void PCRun::PrintAllCount() {
 	 << "PC2 totalcount = " << fPC2TotalCount << G4endl
 	 << "PC3 totalcount = " << fPC3TotalCount << G4endl
 	 << "PC2&3 Coincidence count = " << f23Coin << G4endl
-	 << "PCAll Coincidence count = " << fallCoin << G4endl ;
+	 << "PCAll Coincidence count = " << fallCoin << G4endl
+	 << "MC totalcount = " << fMCTotalCount << G4endl
+	 << "Total launched Muon = " << fTotalEvent << G4endl;
 	
 }

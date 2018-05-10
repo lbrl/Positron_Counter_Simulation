@@ -20,6 +20,7 @@ class PCDetectorConstruction : public G4VUserDetectorConstruction
 private:
 
   G4LogicalVolume** fPC_logic;
+  G4LogicalVolume* fTarget;
   
   //  G4LogicalVolume* PC_logic1;
   //G4LogicalVolume* PC_logic2;

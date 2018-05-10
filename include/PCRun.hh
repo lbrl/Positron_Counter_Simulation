@@ -23,6 +23,7 @@ public:
 
 private:
   G4int fPCTrackerCollID;
+  G4int fMCTrackerCollID;
   // G4int fPCTrackerCollID2;
   //  G4int fPCTrackerCollID3;
   

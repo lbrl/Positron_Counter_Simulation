@@ -15,6 +15,7 @@
 #include "G4UnionSolid.hh"
 #include "G4VSolid.hh"
 
+#include "MCTrackerSD.hh"
 #include "PCTrackerSD.hh"
 #include "G4SDManager.hh"
 #include "G4VSDFilter.hh"
@@ -23,7 +24,8 @@
 
 PCDetectorConstruction::PCDetectorConstruction()
   : G4VUserDetectorConstruction(),
-    fPC_logic(NULL)
+    fPC_logic(NULL),
+    fTarget(NULL)
 {
   fPC_logic = new G4LogicalVolume*[3];
 }
@@ -31,7 +33,8 @@ PCDetectorConstruction::PCDetectorConstruction()
 
 PCDetectorConstruction::~PCDetectorConstruction()
 {
-  delete [] fPC_logic;
+  delete [] fPC_logic ;
+  delete fTarget ;
 }
 
 
@@ -70,14 +73,13 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   G4Material* vacuum = new G4Material(name="vacuum", density, ncomp=1,
 				      kStateGas,temperature,pressure);
   vacuum->AddMaterial(Air,fraction=100*perCent);
-  
-  density = 1.413*g/cm3;
-  G4Material* kapton = new G4Material(name="kapton",density,ncomp=4);
-  kapton->AddElement(elO,5);
-  kapton->AddElement(elC,22);
-  kapton->AddElement(elN,2);
-  kapton->AddElement(elH,10);
-  
+ 
+  density = 1.39*g/cm3;
+  G4Material* Mylar = new G4Material(name="Mylar", density, ncomp=3);
+  Mylar->AddElement(elO,2);
+  Mylar->AddElement(elC,5);
+  Mylar->AddElement(elH,4);
+    
   density = 2.7*g/cm3;
   G4Material* Albuild = new G4Material(name="Albuild",density,ncomp=1);
   Albuild->AddElement(elAl, natoms=1);
@@ -86,8 +88,6 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   G4Material* targetMaterial = new G4Material(name="CsI_Tl", density, ncomp = 2);
   targetMaterial->AddMaterial(CsI,fraction=99.999*perCent);
   targetMaterial->AddMaterial(Tl,fraction=0.001*perCent);
-
-  G4Material* mirrorMaterial = nist->FindOrBuildMaterial("G4_GLASS_PLATE"); // 2.4 g/cm3 : glass density
 
    
   // Option to switch on/off checking of volumes overlaps
@@ -185,14 +185,16 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   G4VSolid* Foil_5um_solid = new G4Tubs("Foil_5um", 0., targetRadius = 60.*mm, halfThickness = 0.5*5.*um, 0., 360.*degree);
   G4LogicalVolume* Foil_5um_logic = new G4LogicalVolume(Foil_5um_solid, targetMaterial, "Foil_5um");
 
-  G4VSolid* Mirror_solid = new G4Tubs("Mirror", 0., targetRadius = 60.*mm, halfThickness = 0.5*5.*um, 0., 360.*degree);
-  G4LogicalVolume* Mirror_logic = new G4LogicalVolume(Mirror_solid, mirrorMaterial, "Mirror"); // Info about Mirror is needed
+  fTarget = Foil_5um_logic;
+
+  G4VSolid* Mirror_solid = new G4Tubs("Mirror", 0., targetRadius = 60.*mm, halfThickness = 0.5*2.9*um, 0., 360.*degree);
+  G4LogicalVolume* Mirror_logic = new G4LogicalVolume(Mirror_solid, Mylar, "Mirror"); // Ignore the Al(50nm)
   
   G4VSolid* AlStopper_solid = new G4Box("Al_Stopper", 0.5*StopperXY, 0.5*StopperXY, 0.5*StopperZ);
   G4LogicalVolume* AlStopper_logic = new G4LogicalVolume(AlStopper_solid, Al, "Al_Stopper");
 
   //define Lead shield
-  G4double LeadShieldX = 50.*mm, LeadShieldY = 200.*mm, LeadShieldZ = 100.*mm ;
+  G4double LeadShieldX = 50.*mm, LeadShieldY = 100.*mm, LeadShieldZ = 200.*mm ;
   G4VSolid* LeadShield_solid = new G4Box("LeadShield", 0.5*LeadShieldX, 0.5*LeadShieldY, 0.5*LeadShieldZ);
   G4LogicalVolume* LeadShield_logic = new G4LogicalVolume(LeadShield_solid, Pb, "LeadShield");
    
@@ -289,7 +291,7 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   G4RotationMatrix* xRot2 = new G4RotationMatrix();
   xRot2->rotateX(45.*degree); // rotation matrix of Mirror, AlStopper
 
-  new G4PVPlacement(xRot, G4ThreeVector(-MirrorToChamberCenterX,-MirrorToChamberCenterY+MirrorToTarget,-MirrorToChamberCenterZ), Foil_5um_logic, "Foil_5um", innerVacuum_logic, false, 0, checkOverlaps);
+  new G4PVPlacement(xRot, G4ThreeVector(-MirrorToChamberCenterX,-MirrorToChamberCenterY+MirrorToTarget,-MirrorToChamberCenterZ), fTarget, "Foil_5um", innerVacuum_logic, false, 0, checkOverlaps);
 
   new G4PVPlacement(xRot2, G4ThreeVector(-MirrorToChamberCenterX,-MirrorToChamberCenterY,-MirrorToChamberCenterZ), Mirror_logic, "Mirror", innerVacuum_logic, false, 0, checkOverlaps);
   
@@ -327,13 +329,13 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   G4double DistToAxis = -25.*mm ; // vertical dist to Axis of PCs from center of Mylar in y-direction
   //in x-direction, axis is assumed to be at same height with the center of Mylar(Mirror)
 
-  fPC_logic[0] = new G4LogicalVolume(PC_solid1,kapton,"PositronCounter");
+  fPC_logic[0] = new G4LogicalVolume(PC_solid1,Mylar,"PositronCounter");
   new G4PVPlacement(0,G4ThreeVector(0,DistToAxis,DistToPC1),fPC_logic[0],"PositronCounter1", world_logic,false,0,checkOverlaps);
  
-  fPC_logic[1]= new G4LogicalVolume(PC_solid2,kapton,"PositronCounter");
+  fPC_logic[1]= new G4LogicalVolume(PC_solid2,Mylar,"PositronCounter");
   new G4PVPlacement(0,G4ThreeVector(0,DistToAxis,DistToPC2),fPC_logic[1],"PositronCounter2", world_logic,false,0,checkOverlaps);
 
-  fPC_logic[2]= new G4LogicalVolume(PC_solid3,kapton,"PositronCounter");
+  fPC_logic[2]= new G4LogicalVolume(PC_solid3,Mylar,"PositronCounter");
   new G4PVPlacement(0,G4ThreeVector(0,DistToAxis,DistToPC3),fPC_logic[2],"PositronCounter3", world_logic,false,0,checkOverlaps);
   
   
@@ -348,7 +350,7 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
 
 void PCDetectorConstruction::ConstructSDandField()
 {
-  // Set Scorer for total Surface Current & positron Surface Current
+  // Set PositronCounters as Sensitive Detectors
   PCTrackerSD* PC = new PCTrackerSD("PC");
   // PCTrackerSD* PC2 = new PCTrackerSD("/PC2");
   //PCTrackerSD* PC3 = new PCTrackerSD("/PC3");
@@ -366,10 +368,22 @@ void PCDetectorConstruction::ConstructSDandField()
 
   G4SDParticleWithEnergyFilter* positronFilter = new G4SDParticleWithEnergyFilter("positronFilter");
   positronFilter->add("e+");
-  positronFilter->SetKineticEnergy(1.0,60.0);
+  positronFilter->SetKineticEnergy(1.0,60.0*MeV);
   PC->SetFilter(positronFilter);
 
   //  PC2->SetFilter(positronFilter);
   //  PC3->SetFilter(positronFilter);
+
+
+  // Set Target as a Sensitive Detector to count the muons which hit target
+  MCTrackerSD* MC = new MCTrackerSD("MC");
+  sdman->AddNewDetector(MC);
+  SetSensitiveDetector("Foil_5um",MC,true);
+
+  G4SDParticleWithEnergyFilter* muonFilter = new G4SDParticleWithEnergyFilter("muonFilter");
+  muonFilter->add("mu+");
+  muonFilter->SetKineticEnergy(0.01,5.*MeV);
+  MC->SetFilter(muonFilter);
+  
 
 }

@@ -320,23 +320,23 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   //define Positron Counters and Arragne each one
 
   G4VSolid* PC_solid1 = new G4Box("PCsolid1",0.5*35.*mm,0.5*30.*mm,0.5*5.*mm);
-  G4VSolid* PC_solid2 = new G4Box("PCsolid2",0.5*60.*mm,0.5*65.*mm,0.5*10.*mm);
-  G4VSolid* PC_solid3 = new G4Box("PCsolid3",0.5*60.*mm,0.5*55.*mm,0.5*5.*mm);
+  G4VSolid* PC_solid2 = new G4Box("PCsolid2",0.5*65.*mm,0.5*60.*mm,0.5*10.*mm);
+  G4VSolid* PC_solid3 = new G4Box("PCsolid3",0.5*55.*mm,0.5*60.*mm,0.5*5.*mm);
 
   G4double DistToPC1 = (667.+135.)*mm ;
   G4double DistToPC2 = DistToPC1 + 40.*mm ;
-  G4double DistToPC3 = DistToPC2 + 45.*mm ;
-  G4double DistToAxis = -25.*mm ; // vertical dist to Axis of PCs from center of Mylar in y-direction
-  //in x-direction, axis is assumed to be at same height with the center of Mylar(Mirror)
+  G4double DistToPC3 = DistToPC2 + 43.*mm ;
+  G4double DistToAxisY = MirrorToChamberCenterY - 0.*mm ; // vertical dist to Axis of PCs from center of Mylar in y-direction
+  G4double DistToAxisX = 0. ; //in x-direction, axis is assumed to be at same height with the center of Mylar(Mirror)
 
   fPC_logic[0] = new G4LogicalVolume(PC_solid1,Mylar,"PositronCounter");
-  new G4PVPlacement(0,G4ThreeVector(0,DistToAxis,DistToPC1),fPC_logic[0],"PositronCounter1", world_logic,false,0,checkOverlaps);
+  new G4PVPlacement(0,G4ThreeVector(DistToAxisX,DistToAxisY,DistToPC1),fPC_logic[0],"PositronCounter1", world_logic,false,0,checkOverlaps);
  
   fPC_logic[1]= new G4LogicalVolume(PC_solid2,Mylar,"PositronCounter");
-  new G4PVPlacement(0,G4ThreeVector(0,DistToAxis,DistToPC2),fPC_logic[1],"PositronCounter2", world_logic,false,0,checkOverlaps);
+  new G4PVPlacement(0,G4ThreeVector(DistToAxisX,DistToAxisY,DistToPC2),fPC_logic[1],"PositronCounter2", world_logic,false,0,checkOverlaps);
 
   fPC_logic[2]= new G4LogicalVolume(PC_solid3,Mylar,"PositronCounter");
-  new G4PVPlacement(0,G4ThreeVector(0,DistToAxis,DistToPC3),fPC_logic[2],"PositronCounter3", world_logic,false,0,checkOverlaps);
+  new G4PVPlacement(0,G4ThreeVector(DistToAxisX,DistToAxisY,DistToPC3),fPC_logic[2],"PositronCounter3", world_logic,false,0,checkOverlaps);
   
   
   //

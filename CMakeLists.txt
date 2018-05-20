@@ -46,7 +46,11 @@ target_link_libraries(PositronCounter ${Geant4_LIBRARIES})
 set(POSITRONCOUNTER_SCRIPTS
   init_vis.mac
   run1.mac
+  run3.mac
   vis.mac
+  myRun.mac
+  mySingleRun.mac
+  totalRun.mac
   )
 
 foreach(_script ${POSITRONCOUNTER_SCRIPTS})

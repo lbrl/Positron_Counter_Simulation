@@ -7,6 +7,7 @@
 class G4VPhysicalVolume;
 class G4LogicalVolume;
 
+class PCDetectorMessenger;
 
 class PCDetectorConstruction : public G4VUserDetectorConstruction
 {
@@ -17,10 +18,21 @@ class PCDetectorConstruction : public G4VUserDetectorConstruction
   virtual G4VPhysicalVolume* Construct();
   virtual void ConstructSDandField();
 
+  G4double DistToAxisX, DistToAxisY;
+
+  // Set methods
+  void SetDistToAxisX(G4double );
+  void SetDistToAxisY(G4double );
+  
+  
+
 private:
 
   G4LogicalVolume** fPC_logic;
   G4LogicalVolume* fTarget;
+
+  PCDetectorMessenger* fMessenger ;
+
   
   //  G4LogicalVolume* PC_logic1;
   //G4LogicalVolume* PC_logic2;

@@ -1,0 +1,8 @@
+
+#DistToAxisX should be changed by hand
+/PC/setDistToAxisX 0. mm
+
+/PC/setDistToAxisY {DistY} mm
+
+/run/beamOn 10000
+

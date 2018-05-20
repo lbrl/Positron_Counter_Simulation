@@ -4,6 +4,9 @@
 
 #include "G4Run.hh"
 #include "G4Event.hh"
+#include "G4LogicalVolume.hh"
+#include "G4LogicalVolumeStore.hh"
+#include "G4Box.hh"
 
 #include "globals.hh"
 
@@ -20,10 +23,14 @@ public:
   void PrintAllCount();
   //return the totalcount of PC1
   G4int PC1TotalCount();
+  G4double GetDistToAxis(G4int i);
+  void WriteToText();
 
 private:
   G4int fPCTrackerCollID;
   G4int fMCTrackerCollID;
+  G4Box* fDistBox ;
+  
   // G4int fPCTrackerCollID2;
   //  G4int fPCTrackerCollID3;
   

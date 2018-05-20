@@ -1,5 +1,6 @@
 
 #include "PCDetectorConstruction.hh"
+#include "PCDetectorMessenger.hh"
 
 #include "G4RunManager.hh"
 #include "G4NistManager.hh"
@@ -25,8 +26,11 @@
 PCDetectorConstruction::PCDetectorConstruction()
   : G4VUserDetectorConstruction(),
     fPC_logic(NULL),
-    fTarget(NULL)
+    fTarget(NULL),
+    DistToAxisX(0.),DistToAxisY(0.)
 {
+  fMessenger = new PCDetectorMessenger(this);
+  
   fPC_logic = new G4LogicalVolume*[3];
 }
 
@@ -35,6 +39,8 @@ PCDetectorConstruction::~PCDetectorConstruction()
 {
   delete [] fPC_logic ;
   delete fTarget ;
+  delete fMessenger;
+
 }
 
 
@@ -101,7 +107,7 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   G4LogicalVolume* world_logic =  new G4LogicalVolume(world_solid, Air,"World");                                    
   G4VPhysicalVolume* world_physics = new G4PVPlacement(0, G4ThreeVector(), world_logic, "World", 0, false, 0, checkOverlaps);      
 
-  
+    
   // define vacuum chamber
   G4double chamberX = 288.*mm, chamberY = 365*mm, chamberZ = 310*mm;
   G4double gapX = 15.*mm, gapY = 15.*mm, gapZ = 15.*mm ;
@@ -320,23 +326,26 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   //define Positron Counters and Arragne each one
 
   G4VSolid* PC_solid1 = new G4Box("PCsolid1",0.5*35.*mm,0.5*30.*mm,0.5*5.*mm);
-  G4VSolid* PC_solid2 = new G4Box("PCsolid2",0.5*60.*mm,0.5*65.*mm,0.5*10.*mm);
-  G4VSolid* PC_solid3 = new G4Box("PCsolid3",0.5*60.*mm,0.5*55.*mm,0.5*5.*mm);
+  G4VSolid* PC_solid2 = new G4Box("PCsolid2",0.5*65.*mm,0.5*60.*mm,0.5*10.*mm);
+  G4VSolid* PC_solid3 = new G4Box("PCsolid3",0.5*55.*mm,0.5*60.*mm,0.5*5.*mm);
 
   G4double DistToPC1 = (667.+135.)*mm ;
   G4double DistToPC2 = DistToPC1 + 40.*mm ;
-  G4double DistToPC3 = DistToPC2 + 45.*mm ;
-  G4double DistToAxis = -25.*mm ; // vertical dist to Axis of PCs from center of Mylar in y-direction
+  G4double DistToPC3 = DistToPC2 + 43.*mm ;
+
+  DistToAxisY = MirrorToChamberCenterY - 40.*mm ; // vertical dist to Axis of PCs from center of Mylar in y-direction
+  DistToAxisX = 0.*mm ;
   //in x-direction, axis is assumed to be at same height with the center of Mylar(Mirror)
 
+  
   fPC_logic[0] = new G4LogicalVolume(PC_solid1,Mylar,"PositronCounter");
-  new G4PVPlacement(0,G4ThreeVector(0,DistToAxis,DistToPC1),fPC_logic[0],"PositronCounter1", world_logic,false,0,checkOverlaps);
+  new G4PVPlacement(0,G4ThreeVector(DistToAxisX,DistToAxisY,DistToPC1),fPC_logic[0],"PositronCounter1", world_logic,false,0,checkOverlaps);
  
   fPC_logic[1]= new G4LogicalVolume(PC_solid2,Mylar,"PositronCounter");
-  new G4PVPlacement(0,G4ThreeVector(0,DistToAxis,DistToPC2),fPC_logic[1],"PositronCounter2", world_logic,false,0,checkOverlaps);
+  new G4PVPlacement(0,G4ThreeVector(DistToAxisX,DistToAxisY,DistToPC2),fPC_logic[1],"PositronCounter2", world_logic,false,0,checkOverlaps);
 
   fPC_logic[2]= new G4LogicalVolume(PC_solid3,Mylar,"PositronCounter");
-  new G4PVPlacement(0,G4ThreeVector(0,DistToAxis,DistToPC3),fPC_logic[2],"PositronCounter3", world_logic,false,0,checkOverlaps);
+  new G4PVPlacement(0,G4ThreeVector(DistToAxisX,DistToAxisY,DistToPC3),fPC_logic[2],"PositronCounter3", world_logic,false,0,checkOverlaps);
   
   
   //
@@ -387,3 +396,15 @@ void PCDetectorConstruction::ConstructSDandField()
   
 
 }
+
+
+void PCDetectorConstruction::SetDistToAxisX(G4double dist)
+{
+  DistToAxisX = dist ;
+}
+
+void PCDetectorConstruction::SetDistToAxisY(G4double dist)
+{
+  DistToAxisY = dist;
+}
+

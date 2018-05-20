@@ -14,7 +14,9 @@ PCRunAction::PCRunAction()
 }
 
 PCRunAction::~PCRunAction()
-{}
+{
+
+}
 
 G4Run* PCRunAction::GenerateRun()
 {
@@ -37,6 +39,6 @@ void PCRunAction::EndOfRunAction(const G4Run* aRun)
 
 
   theRun->PrintAllCount();
-  
+  theRun->WriteToText();
 
 }

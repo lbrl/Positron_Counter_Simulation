@@ -1,29 +1,38 @@
 
 #include "PCRun.hh"
 #include "G4SDManager.hh"
-
+#include "PCDetectorConstruction.hh"
 #include "PCTrackerSD.hh"
 #include "MCTrackerSD.hh"
+#include <iostream>
+#include <fstream>
 
+#include "G4RunManager.hh"
+#include "G4UnitsTable.hh"
+#include "G4SystemOfUnits.hh"
 
 G4int fPC1TotalCount, fPC2TotalCount, fPC3TotalCount, f23Coin, fallCoin;
 G4int fMCTotalCount ;
-G4int fTotalEvent;
+G4int fTotalEvent; 
 
 PCRun::PCRun()
   : G4Run(),
     fPCTrackerCollID(-1),
     fMCTrackerCollID(-1)
+ 
 {
   // set totalcount,coincount of Positroncounters,Muoncounter to 0 for each Run
-  fPC1TotalCount=0;
-  fPC2TotalCount=0;
-  fPC3TotalCount=0;
-  f23Coin=0;
-  fallCoin=0;
-  fMCTotalCount=0;
+
+  fPC1TotalCount = 0 ;
+  fPC2TotalCount = 0 ;
+  fPC3TotalCount = 0 ;
+  f23Coin = 0 ;
+  fallCoin = 0 ;
+  fMCTotalCount = 0;
+ 
   // Count total event (launched muon number) from zero
-  fTotalEvent=0;
+  fTotalEvent = 0;
+  
   
   G4SDManager* SDman = G4SDManager::GetSDMpointer();
   if(fPCTrackerCollID<0)
@@ -144,15 +153,48 @@ G4int PCRun::PC1TotalCount() {
   return fPC1TotalCount;
 }
 
+G4double PCRun::GetDistToAxis(G4int axis) {
+
+  const PCDetectorConstruction* PCdetector
+    = static_cast<const PCDetectorConstruction*>
+    (G4RunManager::GetRunManager()->GetUserDetectorConstruction());
+
+  G4double DistToAxisX = PCdetector->DistToAxisX ;
+  G4double DistToAxisY = PCdetector->DistToAxisY ;
+
+  if(axis==1)
+    return DistToAxisX;
+  else if(axis==2)
+    return DistToAxisY;
+  else
+    return 100000. ; // indicates error
+ 
+}
+
 
 void PCRun::PrintAllCount() {
 
-  G4cout << "PC1 totalcount = " << fPC1TotalCount << G4endl
+   G4cout << "PC1 totalcount = " << fPC1TotalCount << G4endl
 	 << "PC2 totalcount = " << fPC2TotalCount << G4endl
 	 << "PC3 totalcount = " << fPC3TotalCount << G4endl
 	 << "PC2&3 Coincidence count = " << f23Coin << G4endl
 	 << "PCAll Coincidence count = " << fallCoin << G4endl
 	 << "MC totalcount = " << fMCTotalCount << G4endl
-	 << "Total launched Muon = " << fTotalEvent << G4endl;
+	 << "Total launched Muon = " << fTotalEvent << G4endl 
+  	 << "DistToAxisY = " << GetDistToAxis(2) << G4endl ;
 	
+}
+
+
+void PCRun::WriteToText() {
+
+  std::ofstream out("SimulationResult.txt",std::ios::app);
+
+  if(out.is_open()){
+    out << GetDistToAxis(1) << "\t" << GetDistToAxis(2) << "\t" << fPC1TotalCount << "\t"
+	<< fPC2TotalCount << "\t" << fPC3TotalCount << "\t" << f23Coin << "\t"
+	<< fallCoin << "\t" << fMCTotalCount << "\t" << fTotalEvent << "\n" ;
+
+      }
+
 }

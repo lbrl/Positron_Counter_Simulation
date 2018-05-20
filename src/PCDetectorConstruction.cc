@@ -1,5 +1,6 @@
 
 #include "PCDetectorConstruction.hh"
+#include "PCDetectorMessenger.hh"
 
 #include "G4RunManager.hh"
 #include "G4NistManager.hh"
@@ -25,8 +26,11 @@
 PCDetectorConstruction::PCDetectorConstruction()
   : G4VUserDetectorConstruction(),
     fPC_logic(NULL),
-    fTarget(NULL)
+    fTarget(NULL),
+    DistToAxisX(0.),DistToAxisY(0.)
 {
+  fMessenger = new PCDetectorMessenger(this);
+  
   fPC_logic = new G4LogicalVolume*[3];
 }
 
@@ -35,6 +39,8 @@ PCDetectorConstruction::~PCDetectorConstruction()
 {
   delete [] fPC_logic ;
   delete fTarget ;
+  delete fMessenger;
+
 }
 
 
@@ -101,7 +107,7 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   G4LogicalVolume* world_logic =  new G4LogicalVolume(world_solid, Air,"World");                                    
   G4VPhysicalVolume* world_physics = new G4PVPlacement(0, G4ThreeVector(), world_logic, "World", 0, false, 0, checkOverlaps);      
 
-  
+    
   // define vacuum chamber
   G4double chamberX = 288.*mm, chamberY = 365*mm, chamberZ = 310*mm;
   G4double gapX = 15.*mm, gapY = 15.*mm, gapZ = 15.*mm ;
@@ -326,9 +332,10 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   G4double DistToPC1 = (667.+135.)*mm ;
   G4double DistToPC2 = DistToPC1 + 40.*mm ;
   G4double DistToPC3 = DistToPC2 + 43.*mm ;
-  G4double DistToAxisY = MirrorToChamberCenterY - 0.*mm ; // vertical dist to Axis of PCs from center of Mylar in y-direction
-  G4double DistToAxisX = 0. ; //in x-direction, axis is assumed to be at same height with the center of Mylar(Mirror)
 
+  DistToAxisY = MirrorToChamberCenterY - 40.*mm ; // vertical dist to Axis of PCs from center of Mylar in y-direction
+  DistToAxisX = 0.*mm ;
+  //in x-direction, axis is assumed to be at same height with the center of Mylar(Mirror)  
   fPC_logic[0] = new G4LogicalVolume(PC_solid1,Mylar,"PositronCounter");
   new G4PVPlacement(0,G4ThreeVector(DistToAxisX,DistToAxisY,DistToPC1),fPC_logic[0],"PositronCounter1", world_logic,false,0,checkOverlaps);
  
@@ -387,3 +394,15 @@ void PCDetectorConstruction::ConstructSDandField()
   
 
 }
+
+
+void PCDetectorConstruction::SetDistToAxisX(G4double dist)
+{
+  DistToAxisX = dist ;
+}
+
+void PCDetectorConstruction::SetDistToAxisY(G4double dist)
+{
+  DistToAxisY = dist;
+}
+

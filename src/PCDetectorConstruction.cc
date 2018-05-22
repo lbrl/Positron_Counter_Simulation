@@ -15,6 +15,11 @@
 #include "G4SystemOfUnits.hh"
 #include "G4UnionSolid.hh"
 #include "G4VSolid.hh"
+#include "G4LogicalVolumeStore.hh"
+#include "G4SolidStore.hh"
+#include "G4GeometryManager.hh"
+#include "G4PhysicalVolumeStore.hh"
+#include "G4VisAttributes.hh"
 
 #include "MCTrackerSD.hh"
 #include "PCTrackerSD.hh"
@@ -46,6 +51,10 @@ PCDetectorConstruction::~PCDetectorConstruction()
 
 G4VPhysicalVolume* PCDetectorConstruction::Construct()
 {
+  G4GeometryManager::GetInstance()->OpenGeometry();
+  G4PhysicalVolumeStore::GetInstance()->Clean();
+  G4LogicalVolumeStore::GetInstance()->Clean();
+  G4SolidStore::GetInstance()->Clean();
 
   //Define materials
   // Get nist material manager
@@ -333,8 +342,8 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   G4double DistToPC2 = DistToPC1 + 40.*mm ;
   G4double DistToPC3 = DistToPC2 + 43.*mm ;
 
-  DistToAxisY = MirrorToChamberCenterY - 40.*mm ; // vertical dist to Axis of PCs from center of Mylar in y-direction
-  DistToAxisX = 0.*mm ;
+  //  DistToAxisY = MirrorToChamberCenterY - 40.*mm ; // vertical dist to Axis of PCs from center of Mylar in y-direction
+  //  DistToAxisX = 0.*mm ;
   //in x-direction, axis is assumed to be at same height with the center of Mylar(Mirror)  
   fPC_logic[0] = new G4LogicalVolume(PC_solid1,Mylar,"PositronCounter");
   new G4PVPlacement(0,G4ThreeVector(DistToAxisX,DistToAxisY,DistToPC1),fPC_logic[0],"PositronCounter1", world_logic,false,0,checkOverlaps);
@@ -345,6 +354,14 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   fPC_logic[2]= new G4LogicalVolume(PC_solid3,Mylar,"PositronCounter");
   new G4PVPlacement(0,G4ThreeVector(DistToAxisX,DistToAxisY,DistToPC3),fPC_logic[2],"PositronCounter3", world_logic,false,0,checkOverlaps);
   
+
+  //setting the Visualization attributes, world to invisible
+  world_logic->SetVisAttributes (G4VisAttributes::GetInvisible());
+
+  /*
+  G4VisAttributes* ChamberVisAtt= new G4VisAttributes(G4Colour(1.0,1.0,1.0,0.3));
+  chamber_logic->SetVisAttributes(ChamberVisAtt);
+  */
   
   //
   //always return the physical World
@@ -399,10 +416,12 @@ void PCDetectorConstruction::ConstructSDandField()
 void PCDetectorConstruction::SetDistToAxisX(G4double dist)
 {
   DistToAxisX = dist ;
+  G4RunManager::GetRunManager()->ReinitializeGeometry();
 }
 
 void PCDetectorConstruction::SetDistToAxisY(G4double dist)
 {
   DistToAxisY = dist;
+  G4RunManager::GetRunManager()->ReinitializeGeometry();
 }
 

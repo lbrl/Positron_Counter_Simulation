@@ -237,7 +237,7 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   
   G4double DistToHole3Y = -1.*MirrorToChamberCenterY ; // y-direction
   G4double DistToHole3Z = 0.5*chamberZ -0.5*hole3_Z ; // z-direction
-  G4double DistToHole3X = 0. ; // x-direction, height of hole3 is assumed to be same with Mirror
+  G4double DistToHole3X = -1.*MirrorToChamberCenterX ; // x-direction, height of hole3 is assumed to be same with Mirror
 
   G4double MirrorToCapTubeCenterZ = MirrorToChamberCenterZ + DistToHole2Z ;
   G4double MirrorToCapTubeCenterY = MirrorToChamberCenterY + 0.5*chamberY + 0.5*cap_tube_Z ;

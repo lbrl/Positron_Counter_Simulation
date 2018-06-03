@@ -15,8 +15,8 @@
 /tracking/verbose 0
 
 #change Dist
-/PC/setDistToAxisX -5. mm
-/PC/setDistToAxisY -40. mm
+/PC/setDistToAxisX 0. mm
+/PC/setDistToAxisY -50. mm
 
 /run/beamOn 10000000
 

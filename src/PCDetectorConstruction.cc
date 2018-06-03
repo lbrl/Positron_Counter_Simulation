@@ -72,6 +72,9 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   G4Element* elO = new G4Element(name="Oxygen", symbol="O", z=8., a);
 
   G4Material* Al = nist->FindOrBuildMaterial("G4_Al");
+  // G4Material* Al = nist->FindOrBuildMaterial("G4_ALUMINUM_OXIDE");
+  // G4Material* Al2O3 = nist->FindOrBuildMaterial("G4_ALUMINUM_OXIDE");
+  
   a= 26.98*g/mole;
   G4Element* elAl = new G4Element(name="Aluminum",symbol="Al",z=13.,a);
   G4Material* Air = nist->FindOrBuildMaterial("G4_AIR");
@@ -79,7 +82,7 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
 
   G4Material* CsI = nist->FindOrBuildMaterial("G4_CESIUM_IODIDE");
   G4Material* Tl = nist->FindOrBuildMaterial("G4_Tl");
-  
+   
   //  pressure = 0.0001*atmosphere ;
   //  density = 0.0012*g/cm3;
   density = 2.376e-15*g/cm3;
@@ -110,7 +113,7 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   G4bool checkOverlaps = true; // it's not important
  
   // World
-  G4double worldX  = 50.*cm, worldY = 200.*cm, worldZ = 200.*cm;
+  G4double worldX  = 100.*cm, worldY = 300.*cm, worldZ = 250.*cm;
   
   G4Box* world_solid = new G4Box("World", 0.5*worldX, 0.5*worldY, 0.5*worldZ);      
   G4LogicalVolume* world_logic =  new G4LogicalVolume(world_solid, Air,"World");                                    
@@ -182,14 +185,52 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   G4VSolid* colLead2_solid=new G4Tubs("Collimator_Lead1", col_LeadRadiusMin2, innercolRadius, 0.5*col_LeadZ, 0., 360.*degree);
   G4LogicalVolume* colLead2_logic = new G4LogicalVolume(colLead2_solid, Pb, "Collmator_Lead2");
 
-  //define Muon beam tube
-  G4double tubeRadiusMin = 35.*mm, tubeRadiusMax= 50.*mm ; // Thickness of Al is assumed to be 1.5cm
-  G4double tubeZ = 50.*mm;
 
-  G4VSolid* beamtube_solid = new G4Tubs("BeamTube", 0., tubeRadiusMax, 0.5*tubeZ, 0., 360.*degree);
-  G4VSolid* beamtubeVacuum_solid = new G4Tubs("BeamTube_Vacuum", 0., tubeRadiusMin, 0.5*tubeZ, 0., 360.*degree);
-  G4LogicalVolume* beamtube_logic = new G4LogicalVolume(beamtube_solid, Al, "BeamTube");
-  G4LogicalVolume* beamtubeVacuum_logic = new G4LogicalVolume(beamtubeVacuum_solid, vacuum, "BeamTube_Vacuum");
+  //define Muon beam tube from 1 to 6...
+  
+  G4double tubeRadiusMin11 = colRadius, tubeRadiusMax11= 195./2.*mm, tubeZ11= 0.5*41.25*mm ;
+  G4double tubeRadiusMin12 = 130./2.*mm, tubeRadiusMax12 = tubeRadiusMax11, tubeZ12=tubeZ11;
+  G4double tubeRadiusMin2 = (130./2.-20.)*mm, tubeRadiusMax2= 130./2.*mm, tubeZ2= 90.*mm;
+  G4double tubeRadiusMin3 = tubeRadiusMax2, tubeRadiusMax3= 233./2.*mm, tubeZ3= 37.5*mm;
+  G4double tubeRadiusMin4 = tubeRadiusMax3, tubeRadiusMax4= 352./2.*mm, tubeZ4= 219.5*mm;
+  G4double tubeRadiusMin5 = 100.*mm, tubeRadiusMax5= 282./2.*mm, tubeZ5= 75.*mm; // MinRadius is the size of vacuum in the beam line
+  G4double tubeRadiusMin6 = tubeRadiusMin5, tubeRadiusMax6= 500.*mm, tubeZ6= 400.*mm; // MaxRadius is asuumed, Pb composed
+  
+
+  G4VSolid* beamtube11_solid = new G4Tubs("BeamTube11", 0., tubeRadiusMax11, 0.5*tubeZ11, 0., 360.*degree);
+  G4VSolid* beamtubeVacuum11_solid = new G4Tubs("BeamTube11_Vacuum", 0., tubeRadiusMin11, 0.5*tubeZ11, 0., 360.*degree);
+  G4LogicalVolume* beamtube11_logic = new G4LogicalVolume(beamtube11_solid, Al, "BeamTube11");
+  G4LogicalVolume* beamtubeVacuum11_logic = new G4LogicalVolume(beamtubeVacuum11_solid, vacuum, "BeamTube11_Vacuum");
+
+  G4VSolid* beamtube12_solid = new G4Tubs("BeamTube12", 0., tubeRadiusMax12, 0.5*tubeZ12, 0., 360.*degree);
+  G4VSolid* beamtubeVacuum12_solid = new G4Tubs("BeamTube12_Vacuum", 0., tubeRadiusMin12, 0.5*tubeZ12, 0., 360.*degree);
+  G4LogicalVolume* beamtube12_logic = new G4LogicalVolume(beamtube12_solid, Al, "BeamTube12");
+  G4LogicalVolume* beamtubeVacuum12_logic = new G4LogicalVolume(beamtubeVacuum12_solid, vacuum, "BeamTube12_Vacuum");
+
+  G4VSolid* beamtube2_solid = new G4Tubs("BeamTube2", 0., tubeRadiusMax2, 0.5*tubeZ2, 0., 360.*degree);
+  G4VSolid* beamtubeVacuum2_solid = new G4Tubs("BeamTube2_Vacuum", 0., tubeRadiusMin2, 0.5*tubeZ2, 0., 360.*degree);
+  G4LogicalVolume* beamtube2_logic = new G4LogicalVolume(beamtube2_solid, Al, "BeamTube2");
+  G4LogicalVolume* beamtubeVacuum2_logic = new G4LogicalVolume(beamtubeVacuum2_solid, vacuum, "BeamTube2_Vacuum");
+
+  G4VSolid* beamtube3_solid = new G4Tubs("BeamTube3", 0., tubeRadiusMax3, 0.5*tubeZ3, 0., 360.*degree);
+  G4VSolid* beamtubeVacuum3_solid = new G4Tubs("BeamTube3_Vacuum", 0., tubeRadiusMin3, 0.5*tubeZ3, 0., 360.*degree);
+  G4LogicalVolume* beamtube3_logic = new G4LogicalVolume(beamtube3_solid, Al, "BeamTube3");
+  G4LogicalVolume* beamtubeVacuum3_logic = new G4LogicalVolume(beamtubeVacuum3_solid, vacuum, "BeamTube3_Vacuum");
+
+  G4VSolid* beamtube4_solid = new G4Tubs("BeamTube4", 0., tubeRadiusMax4, 0.5*tubeZ4, 0., 360.*degree);
+  G4VSolid* beamtubeVacuum4_solid = new G4Tubs("BeamTube4_Vacuum", 0., tubeRadiusMin4, 0.5*tubeZ4, 0., 360.*degree);
+  G4LogicalVolume* beamtube4_logic = new G4LogicalVolume(beamtube4_solid, Al, "BeamTube4");
+  G4LogicalVolume* beamtubeVacuum4_logic = new G4LogicalVolume(beamtubeVacuum4_solid, vacuum, "BeamTube4_Vacuum");
+
+  G4VSolid* beamtube5_solid = new G4Tubs("BeamTube5", 0., tubeRadiusMax5, 0.5*tubeZ5, 0., 360.*degree);
+  G4VSolid* beamtubeVacuum5_solid = new G4Tubs("BeamTube5_Vacuum", 0., tubeRadiusMin5, 0.5*tubeZ5, 0., 360.*degree);
+  G4LogicalVolume* beamtube5_logic = new G4LogicalVolume(beamtube5_solid, Al, "BeamTube5");
+  G4LogicalVolume* beamtubeVacuum5_logic = new G4LogicalVolume(beamtubeVacuum5_solid, vacuum, "BeamTube5_Vacuum");
+
+  G4VSolid* beamtube6_solid = new G4Tubs("BeamTube6", 0., tubeRadiusMax6, 0.5*tubeZ6, 0., 360.*degree);
+  G4VSolid* beamtubeVacuum6_solid = new G4Tubs("BeamTube6_Vacuum", 0., tubeRadiusMin6, 0.5*tubeZ6, 0., 360.*degree);
+  G4LogicalVolume* beamtube6_logic = new G4LogicalVolume(beamtube6_solid, Pb, "BeamTube6");
+  G4LogicalVolume* beamtubeVacuum6_logic = new G4LogicalVolume(beamtubeVacuum6_solid, vacuum, "BeamTube6_Vacuum");
 
   // define targets(CsI(Tl) crystal, foil), Al_stopper, Mirror
   G4double targetRadius, halfThickness;
@@ -213,6 +254,13 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   G4VSolid* LeadShield_solid = new G4Box("LeadShield", 0.5*LeadShieldX, 0.5*LeadShieldY, 0.5*LeadShieldZ);
   G4LogicalVolume* LeadShield_logic = new G4LogicalVolume(LeadShield_solid, Pb, "LeadShield");
    
+  //define supporting frame
+
+  G4double AlsupportingX = 30.*mm, AlsupportingY = 10.5/6.1*chamberY, AlsupportingZ= 1600.*mm;
+  G4VSolid* Alsupporting_solid = new G4Box("AlSupporting", 0.5*AlsupportingX, 0.5*AlsupportingY, 0.5*AlsupportingZ);
+  G4LogicalVolume* Alsupporting_logic = new G4LogicalVolume(Alsupporting_solid, Al, "AlSupporting");
+  
+
   
   // Arrange each part in physical world
 
@@ -275,7 +323,13 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   // set the Collimator, BeamTube
   G4double frameThickness = 8.*mm ; // thickness of frame of Foil, Mirror
   G4double MirrorToCollimator = MirrorToTarget - 0.5*frameThickness - 0.5*colZ ; // y-direction
-  G4double MirrorToBeamTube = MirrorToCollimator - 0.5*colZ - 0.5*tubeZ ; // y-direction
+  G4double MirrorToBeamTube11 = MirrorToChamberCenterY - 0.5*chamberY - 0.5*tubeZ11 ; // y-direction
+  G4double MirrorToBeamTube12 = MirrorToBeamTube11 - 0.5*tubeZ11 - 0.5*tubeZ12 ;
+  G4double MirrorToBeamTube2 = MirrorToBeamTube12 - 0.5*tubeZ12 - 0.5*tubeZ2 ;
+  G4double MirrorToBeamTube3 = MirrorToBeamTube2 - 0.5*tubeZ2 - 0.5*tubeZ3 ;
+  G4double MirrorToBeamTube4 = MirrorToBeamTube3 - 0.5*tubeZ3 - 0.5*tubeZ4 ;
+  G4double MirrorToBeamTube5 = MirrorToBeamTube4 - 0.5*tubeZ4 - 0.5*tubeZ5 ;
+  G4double MirrorToBeamTube6 = MirrorToBeamTube5 - 0.5*tubeZ5 - 0.5*tubeZ6 ;
 
   G4double CollCenterToVacuum1 = 0.5*innercolZ - 0.5*colZ ; // y-direction
   G4double CollCenterToVacuum2 = 0.5*colZ - 0.5*innercolZ2 ; // y-direction
@@ -287,18 +341,31 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   //  G4double CollToLead2 = 0.5*colZ - (innercolZ2 + 1.5*col_LeadZ) ; // y-direction
 
   new G4PVPlacement(xRot, G4ThreeVector(0.,MirrorToCollimator,0.), collimator_logic, "Collimator", world_logic, false, 0, checkOverlaps);
-
   new G4PVPlacement(0, G4ThreeVector(0,0,CollCenterToVacuum1), colVacuum1_logic, "Collimator_Vacuum1", collimator_logic, false, 0, checkOverlaps);
-
   new G4PVPlacement(0, G4ThreeVector(0,0,CollCenterToVacuum2), colVacuum2_logic, "Collimator_Vacuum2", collimator_logic, false, 0, checkOverlaps);
-
   new G4PVPlacement(0, G4ThreeVector(0,0,CollToLead1), colLead1_logic, "Collimator_Lead1", colVacuum1_logic, false, 0, checkOverlaps);
-
   new G4PVPlacement(0, G4ThreeVector(0,0,CollToLead2), colLead2_logic, "Collimator_Lead2", colVacuum1_logic, false, 0, checkOverlaps);
 
-  new G4PVPlacement(xRot, G4ThreeVector(0,MirrorToBeamTube,0), beamtube_logic, "BeamTube", world_logic, false, 0, checkOverlaps);
+  new G4PVPlacement(xRot, G4ThreeVector(0,MirrorToBeamTube11,0), beamtube11_logic, "BeamTube11", world_logic, false, 0, checkOverlaps);
+  new G4PVPlacement(0, G4ThreeVector(0,0,0), beamtubeVacuum11_logic, "BeamTube11_Vacuum", beamtube11_logic, false, 0, checkOverlaps);
 
-  new G4PVPlacement(0, G4ThreeVector(0,0,0), beamtubeVacuum_logic, "BeamTube_Vacuum", beamtube_logic, false, 0, checkOverlaps);
+  new G4PVPlacement(xRot, G4ThreeVector(0,MirrorToBeamTube12,0), beamtube12_logic, "BeamTube12", world_logic, false, 0, checkOverlaps);
+  new G4PVPlacement(0, G4ThreeVector(0,0,0), beamtubeVacuum12_logic, "BeamTube12_Vacuum", beamtube12_logic, false, 0, checkOverlaps);
+  
+  new G4PVPlacement(xRot, G4ThreeVector(0,MirrorToBeamTube2,0), beamtube2_logic, "BeamTube2", world_logic, false, 0, checkOverlaps);
+  new G4PVPlacement(0, G4ThreeVector(0,0,0), beamtubeVacuum2_logic, "BeamTube2_Vacuum", beamtube2_logic, false, 0, checkOverlaps);
+  
+  new G4PVPlacement(xRot, G4ThreeVector(0,MirrorToBeamTube3,0), beamtube3_logic, "BeamTube3", world_logic, false, 0, checkOverlaps);
+  new G4PVPlacement(0, G4ThreeVector(0,0,0), beamtubeVacuum3_logic, "BeamTube3_Vacuum", beamtube3_logic, false, 0, checkOverlaps);
+
+  new G4PVPlacement(xRot, G4ThreeVector(0,MirrorToBeamTube4,0), beamtube4_logic, "BeamTube4", world_logic, false, 0, checkOverlaps);
+  new G4PVPlacement(0, G4ThreeVector(0,0,0), beamtubeVacuum4_logic, "BeamTube4_Vacuum", beamtube4_logic, false, 0, checkOverlaps);
+
+  new G4PVPlacement(xRot, G4ThreeVector(0,MirrorToBeamTube5,0), beamtube5_logic, "BeamTube5", world_logic, false, 0, checkOverlaps);
+  new G4PVPlacement(0, G4ThreeVector(0,0,0), beamtubeVacuum5_logic, "BeamTube5_Vacuum", beamtube5_logic, false, 0, checkOverlaps);
+
+  new G4PVPlacement(xRot, G4ThreeVector(0,MirrorToBeamTube6,0), beamtube6_logic, "BeamTube6", world_logic, false, 0, checkOverlaps);
+  new G4PVPlacement(0, G4ThreeVector(0,0,0), beamtubeVacuum6_logic, "BeamTube6_Vacuum", beamtube6_logic, false, 0, checkOverlaps);
 
 
   //set the Target, Mirror, Al_Stopper
@@ -311,17 +378,21 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   new G4PVPlacement(xRot2, G4ThreeVector(-MirrorToChamberCenterX,-MirrorToChamberCenterY,-MirrorToChamberCenterZ), Mirror_logic, "Mirror", innerVacuum_logic, false, 0, checkOverlaps);
   
   new G4PVPlacement(xRot2, G4ThreeVector(-MirrorToChamberCenterX,-MirrorToChamberCenterY+10.*1.414,-MirrorToChamberCenterZ), AlStopper_logic, "Al_Stopper", innerVacuum_logic, false, 0, checkOverlaps);
- 
+
+  // set the Alsupporting frame
+
+  new G4PVPlacement(0, G4ThreeVector(-(119.+62.+30./2.)*mm, 0.75/10.5*AlsupportingY, 0), Alsupporting_logic, "AlSupporting", world_logic, false, 0, checkOverlaps);
+  
 
   // set the LeadShield[i] i=0 to 5 (chamberX(height)/LeadShieldX = 288/50 ~ 5.xx) 
 
-  G4double MirrorToLeadX[5] ; // only height(X) of each LeadShield are different
+  G4double MirrorToLeadX[6] ; // only height(X) of each LeadShield are different
   G4double MirrorToLeadY = MirrorToChamberCenterY - chamber_cap3_Radius - 0.5*LeadShieldY ;
   G4double MirrorToLeadZ = MirrorToChamberCenterZ + 0.5*chamberZ + 0.5*LeadShieldZ ;
   
-  for(G4int i=0 ; i!=5 ; i++)
+  for(G4int i=0 ; i!=6 ; i++)
     {
-      MirrorToLeadX[i] = MirrorToChamberCenterX - 0.5*chamberX + (0.5+i)*LeadShieldX ;
+      MirrorToLeadX[i] = MirrorToChamberCenterX - 0.5*chamberX + (-0.5+i)*LeadShieldX ;
            
       new G4PVPlacement(0, G4ThreeVector(MirrorToLeadX[i],MirrorToLeadY,MirrorToLeadZ), LeadShield_logic, "LeadShield", world_logic, false, 0, checkOverlaps);
 
@@ -332,7 +403,7 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
 
  
   
-  //define Positron Counters and Arragne each one
+  //define Positron Counters and Arrange each one
 
   G4VSolid* PC_solid1 = new G4Box("PCsolid1",0.5*35.*mm,0.5*30.*mm,0.5*5.*mm);
   G4VSolid* PC_solid2 = new G4Box("PCsolid2",0.5*65.*mm,0.5*60.*mm,0.5*10.*mm);

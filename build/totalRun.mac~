@@ -14,9 +14,5 @@
 /event/verbose 0
 /tracking/verbose 0
 
-#change Dist
-/PC/setDistToAxisX -5. mm
-/PC/setDistToAxisY -40. mm
-
-/run/beamOn 10000000
+/control/loop myRun.mac DistY 0. 10. 5.
 

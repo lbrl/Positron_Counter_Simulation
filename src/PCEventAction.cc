@@ -13,7 +13,7 @@
 
 PCEventAction::PCEventAction()
 : G4UserEventAction(),
-  fPCTrackerCollID(-1), fTubeEdep(0.), fCollEdep(0.), fChamEdep(0.)
+  fPCTrackerCollID(-1), fTubeEdep(0.), fCollEdep(0.), fChamEdep(0.), fOrigin(3)
 {}
 
 
@@ -26,6 +26,7 @@ void PCEventAction::BeginOfEventAction(const G4Event*)
   fTubeEdep = 0.;
   fCollEdep = 0.;
   fChamEdep = 0.;
+  fOrigin   = 3 ;
 }
 
 

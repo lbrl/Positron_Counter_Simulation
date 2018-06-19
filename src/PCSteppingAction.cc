@@ -19,13 +19,13 @@ void PCSteppingAction::PCUserSteppingAction(const G4Step* aStep)
 {
   // get volume of the origin (where muon stop)
 
-  fEventAction->SetOrigin(3);  // 0 = beamTube, 1 = Collimator, 2 = Stopper, 3 = others
+  
 
   if(aStep->GetTrack()->GetDefinition()->GetParticleName() == "e+")
     {
       if(aStep->GetTrack()->GetOriginTouchable()->GetVolume()->GetName() == "Collimator")
 	{
-	  fEventAction->SetOrigin(1);
+	  fEventAction->SetOrigin(1); // 0 = beamTube, 1 = Collimator, 2 = Stopper, 3 = others
 	}
 
       // get logical volume of the current step

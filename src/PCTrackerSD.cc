@@ -70,6 +70,7 @@ G4bool PCTrackerSD::ProcessHits(G4Step* aStep,
   newHit->SetPhysV(aStep->GetPreStepPoint()->GetTouchableHandle()
 		    ->GetVolume());
   newHit->SetTime(aStep->GetPreStepPoint()->GetGlobalTime());
+  newHit->SetEdep(edep);
 
   fHitsCollection->insert( newHit );
 

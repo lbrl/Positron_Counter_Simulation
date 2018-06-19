@@ -32,17 +32,20 @@ class PCTrackerHit : public G4VHit
     void SetTrackID  (G4int track)      { fTrackID = track; };
     void SetPhysV   (G4VPhysicalVolume* phyV)      { fVolume = phyV; };
     void SetTime     (G4double time){ fTime = time; };
+    void SetEdep     (G4double de)    {fEdep = de;}
 
     // Get methods
     G4int GetTrackID() const     { return fTrackID; };
     G4VPhysicalVolume* GetPhysV() const   { return fVolume; };
     G4double GetTime() const     { return fTime; };
+    G4double GetEdep() const { return fEdep; }
     
   private:
 
       G4int fTrackID;
       G4double fTime;
       G4VPhysicalVolume*  fVolume;
+      G4double fEdep;
 };
 
 

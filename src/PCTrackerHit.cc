@@ -15,7 +15,8 @@ PCTrackerHit::PCTrackerHit()
  : G4VHit(),
    fTrackID(-1),
    fVolume(0),
-   fTime(0.)
+   fTime(0.),
+   fEdep(0.)
 {}
 
 
@@ -28,6 +29,7 @@ PCTrackerHit::PCTrackerHit(const PCTrackerHit& right)
   fTrackID   = right.fTrackID;
   fVolume    = right.fVolume;
   fTime      = right.fTime;
+  fEdep      = right.fEdep;
 }
 
 
@@ -36,6 +38,7 @@ const PCTrackerHit& PCTrackerHit::operator=(const PCTrackerHit& right)
   fTrackID   = right.fTrackID;
   fVolume    = right.fVolume;
   fTime      = right.fTime;
+  fEdep      = right.fEdep;
 
   return *this;
 }

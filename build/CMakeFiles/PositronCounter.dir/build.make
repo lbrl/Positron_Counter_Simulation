@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cho/Desktop/cyj_git/Positron_Counter_Simulation
+CMAKE_SOURCE_DIR = /home/cho/Desktop/Cho_git/Positron_Counter_Simulation
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/build
+CMAKE_BINARY_DIR = /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/PositronCounter.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/PositronCounter.dir/flags.make
 
 CMakeFiles/PositronCounter.dir/PositronCounter.cc.o: CMakeFiles/PositronCounter.dir/flags.make
 CMakeFiles/PositronCounter.dir/PositronCounter.cc.o: ../PositronCounter.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/cyj_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/PositronCounter.dir/PositronCounter.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/PositronCounter.cc.o -c /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/PositronCounter.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/PositronCounter.dir/PositronCounter.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/PositronCounter.cc.o -c /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/PositronCounter.cc
 
 CMakeFiles/PositronCounter.dir/PositronCounter.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PositronCounter.dir/PositronCounter.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/PositronCounter.cc > CMakeFiles/PositronCounter.dir/PositronCounter.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/PositronCounter.cc > CMakeFiles/PositronCounter.dir/PositronCounter.cc.i
 
 CMakeFiles/PositronCounter.dir/PositronCounter.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PositronCounter.dir/PositronCounter.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/PositronCounter.cc -o CMakeFiles/PositronCounter.dir/PositronCounter.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/PositronCounter.cc -o CMakeFiles/PositronCounter.dir/PositronCounter.cc.s
 
 CMakeFiles/PositronCounter.dir/PositronCounter.cc.o.requires:
 
@@ -81,114 +81,18 @@ CMakeFiles/PositronCounter.dir/PositronCounter.cc.o.provides: CMakeFiles/Positro
 CMakeFiles/PositronCounter.dir/PositronCounter.cc.o.provides.build: CMakeFiles/PositronCounter.dir/PositronCounter.cc.o
 
 
-CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o: CMakeFiles/PositronCounter.dir/flags.make
-CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o: ../src/MCTrackerHit.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/cyj_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o -c /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/MCTrackerHit.cc
-
-CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/MCTrackerHit.cc > CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.i
-
-CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/MCTrackerHit.cc -o CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.s
-
-CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o.requires:
-
-.PHONY : CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o.requires
-
-CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o.provides: CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o.requires
-	$(MAKE) -f CMakeFiles/PositronCounter.dir/build.make CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o.provides.build
-.PHONY : CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o.provides
-
-CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o.provides.build: CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o
-
-
-CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o: CMakeFiles/PositronCounter.dir/flags.make
-CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o: ../src/PCTrackerHit.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/cyj_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o -c /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCTrackerHit.cc
-
-CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCTrackerHit.cc > CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.i
-
-CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCTrackerHit.cc -o CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.s
-
-CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o.requires:
-
-.PHONY : CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o.requires
-
-CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o.provides: CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o.requires
-	$(MAKE) -f CMakeFiles/PositronCounter.dir/build.make CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o.provides.build
-.PHONY : CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o.provides
-
-CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o.provides.build: CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o
-
-
-CMakeFiles/PositronCounter.dir/src/PCRun.cc.o: CMakeFiles/PositronCounter.dir/flags.make
-CMakeFiles/PositronCounter.dir/src/PCRun.cc.o: ../src/PCRun.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/cyj_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/PositronCounter.dir/src/PCRun.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/src/PCRun.cc.o -c /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCRun.cc
-
-CMakeFiles/PositronCounter.dir/src/PCRun.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PositronCounter.dir/src/PCRun.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCRun.cc > CMakeFiles/PositronCounter.dir/src/PCRun.cc.i
-
-CMakeFiles/PositronCounter.dir/src/PCRun.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PositronCounter.dir/src/PCRun.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCRun.cc -o CMakeFiles/PositronCounter.dir/src/PCRun.cc.s
-
-CMakeFiles/PositronCounter.dir/src/PCRun.cc.o.requires:
-
-.PHONY : CMakeFiles/PositronCounter.dir/src/PCRun.cc.o.requires
-
-CMakeFiles/PositronCounter.dir/src/PCRun.cc.o.provides: CMakeFiles/PositronCounter.dir/src/PCRun.cc.o.requires
-	$(MAKE) -f CMakeFiles/PositronCounter.dir/build.make CMakeFiles/PositronCounter.dir/src/PCRun.cc.o.provides.build
-.PHONY : CMakeFiles/PositronCounter.dir/src/PCRun.cc.o.provides
-
-CMakeFiles/PositronCounter.dir/src/PCRun.cc.o.provides.build: CMakeFiles/PositronCounter.dir/src/PCRun.cc.o
-
-
-CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o: CMakeFiles/PositronCounter.dir/flags.make
-CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o: ../src/PCDetectorMessenger.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/cyj_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o -c /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCDetectorMessenger.cc
-
-CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCDetectorMessenger.cc > CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.i
-
-CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCDetectorMessenger.cc -o CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.s
-
-CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o.requires:
-
-.PHONY : CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o.requires
-
-CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o.provides: CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o.requires
-	$(MAKE) -f CMakeFiles/PositronCounter.dir/build.make CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o.provides.build
-.PHONY : CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o.provides
-
-CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o.provides.build: CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o
-
-
 CMakeFiles/PositronCounter.dir/src/PCTrackerSD.cc.o: CMakeFiles/PositronCounter.dir/flags.make
 CMakeFiles/PositronCounter.dir/src/PCTrackerSD.cc.o: ../src/PCTrackerSD.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/cyj_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/PositronCounter.dir/src/PCTrackerSD.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/src/PCTrackerSD.cc.o -c /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCTrackerSD.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/PositronCounter.dir/src/PCTrackerSD.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/src/PCTrackerSD.cc.o -c /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCTrackerSD.cc
 
 CMakeFiles/PositronCounter.dir/src/PCTrackerSD.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PositronCounter.dir/src/PCTrackerSD.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCTrackerSD.cc > CMakeFiles/PositronCounter.dir/src/PCTrackerSD.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCTrackerSD.cc > CMakeFiles/PositronCounter.dir/src/PCTrackerSD.cc.i
 
 CMakeFiles/PositronCounter.dir/src/PCTrackerSD.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PositronCounter.dir/src/PCTrackerSD.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCTrackerSD.cc -o CMakeFiles/PositronCounter.dir/src/PCTrackerSD.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCTrackerSD.cc -o CMakeFiles/PositronCounter.dir/src/PCTrackerSD.cc.s
 
 CMakeFiles/PositronCounter.dir/src/PCTrackerSD.cc.o.requires:
 
@@ -201,18 +105,162 @@ CMakeFiles/PositronCounter.dir/src/PCTrackerSD.cc.o.provides: CMakeFiles/Positro
 CMakeFiles/PositronCounter.dir/src/PCTrackerSD.cc.o.provides.build: CMakeFiles/PositronCounter.dir/src/PCTrackerSD.cc.o
 
 
+CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o: CMakeFiles/PositronCounter.dir/flags.make
+CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o: ../src/PCTrackerHit.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o -c /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCTrackerHit.cc
+
+CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCTrackerHit.cc > CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.i
+
+CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCTrackerHit.cc -o CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.s
+
+CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o.requires:
+
+.PHONY : CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o.requires
+
+CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o.provides: CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o.requires
+	$(MAKE) -f CMakeFiles/PositronCounter.dir/build.make CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o.provides.build
+.PHONY : CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o.provides
+
+CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o.provides.build: CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o
+
+
+CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o: CMakeFiles/PositronCounter.dir/flags.make
+CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o: ../src/MCTrackerHit.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o -c /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/MCTrackerHit.cc
+
+CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/MCTrackerHit.cc > CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.i
+
+CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/MCTrackerHit.cc -o CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.s
+
+CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o.requires:
+
+.PHONY : CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o.requires
+
+CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o.provides: CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o.requires
+	$(MAKE) -f CMakeFiles/PositronCounter.dir/build.make CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o.provides.build
+.PHONY : CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o.provides
+
+CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o.provides.build: CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o
+
+
+CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o: CMakeFiles/PositronCounter.dir/flags.make
+CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o: ../src/PCPrimaryGeneratorAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o -c /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCPrimaryGeneratorAction.cc
+
+CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCPrimaryGeneratorAction.cc > CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.i
+
+CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCPrimaryGeneratorAction.cc -o CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.s
+
+CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o.requires:
+
+.PHONY : CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o.requires
+
+CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o.provides: CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o.requires
+	$(MAKE) -f CMakeFiles/PositronCounter.dir/build.make CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o.provides.build
+.PHONY : CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o.provides
+
+CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o.provides.build: CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o
+
+
+CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o: CMakeFiles/PositronCounter.dir/flags.make
+CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o: ../src/PCActionInitialization.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o -c /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCActionInitialization.cc
+
+CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCActionInitialization.cc > CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.i
+
+CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCActionInitialization.cc -o CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.s
+
+CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o.requires:
+
+.PHONY : CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o.requires
+
+CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o.provides: CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o.requires
+	$(MAKE) -f CMakeFiles/PositronCounter.dir/build.make CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o.provides.build
+.PHONY : CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o.provides
+
+CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o.provides.build: CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o
+
+
+CMakeFiles/PositronCounter.dir/src/PCRun.cc.o: CMakeFiles/PositronCounter.dir/flags.make
+CMakeFiles/PositronCounter.dir/src/PCRun.cc.o: ../src/PCRun.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/PositronCounter.dir/src/PCRun.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/src/PCRun.cc.o -c /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCRun.cc
+
+CMakeFiles/PositronCounter.dir/src/PCRun.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PositronCounter.dir/src/PCRun.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCRun.cc > CMakeFiles/PositronCounter.dir/src/PCRun.cc.i
+
+CMakeFiles/PositronCounter.dir/src/PCRun.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PositronCounter.dir/src/PCRun.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCRun.cc -o CMakeFiles/PositronCounter.dir/src/PCRun.cc.s
+
+CMakeFiles/PositronCounter.dir/src/PCRun.cc.o.requires:
+
+.PHONY : CMakeFiles/PositronCounter.dir/src/PCRun.cc.o.requires
+
+CMakeFiles/PositronCounter.dir/src/PCRun.cc.o.provides: CMakeFiles/PositronCounter.dir/src/PCRun.cc.o.requires
+	$(MAKE) -f CMakeFiles/PositronCounter.dir/build.make CMakeFiles/PositronCounter.dir/src/PCRun.cc.o.provides.build
+.PHONY : CMakeFiles/PositronCounter.dir/src/PCRun.cc.o.provides
+
+CMakeFiles/PositronCounter.dir/src/PCRun.cc.o.provides.build: CMakeFiles/PositronCounter.dir/src/PCRun.cc.o
+
+
+CMakeFiles/PositronCounter.dir/src/PCSteppingAction.cc.o: CMakeFiles/PositronCounter.dir/flags.make
+CMakeFiles/PositronCounter.dir/src/PCSteppingAction.cc.o: ../src/PCSteppingAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/PositronCounter.dir/src/PCSteppingAction.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/src/PCSteppingAction.cc.o -c /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCSteppingAction.cc
+
+CMakeFiles/PositronCounter.dir/src/PCSteppingAction.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PositronCounter.dir/src/PCSteppingAction.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCSteppingAction.cc > CMakeFiles/PositronCounter.dir/src/PCSteppingAction.cc.i
+
+CMakeFiles/PositronCounter.dir/src/PCSteppingAction.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PositronCounter.dir/src/PCSteppingAction.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCSteppingAction.cc -o CMakeFiles/PositronCounter.dir/src/PCSteppingAction.cc.s
+
+CMakeFiles/PositronCounter.dir/src/PCSteppingAction.cc.o.requires:
+
+.PHONY : CMakeFiles/PositronCounter.dir/src/PCSteppingAction.cc.o.requires
+
+CMakeFiles/PositronCounter.dir/src/PCSteppingAction.cc.o.provides: CMakeFiles/PositronCounter.dir/src/PCSteppingAction.cc.o.requires
+	$(MAKE) -f CMakeFiles/PositronCounter.dir/build.make CMakeFiles/PositronCounter.dir/src/PCSteppingAction.cc.o.provides.build
+.PHONY : CMakeFiles/PositronCounter.dir/src/PCSteppingAction.cc.o.provides
+
+CMakeFiles/PositronCounter.dir/src/PCSteppingAction.cc.o.provides.build: CMakeFiles/PositronCounter.dir/src/PCSteppingAction.cc.o
+
+
 CMakeFiles/PositronCounter.dir/src/PCDetectorConstruction.cc.o: CMakeFiles/PositronCounter.dir/flags.make
 CMakeFiles/PositronCounter.dir/src/PCDetectorConstruction.cc.o: ../src/PCDetectorConstruction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/cyj_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/PositronCounter.dir/src/PCDetectorConstruction.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/src/PCDetectorConstruction.cc.o -c /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCDetectorConstruction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/PositronCounter.dir/src/PCDetectorConstruction.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/src/PCDetectorConstruction.cc.o -c /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCDetectorConstruction.cc
 
 CMakeFiles/PositronCounter.dir/src/PCDetectorConstruction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PositronCounter.dir/src/PCDetectorConstruction.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCDetectorConstruction.cc > CMakeFiles/PositronCounter.dir/src/PCDetectorConstruction.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCDetectorConstruction.cc > CMakeFiles/PositronCounter.dir/src/PCDetectorConstruction.cc.i
 
 CMakeFiles/PositronCounter.dir/src/PCDetectorConstruction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PositronCounter.dir/src/PCDetectorConstruction.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCDetectorConstruction.cc -o CMakeFiles/PositronCounter.dir/src/PCDetectorConstruction.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCDetectorConstruction.cc -o CMakeFiles/PositronCounter.dir/src/PCDetectorConstruction.cc.s
 
 CMakeFiles/PositronCounter.dir/src/PCDetectorConstruction.cc.o.requires:
 
@@ -225,18 +273,42 @@ CMakeFiles/PositronCounter.dir/src/PCDetectorConstruction.cc.o.provides: CMakeFi
 CMakeFiles/PositronCounter.dir/src/PCDetectorConstruction.cc.o.provides.build: CMakeFiles/PositronCounter.dir/src/PCDetectorConstruction.cc.o
 
 
+CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o: CMakeFiles/PositronCounter.dir/flags.make
+CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o: ../src/MCTrackerSD.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o -c /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/MCTrackerSD.cc
+
+CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/MCTrackerSD.cc > CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.i
+
+CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/MCTrackerSD.cc -o CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.s
+
+CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o.requires:
+
+.PHONY : CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o.requires
+
+CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o.provides: CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o.requires
+	$(MAKE) -f CMakeFiles/PositronCounter.dir/build.make CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o.provides.build
+.PHONY : CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o.provides
+
+CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o.provides.build: CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o
+
+
 CMakeFiles/PositronCounter.dir/src/PCEventAction.cc.o: CMakeFiles/PositronCounter.dir/flags.make
 CMakeFiles/PositronCounter.dir/src/PCEventAction.cc.o: ../src/PCEventAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/cyj_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/PositronCounter.dir/src/PCEventAction.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/src/PCEventAction.cc.o -c /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCEventAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/PositronCounter.dir/src/PCEventAction.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/src/PCEventAction.cc.o -c /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCEventAction.cc
 
 CMakeFiles/PositronCounter.dir/src/PCEventAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PositronCounter.dir/src/PCEventAction.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCEventAction.cc > CMakeFiles/PositronCounter.dir/src/PCEventAction.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCEventAction.cc > CMakeFiles/PositronCounter.dir/src/PCEventAction.cc.i
 
 CMakeFiles/PositronCounter.dir/src/PCEventAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PositronCounter.dir/src/PCEventAction.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCEventAction.cc -o CMakeFiles/PositronCounter.dir/src/PCEventAction.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCEventAction.cc -o CMakeFiles/PositronCounter.dir/src/PCEventAction.cc.s
 
 CMakeFiles/PositronCounter.dir/src/PCEventAction.cc.o.requires:
 
@@ -251,16 +323,16 @@ CMakeFiles/PositronCounter.dir/src/PCEventAction.cc.o.provides.build: CMakeFiles
 
 CMakeFiles/PositronCounter.dir/src/PCPhysicsList.cc.o: CMakeFiles/PositronCounter.dir/flags.make
 CMakeFiles/PositronCounter.dir/src/PCPhysicsList.cc.o: ../src/PCPhysicsList.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/cyj_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/PositronCounter.dir/src/PCPhysicsList.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/src/PCPhysicsList.cc.o -c /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCPhysicsList.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/PositronCounter.dir/src/PCPhysicsList.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/src/PCPhysicsList.cc.o -c /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCPhysicsList.cc
 
 CMakeFiles/PositronCounter.dir/src/PCPhysicsList.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PositronCounter.dir/src/PCPhysicsList.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCPhysicsList.cc > CMakeFiles/PositronCounter.dir/src/PCPhysicsList.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCPhysicsList.cc > CMakeFiles/PositronCounter.dir/src/PCPhysicsList.cc.i
 
 CMakeFiles/PositronCounter.dir/src/PCPhysicsList.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PositronCounter.dir/src/PCPhysicsList.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCPhysicsList.cc -o CMakeFiles/PositronCounter.dir/src/PCPhysicsList.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCPhysicsList.cc -o CMakeFiles/PositronCounter.dir/src/PCPhysicsList.cc.s
 
 CMakeFiles/PositronCounter.dir/src/PCPhysicsList.cc.o.requires:
 
@@ -275,16 +347,16 @@ CMakeFiles/PositronCounter.dir/src/PCPhysicsList.cc.o.provides.build: CMakeFiles
 
 CMakeFiles/PositronCounter.dir/src/PCRunAction.cc.o: CMakeFiles/PositronCounter.dir/flags.make
 CMakeFiles/PositronCounter.dir/src/PCRunAction.cc.o: ../src/PCRunAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/cyj_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/PositronCounter.dir/src/PCRunAction.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/src/PCRunAction.cc.o -c /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCRunAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/PositronCounter.dir/src/PCRunAction.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/src/PCRunAction.cc.o -c /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCRunAction.cc
 
 CMakeFiles/PositronCounter.dir/src/PCRunAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PositronCounter.dir/src/PCRunAction.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCRunAction.cc > CMakeFiles/PositronCounter.dir/src/PCRunAction.cc.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCRunAction.cc > CMakeFiles/PositronCounter.dir/src/PCRunAction.cc.i
 
 CMakeFiles/PositronCounter.dir/src/PCRunAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PositronCounter.dir/src/PCRunAction.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCRunAction.cc -o CMakeFiles/PositronCounter.dir/src/PCRunAction.cc.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCRunAction.cc -o CMakeFiles/PositronCounter.dir/src/PCRunAction.cc.s
 
 CMakeFiles/PositronCounter.dir/src/PCRunAction.cc.o.requires:
 
@@ -297,127 +369,81 @@ CMakeFiles/PositronCounter.dir/src/PCRunAction.cc.o.provides: CMakeFiles/Positro
 CMakeFiles/PositronCounter.dir/src/PCRunAction.cc.o.provides.build: CMakeFiles/PositronCounter.dir/src/PCRunAction.cc.o
 
 
-CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o: CMakeFiles/PositronCounter.dir/flags.make
-CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o: ../src/PCActionInitialization.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/cyj_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o -c /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCActionInitialization.cc
+CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o: CMakeFiles/PositronCounter.dir/flags.make
+CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o: ../src/PCDetectorMessenger.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o -c /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCDetectorMessenger.cc
 
-CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCActionInitialization.cc > CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.i
+CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCDetectorMessenger.cc > CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.i
 
-CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCActionInitialization.cc -o CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.s
+CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/src/PCDetectorMessenger.cc -o CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.s
 
-CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o.requires:
+CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o.requires:
 
-.PHONY : CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o.requires
+.PHONY : CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o.requires
 
-CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o.provides: CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o.requires
-	$(MAKE) -f CMakeFiles/PositronCounter.dir/build.make CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o.provides.build
-.PHONY : CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o.provides
+CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o.provides: CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o.requires
+	$(MAKE) -f CMakeFiles/PositronCounter.dir/build.make CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o.provides.build
+.PHONY : CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o.provides
 
-CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o.provides.build: CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o
-
-
-CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o: CMakeFiles/PositronCounter.dir/flags.make
-CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o: ../src/PCPrimaryGeneratorAction.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/cyj_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o -c /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCPrimaryGeneratorAction.cc
-
-CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCPrimaryGeneratorAction.cc > CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.i
-
-CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/PCPrimaryGeneratorAction.cc -o CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.s
-
-CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o.requires:
-
-.PHONY : CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o.requires
-
-CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o.provides: CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o.requires
-	$(MAKE) -f CMakeFiles/PositronCounter.dir/build.make CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o.provides.build
-.PHONY : CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o.provides
-
-CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o.provides.build: CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o
-
-
-CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o: CMakeFiles/PositronCounter.dir/flags.make
-CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o: ../src/MCTrackerSD.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/cho/Desktop/cyj_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o -c /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/MCTrackerSD.cc
-
-CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/MCTrackerSD.cc > CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.i
-
-CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/src/MCTrackerSD.cc -o CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.s
-
-CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o.requires:
-
-.PHONY : CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o.requires
-
-CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o.provides: CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o.requires
-	$(MAKE) -f CMakeFiles/PositronCounter.dir/build.make CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o.provides.build
-.PHONY : CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o.provides
-
-CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o.provides.build: CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o
+CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o.provides.build: CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o
 
 
 # Object files for target PositronCounter
 PositronCounter_OBJECTS = \
 "CMakeFiles/PositronCounter.dir/PositronCounter.cc.o" \
-"CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o" \
-"CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o" \
-"CMakeFiles/PositronCounter.dir/src/PCRun.cc.o" \
-"CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o" \
 "CMakeFiles/PositronCounter.dir/src/PCTrackerSD.cc.o" \
+"CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o" \
+"CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o" \
+"CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o" \
+"CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o" \
+"CMakeFiles/PositronCounter.dir/src/PCRun.cc.o" \
+"CMakeFiles/PositronCounter.dir/src/PCSteppingAction.cc.o" \
 "CMakeFiles/PositronCounter.dir/src/PCDetectorConstruction.cc.o" \
+"CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o" \
 "CMakeFiles/PositronCounter.dir/src/PCEventAction.cc.o" \
 "CMakeFiles/PositronCounter.dir/src/PCPhysicsList.cc.o" \
 "CMakeFiles/PositronCounter.dir/src/PCRunAction.cc.o" \
-"CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o" \
-"CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o" \
-"CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o"
+"CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o"
 
 # External object files for target PositronCounter
 PositronCounter_EXTERNAL_OBJECTS =
 
 PositronCounter: CMakeFiles/PositronCounter.dir/PositronCounter.cc.o
-PositronCounter: CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o
-PositronCounter: CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o
-PositronCounter: CMakeFiles/PositronCounter.dir/src/PCRun.cc.o
-PositronCounter: CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o
 PositronCounter: CMakeFiles/PositronCounter.dir/src/PCTrackerSD.cc.o
+PositronCounter: CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o
+PositronCounter: CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o
+PositronCounter: CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o
+PositronCounter: CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o
+PositronCounter: CMakeFiles/PositronCounter.dir/src/PCRun.cc.o
+PositronCounter: CMakeFiles/PositronCounter.dir/src/PCSteppingAction.cc.o
 PositronCounter: CMakeFiles/PositronCounter.dir/src/PCDetectorConstruction.cc.o
+PositronCounter: CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o
 PositronCounter: CMakeFiles/PositronCounter.dir/src/PCEventAction.cc.o
 PositronCounter: CMakeFiles/PositronCounter.dir/src/PCPhysicsList.cc.o
 PositronCounter: CMakeFiles/PositronCounter.dir/src/PCRunAction.cc.o
-PositronCounter: CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o
-PositronCounter: CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o
-PositronCounter: CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o
+PositronCounter: CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o
 PositronCounter: CMakeFiles/PositronCounter.dir/build.make
-PositronCounter: /usr/local/lib/libG4Tree.so
-PositronCounter: /usr/local/lib/libG4GMocren.so
-PositronCounter: /usr/local/lib/libG4visHepRep.so
-PositronCounter: /usr/local/lib/libG4RayTracer.so
-PositronCounter: /usr/local/lib/libG4VRML.so
-PositronCounter: /usr/local/lib/libG4OpenGL.so
-PositronCounter: /usr/local/lib/libG4gl2ps.so
-PositronCounter: /usr/local/lib/libG4interfaces.so
-PositronCounter: /usr/local/lib/libG4persistency.so
-PositronCounter: /usr/local/lib/libG4error_propagation.so
-PositronCounter: /usr/local/lib/libG4readout.so
-PositronCounter: /usr/local/lib/libG4physicslists.so
-PositronCounter: /usr/local/lib/libG4parmodels.so
-PositronCounter: /usr/local/lib/libG4FR.so
-PositronCounter: /usr/local/lib/libG4vis_management.so
-PositronCounter: /usr/local/lib/libG4modeling.so
+PositronCounter: /usr/local/Geant4/lib/libG4Tree.so
+PositronCounter: /usr/local/Geant4/lib/libG4GMocren.so
+PositronCounter: /usr/local/Geant4/lib/libG4visHepRep.so
+PositronCounter: /usr/local/Geant4/lib/libG4RayTracer.so
+PositronCounter: /usr/local/Geant4/lib/libG4VRML.so
+PositronCounter: /usr/local/Geant4/lib/libG4OpenGL.so
+PositronCounter: /usr/local/Geant4/lib/libG4gl2ps.so
+PositronCounter: /usr/local/Geant4/lib/libG4interfaces.so
+PositronCounter: /usr/local/Geant4/lib/libG4persistency.so
+PositronCounter: /usr/local/Geant4/lib/libG4error_propagation.so
+PositronCounter: /usr/local/Geant4/lib/libG4readout.so
+PositronCounter: /usr/local/Geant4/lib/libG4physicslists.so
+PositronCounter: /usr/local/Geant4/lib/libG4parmodels.so
+PositronCounter: /usr/local/Geant4/lib/libG4FR.so
+PositronCounter: /usr/local/Geant4/lib/libG4vis_management.so
+PositronCounter: /usr/local/Geant4/lib/libG4modeling.so
 PositronCounter: /usr/lib/x86_64-linux-gnu/libGLU.so
 PositronCounter: /usr/lib/x86_64-linux-gnu/libGL.so
 PositronCounter: /usr/lib/x86_64-linux-gnu/libSM.so
@@ -430,25 +456,24 @@ PositronCounter: /usr/lib/x86_64-linux-gnu/libQt5PrintSupport.so.5.5.1
 PositronCounter: /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.5.1
 PositronCounter: /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.5.1
 PositronCounter: /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.5.1
-PositronCounter: /usr/local/lib/libxerces-c.so
-PositronCounter: /usr/local/lib/libG4run.so
-PositronCounter: /usr/local/lib/libG4event.so
-PositronCounter: /usr/local/lib/libG4tracking.so
-PositronCounter: /usr/local/lib/libG4processes.so
-PositronCounter: /usr/local/lib/libG4analysis.so
+PositronCounter: /usr/local/Geant4/lib/libG4run.so
+PositronCounter: /usr/local/Geant4/lib/libG4event.so
+PositronCounter: /usr/local/Geant4/lib/libG4tracking.so
+PositronCounter: /usr/local/Geant4/lib/libG4processes.so
+PositronCounter: /usr/local/Geant4/lib/libG4analysis.so
 PositronCounter: /usr/local/lib/libz.so
 PositronCounter: /usr/local/lib/libexpat.so
-PositronCounter: /usr/local/lib/libG4digits_hits.so
-PositronCounter: /usr/local/lib/libG4track.so
-PositronCounter: /usr/local/lib/libG4particles.so
-PositronCounter: /usr/local/lib/libG4geometry.so
-PositronCounter: /usr/local/lib/libG4materials.so
-PositronCounter: /usr/local/lib/libG4graphics_reps.so
-PositronCounter: /usr/local/lib/libG4intercoms.so
-PositronCounter: /usr/local/lib/libG4global.so
+PositronCounter: /usr/local/Geant4/lib/libG4digits_hits.so
+PositronCounter: /usr/local/Geant4/lib/libG4track.so
+PositronCounter: /usr/local/Geant4/lib/libG4particles.so
+PositronCounter: /usr/local/Geant4/lib/libG4geometry.so
+PositronCounter: /usr/local/Geant4/lib/libG4materials.so
+PositronCounter: /usr/local/Geant4/lib/libG4graphics_reps.so
+PositronCounter: /usr/local/Geant4/lib/libG4intercoms.so
+PositronCounter: /usr/local/Geant4/lib/libG4global.so
 PositronCounter: /usr/local/lib/libCLHEP-2.4.0.2.so
 PositronCounter: CMakeFiles/PositronCounter.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cho/Desktop/cyj_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable PositronCounter"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable PositronCounter"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/PositronCounter.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -457,18 +482,19 @@ CMakeFiles/PositronCounter.dir/build: PositronCounter
 .PHONY : CMakeFiles/PositronCounter.dir/build
 
 CMakeFiles/PositronCounter.dir/requires: CMakeFiles/PositronCounter.dir/PositronCounter.cc.o.requires
-CMakeFiles/PositronCounter.dir/requires: CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o.requires
-CMakeFiles/PositronCounter.dir/requires: CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o.requires
-CMakeFiles/PositronCounter.dir/requires: CMakeFiles/PositronCounter.dir/src/PCRun.cc.o.requires
-CMakeFiles/PositronCounter.dir/requires: CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o.requires
 CMakeFiles/PositronCounter.dir/requires: CMakeFiles/PositronCounter.dir/src/PCTrackerSD.cc.o.requires
+CMakeFiles/PositronCounter.dir/requires: CMakeFiles/PositronCounter.dir/src/PCTrackerHit.cc.o.requires
+CMakeFiles/PositronCounter.dir/requires: CMakeFiles/PositronCounter.dir/src/MCTrackerHit.cc.o.requires
+CMakeFiles/PositronCounter.dir/requires: CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o.requires
+CMakeFiles/PositronCounter.dir/requires: CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o.requires
+CMakeFiles/PositronCounter.dir/requires: CMakeFiles/PositronCounter.dir/src/PCRun.cc.o.requires
+CMakeFiles/PositronCounter.dir/requires: CMakeFiles/PositronCounter.dir/src/PCSteppingAction.cc.o.requires
 CMakeFiles/PositronCounter.dir/requires: CMakeFiles/PositronCounter.dir/src/PCDetectorConstruction.cc.o.requires
+CMakeFiles/PositronCounter.dir/requires: CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o.requires
 CMakeFiles/PositronCounter.dir/requires: CMakeFiles/PositronCounter.dir/src/PCEventAction.cc.o.requires
 CMakeFiles/PositronCounter.dir/requires: CMakeFiles/PositronCounter.dir/src/PCPhysicsList.cc.o.requires
 CMakeFiles/PositronCounter.dir/requires: CMakeFiles/PositronCounter.dir/src/PCRunAction.cc.o.requires
-CMakeFiles/PositronCounter.dir/requires: CMakeFiles/PositronCounter.dir/src/PCActionInitialization.cc.o.requires
-CMakeFiles/PositronCounter.dir/requires: CMakeFiles/PositronCounter.dir/src/PCPrimaryGeneratorAction.cc.o.requires
-CMakeFiles/PositronCounter.dir/requires: CMakeFiles/PositronCounter.dir/src/MCTrackerSD.cc.o.requires
+CMakeFiles/PositronCounter.dir/requires: CMakeFiles/PositronCounter.dir/src/PCDetectorMessenger.cc.o.requires
 
 .PHONY : CMakeFiles/PositronCounter.dir/requires
 
@@ -477,6 +503,6 @@ CMakeFiles/PositronCounter.dir/clean:
 .PHONY : CMakeFiles/PositronCounter.dir/clean
 
 CMakeFiles/PositronCounter.dir/depend:
-	cd /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cho/Desktop/cyj_git/Positron_Counter_Simulation /home/cho/Desktop/cyj_git/Positron_Counter_Simulation /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/build /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/build /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/build/CMakeFiles/PositronCounter.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cho/Desktop/Cho_git/Positron_Counter_Simulation /home/cho/Desktop/Cho_git/Positron_Counter_Simulation /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build/CMakeFiles/PositronCounter.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/PositronCounter.dir/depend
 

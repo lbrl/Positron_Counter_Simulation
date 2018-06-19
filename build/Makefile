@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cho/Desktop/cyj_git/Positron_Counter_Simulation
+CMAKE_SOURCE_DIR = /home/cho/Desktop/Cho_git/Positron_Counter_Simulation
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/build
+CMAKE_BINARY_DIR = /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -124,9 +124,9 @@ install/strip/fast: install/strip
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/build/CMakeFiles /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build/CMakeFiles /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cho/Desktop/cyj_git/Positron_Counter_Simulation/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -477,6 +477,33 @@ src/PCRunAction.cc.s:
 	$(MAKE) -f CMakeFiles/PositronCounter.dir/build.make CMakeFiles/PositronCounter.dir/src/PCRunAction.cc.s
 .PHONY : src/PCRunAction.cc.s
 
+src/PCSteppingAction.o: src/PCSteppingAction.cc.o
+
+.PHONY : src/PCSteppingAction.o
+
+# target to build an object file
+src/PCSteppingAction.cc.o:
+	$(MAKE) -f CMakeFiles/PositronCounter.dir/build.make CMakeFiles/PositronCounter.dir/src/PCSteppingAction.cc.o
+.PHONY : src/PCSteppingAction.cc.o
+
+src/PCSteppingAction.i: src/PCSteppingAction.cc.i
+
+.PHONY : src/PCSteppingAction.i
+
+# target to preprocess a source file
+src/PCSteppingAction.cc.i:
+	$(MAKE) -f CMakeFiles/PositronCounter.dir/build.make CMakeFiles/PositronCounter.dir/src/PCSteppingAction.cc.i
+.PHONY : src/PCSteppingAction.cc.i
+
+src/PCSteppingAction.s: src/PCSteppingAction.cc.s
+
+.PHONY : src/PCSteppingAction.s
+
+# target to generate assembly for a file
+src/PCSteppingAction.cc.s:
+	$(MAKE) -f CMakeFiles/PositronCounter.dir/build.make CMakeFiles/PositronCounter.dir/src/PCSteppingAction.cc.s
+.PHONY : src/PCSteppingAction.cc.s
+
 src/PCTrackerHit.o: src/PCTrackerHit.cc.o
 
 .PHONY : src/PCTrackerHit.o
@@ -578,6 +605,9 @@ help:
 	@echo "... src/PCRunAction.o"
 	@echo "... src/PCRunAction.i"
 	@echo "... src/PCRunAction.s"
+	@echo "... src/PCSteppingAction.o"
+	@echo "... src/PCSteppingAction.i"
+	@echo "... src/PCSteppingAction.s"
 	@echo "... src/PCTrackerHit.o"
 	@echo "... src/PCTrackerHit.i"
 	@echo "... src/PCTrackerHit.s"

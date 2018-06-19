@@ -6,6 +6,7 @@
 #include "MCTrackerSD.hh"
 #include <iostream>
 #include <fstream>
+#include "PCAnalysis.hh"
 
 #include "G4RunManager.hh"
 #include "G4UnitsTable.hh"
@@ -72,6 +73,7 @@ void PCRun::RecordEvent(const G4Event* event)
     // Reset the count,time for each event
   G4int PC1count = 0, PC2count = 0, PC3count = 0;
   G4double PC1time = 0., PC2time = 0., PC3time =0. ;
+  G4double PC1Edep = 0., PC2Edep = 0., PC3Edep =0. ;
   G4int MCcount=0;
   
      G4int nofPCHits = PCHC->entries();
@@ -87,16 +89,19 @@ void PCRun::RecordEvent(const G4Event* event)
 	       {
 		 PC1count=1;
 		 PC1time=PCHit->GetTime();
+		 PC1Edep += PCHit->GetEdep();
 	       }
 	     if(PCHit->GetPhysV()->GetName()=="PositronCounter2")
 	       {
 		 PC2count=1;
 		 PC2time=PCHit->GetTime();
+		 PC2Edep += PCHit->GetEdep();
 	       }
 	     if(PCHit->GetPhysV()->GetName()=="PositronCounter3")
 	       {
 		 PC3count=1;
 		 PC3time=PCHit->GetTime();
+		 PC3Edep += PCHit->GetEdep();
 	       }
 	   }
        }
@@ -125,22 +130,30 @@ void PCRun::RecordEvent(const G4Event* event)
      */
 
      //if there is a positron, count it
-	 if(PC1count==1)
-	   fPC1TotalCount+=1;
-	 if(PC2count==1)
-	   fPC2TotalCount+=1;
-         if(PC3count==1)
-	   fPC3TotalCount+=1;
+     if(PC1count==1)
+       fPC1TotalCount+=1;
+     if(PC2count==1)
+       fPC2TotalCount+=1;
+     if(PC3count==1)
+       fPC3TotalCount+=1;
+     
+     //count coincidence by arrival time of positron ( PC#time==0 should be considered, but assume that positrons will always go 1->2->3)
+     
+     if(PC2time!=0 && PC2time<PC3time)
+       f23Coin+=1;
+     
+     if(PC1time*PC2time!=0 && PC1time < PC2time && PC2time < PC3time)
+       fallCoin+=1;
 
-	 //count coincidence by arrival time of positron ( PC#time==0 should be considered, but assume that positrons will always go 1->2->3)
-
-	 if(PC2time!=0 && PC2time<PC3time)
-	   f23Coin+=1;
-
-	 if(PC1time*PC2time!=0 && PC1time < PC2time && PC2time < PC3time)
-	   fallCoin+=1;
-
-
+     auto man = G4AnalysisManager::Instance();
+     man -> FillNtupleDColumn(4,PC1time);
+     man -> FillNtupleDColumn(5,PC2time);
+     man -> FillNtupleDColumn(6,PC3time);
+     man -> FillNtupleDColumn(7,PC1Edep);
+     man -> FillNtupleDColumn(8,PC2Edep);
+     man -> FillNtupleDColumn(9,PC3Edep);
+     man -> AddNtupleRow();
+	 
 
 }
 

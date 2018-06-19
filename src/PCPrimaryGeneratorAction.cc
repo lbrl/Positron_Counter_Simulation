@@ -50,7 +50,7 @@ void PCPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 {
   //this function is called at the begining of ecah event
 
-  G4double StartPointY = (-830.75+75.+219.5/2.-15.)*mm; // where muon launched = MirrorToChmaberCenterY - 0.5*ChamberY - 2*tubeZ1 - tubeZ2 - ... - tubeZ5(end of beam line) -200 
+  G4double StartPointY = (-834.75)*mm; // where muon launched = MirrorToChmaberCenterY - 0.5*ChamberY - 2*tubeZ1 - tubeZ2 - ... - tubeZ5(end of beam line) -200 
   
 	G4ParticleDefinition* particle;
 	particle = fParticleGun->GetParticleDefinition();
@@ -65,9 +65,9 @@ void PCPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 	//	G4cout<<anglex<<":"<<angley<<G4endl;
 	fParticleGun->SetParticleMomentumDirection(G4ThreeVector(std::tan(anglex),1*rad,std::tan(angley)));
 
-	G4double positionx = G4RandGauss::shoot(0,20.27);
+	G4double positionx = G4RandGauss::shoot(0,20.27); //original : 20.27
         positionx *= mm;
-        G4double positiony = G4RandGauss::shoot(0,25.02);
+        G4double positiony = G4RandGauss::shoot(0,25.02); //original : 25.02
         positiony *= mm;
 
 	// G4cout<<"position = "<<positionx<<":"<<positiony<<G4endl;

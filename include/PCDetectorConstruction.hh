@@ -18,6 +18,10 @@ class PCDetectorConstruction : public G4VUserDetectorConstruction
   virtual G4VPhysicalVolume* Construct();
   virtual void ConstructSDandField();
 
+  G4LogicalVolume* GetColl() const { return fColl; }
+  G4LogicalVolume* GetTube() const { return fTube; }
+  G4LogicalVolume* GetCham() const { return fCham; }
+
   G4double DistToAxisX, DistToAxisY;
 
   // Set methods
@@ -30,6 +34,10 @@ private:
 
   G4LogicalVolume** fPC_logic;
   G4LogicalVolume* fTarget;
+
+  G4LogicalVolume* fTube;
+  G4LogicalVolume* fColl;
+  G4LogicalVolume* fCham;
 
   PCDetectorMessenger* fMessenger ;
 

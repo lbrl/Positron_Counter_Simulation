@@ -130,8 +130,12 @@
 /vis/geometry/set/colour BeamTube2_Vacuum 0 0 0 0 .1
 /vis/geometry/set/colour BeamTube3 0 1 1 1 .3
 /vis/geometry/set/colour BeamTube3_Vacuum 0 0 0 0 .1
-/vis/geometry/set/colour BeamTube4 0 1 1 1 .3
-/vis/geometry/set/colour BeamTube4_Vacuum 0 0 0 0 .1
+/vis/geometry/set/colour BeamTube41 0 1 1 1 .3
+/vis/geometry/set/colour BeamTube41_Vacuum 0 0 0 0 .1
+/vis/geometry/set/colour BeamTube42 0 1 1 1 .3
+/vis/geometry/set/colour BeamTube42_Vacuum 0 0 0 0 .1
+/vis/geometry/set/colour BeamTube43 0 1 1 1 .3
+/vis/geometry/set/colour BeamTube43_Vacuum 0 0 0 0 .1
 /vis/geometry/set/colour BeamTube5 0 1 1 1 .3
 /vis/geometry/set/colour BeamTube5_Vacuum 0 0 0 0 .1
 /vis/geometry/set/colour BeamTube6 0 1 1 1 .3

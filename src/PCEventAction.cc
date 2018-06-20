@@ -8,12 +8,14 @@
 #include "G4ios.hh"
 #include "PCTrackerHit.hh"
 #include "G4SDManager.hh"
-#include "PCAnalysis.hh"
+#include "HistoManager.hh"
 
 
-PCEventAction::PCEventAction()
+PCEventAction::PCEventAction(HistoManager* histo)
 : G4UserEventAction(),
-  fPCTrackerCollID(-1), fTubeEdep(0.), fCollEdep(0.), fChamEdep(0.), fOrigin(3)
+  fPCTrackerCollID(-1), fTubeEdep(0.), fCollEdep(0.), fChamEdep(0.),
+  fVtxPositionX(0.), fVtxPositionY(0.),
+  fHistoManager(histo)
 {}
 
 
@@ -23,25 +25,20 @@ PCEventAction::~PCEventAction()
 
 void PCEventAction::BeginOfEventAction(const G4Event*)
 {
-  fTubeEdep = 0.;
-  fCollEdep = 0.;
-  fChamEdep = 0.;
-  fOrigin   = 3 ;
+  fTubeEdep = 0.;  fCollEdep = 0.;  fChamEdep = 0.;
+  fVtxPositionX = 0. ; fVtxPositionY = 0. ;
+  //  fOrigin   = 3 ; // others
 }
 
 
 void PCEventAction::EndOfEventAction(const G4Event* event)
 {
+  
   G4int eventID = event->GetEventID();
-  if ( eventID < 100 || eventID % 100 == 0)
+  if ( eventID % 1000 == 0)
     {    G4cout << ">>> Event: " << eventID  << G4endl;    }
   
 
-  auto man = G4AnalysisManager::Instance();
-  man->FillNtupleIColumn(0,fOrigin);
-  man->FillNtupleDColumn(1,fTubeEdep);
-  man->FillNtupleDColumn(2,fCollEdep);
-  man->FillNtupleDColumn(3,fChamEdep);
-  
+  fHistoManager->FillNtupleEvent(fVtxPositionX, fVtxPositionY, fTubeEdep, fCollEdep, fChamEdep);
 }  
 

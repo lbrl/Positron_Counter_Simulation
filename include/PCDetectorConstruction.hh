@@ -35,11 +35,13 @@ private:
   G4LogicalVolume** fPC_logic;
   G4LogicalVolume* fTarget;
 
+  PCDetectorMessenger* fMessenger ;
+
+protected:
+
   G4LogicalVolume* fTube;
   G4LogicalVolume* fColl;
   G4LogicalVolume* fCham;
-
-  PCDetectorMessenger* fMessenger ;
 
   
   //  G4LogicalVolume* PC_logic1;

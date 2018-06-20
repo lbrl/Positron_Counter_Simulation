@@ -3,11 +3,14 @@
 #include "PCPrimaryGeneratorAction.hh"
 #include "PCRunAction.hh"
 #include "PCEventAction.hh"
+#include "PCSteppingAction.hh"
+#include "HistoManager.hh"
 
 
 
-PCActionInitialization::PCActionInitialization()
- : G4VUserActionInitialization()
+PCActionInitialization::PCActionInitialization(PCDetectorConstruction* det)
+  : G4VUserActionInitialization(),
+    fDetector(det)
 {}
 
 
@@ -17,14 +20,28 @@ PCActionInitialization::~PCActionInitialization()
 
 void PCActionInitialization::BuildForMaster() const
 {
-    SetUserAction(new PCRunAction);
+  HistoManager* histo = new HistoManager();
+  
+  SetUserAction(new PCRunAction(histo));
 }
 
 
 void PCActionInitialization::Build() const
 {
-  SetUserAction(new PCPrimaryGeneratorAction);
-  SetUserAction(new PCRunAction);
-  SetUserAction(new PCEventAction);
+    // Histo manager
+  HistoManager* histo = new HistoManager();
+  
+  // Actions
+  //
+  SetUserAction(new PCPrimaryGeneratorAction());
+  
+  PCRunAction* runAction = new PCRunAction(histo);  
+  SetUserAction(runAction);
+  
+  PCEventAction* eventAction = new PCEventAction(histo);
+  SetUserAction(eventAction);
+
+  PCSteppingAction* steppingAction = new PCSteppingAction(fDetector, eventAction);
+  SetUserAction(steppingAction);
 }  
 

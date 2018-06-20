@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cho/Desktop/Cho_git/Positron_Counter_Simulation
+CMAKE_SOURCE_DIR = /home/cho/Desktop/PC_Stepping_Simul
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build
+CMAKE_BINARY_DIR = /home/cho/Desktop/PC_Stepping_Simul/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -124,9 +124,9 @@ install/strip/fast: install/strip
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build/CMakeFiles /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cho/Desktop/PC_Stepping_Simul/build/CMakeFiles /home/cho/Desktop/PC_Stepping_Simul/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cho/Desktop/PC_Stepping_Simul/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -206,6 +206,33 @@ PositronCounter.s: PositronCounter.cc.s
 PositronCounter.cc.s:
 	$(MAKE) -f CMakeFiles/PositronCounter.dir/build.make CMakeFiles/PositronCounter.dir/PositronCounter.cc.s
 .PHONY : PositronCounter.cc.s
+
+src/HistoManager.o: src/HistoManager.cc.o
+
+.PHONY : src/HistoManager.o
+
+# target to build an object file
+src/HistoManager.cc.o:
+	$(MAKE) -f CMakeFiles/PositronCounter.dir/build.make CMakeFiles/PositronCounter.dir/src/HistoManager.cc.o
+.PHONY : src/HistoManager.cc.o
+
+src/HistoManager.i: src/HistoManager.cc.i
+
+.PHONY : src/HistoManager.i
+
+# target to preprocess a source file
+src/HistoManager.cc.i:
+	$(MAKE) -f CMakeFiles/PositronCounter.dir/build.make CMakeFiles/PositronCounter.dir/src/HistoManager.cc.i
+.PHONY : src/HistoManager.cc.i
+
+src/HistoManager.s: src/HistoManager.cc.s
+
+.PHONY : src/HistoManager.s
+
+# target to generate assembly for a file
+src/HistoManager.cc.s:
+	$(MAKE) -f CMakeFiles/PositronCounter.dir/build.make CMakeFiles/PositronCounter.dir/src/HistoManager.cc.s
+.PHONY : src/HistoManager.cc.s
 
 src/MCTrackerHit.o: src/MCTrackerHit.cc.o
 
@@ -575,6 +602,9 @@ help:
 	@echo "... PositronCounter.o"
 	@echo "... PositronCounter.i"
 	@echo "... PositronCounter.s"
+	@echo "... src/HistoManager.o"
+	@echo "... src/HistoManager.i"
+	@echo "... src/HistoManager.s"
 	@echo "... src/MCTrackerHit.o"
 	@echo "... src/MCTrackerHit.i"
 	@echo "... src/MCTrackerHit.s"

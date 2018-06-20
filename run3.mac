@@ -18,5 +18,4 @@
 /PC/setDistToAxisX -5. mm
 /PC/setDistToAxisY -30. mm
 
-/run/beamOn 10000000
-
+/run/beamOn 10000

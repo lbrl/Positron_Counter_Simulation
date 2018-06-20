@@ -8,10 +8,12 @@
 
 /// Event action class
 
+class HistoManager;
+
 class PCEventAction : public G4UserEventAction
 {
   public:
-    PCEventAction();
+    PCEventAction(HistoManager*);
     virtual ~PCEventAction();
 
     virtual void  BeginOfEventAction(const G4Event* );
@@ -21,12 +23,16 @@ class PCEventAction : public G4UserEventAction
   void AddTube(G4double de) {fTubeEdep += de;}
   void AddCham(G4double de) {fChamEdep += de;}
 
-  void SetOrigin(G4int origin) {fOrigin = origin;}
+  //  void SetOrigin(G4int origin) {fOrigin = origin;}
+  void SetVtxPositionX(G4double vtxX) { fVtxPositionX = vtxX ;}
+  void SetVtxPositionY(G4double vtxY) { fVtxPositionY = vtxY ;}
   
 private:
   G4int fPCTrackerCollID;
   G4double fCollEdep, fTubeEdep, fChamEdep;
-  G4int fOrigin;
+  G4double fVtxPositionX, fVtxPositionY ;
+  //  G4int fOrigin;
+  HistoManager* fHistoManager;
   
 };
 

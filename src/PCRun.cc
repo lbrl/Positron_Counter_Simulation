@@ -6,7 +6,7 @@
 #include "MCTrackerSD.hh"
 #include <iostream>
 #include <fstream>
-#include "PCAnalysis.hh"
+#include "HistoManager.hh"
 
 #include "G4RunManager.hh"
 #include "G4UnitsTable.hh"
@@ -145,7 +145,10 @@ void PCRun::RecordEvent(const G4Event* event)
      if(PC1time*PC2time!=0 && PC1time < PC2time && PC2time < PC3time)
        fallCoin+=1;
 
-     auto man = G4AnalysisManager::Instance();
+     fHistoManager->FillNtupleHC(PC1time/ns, PC2time/ns, PC3time/ns,
+				 PC1Edep/keV, PC2Edep/keV , PC3Edep/keV );		 
+     
+     /*     auto man = G4AnalysisManager::Instance();
      man -> FillNtupleDColumn(4,PC1time);
      man -> FillNtupleDColumn(5,PC2time);
      man -> FillNtupleDColumn(6,PC3time);
@@ -153,7 +156,7 @@ void PCRun::RecordEvent(const G4Event* event)
      man -> FillNtupleDColumn(8,PC2Edep);
      man -> FillNtupleDColumn(9,PC3Edep);
      man -> AddNtupleRow();
-	 
+     */	 
 
 }
 

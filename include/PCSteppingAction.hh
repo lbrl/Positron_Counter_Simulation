@@ -3,8 +3,11 @@
 
 #include "G4UserSteppingAction.hh"
 
-class PCDetectorConstruction;
+
 class PCEventAction;
+class PCDetectorConstruction;
+
+class G4LogicalVolume;
 
 class PCSteppingAction : public G4UserSteppingAction
 {
@@ -12,11 +15,11 @@ public:
   PCSteppingAction(PCDetectorConstruction*, PCEventAction*);
   virtual ~PCSteppingAction();
 
-  virtual void PCUserSteppingAction(const G4Step*);
+  virtual void UserSteppingAction(const G4Step*);
     
 private:
+  PCEventAction*          fEventAction;
   PCDetectorConstruction* fDetector;
-  PCEventAction*          fEventAction;  
 };
 
 

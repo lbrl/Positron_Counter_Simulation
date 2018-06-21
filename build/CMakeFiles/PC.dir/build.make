@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cho/Desktop/PC_Stepping_Simul
+CMAKE_SOURCE_DIR = /home/cho/Desktop/Cho_git/Positron_Counter_Simulation
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cho/Desktop/PC_Stepping_Simul/build
+CMAKE_BINARY_DIR = /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build
 
 # Utility rule file for PC.
 
@@ -71,6 +71,6 @@ CMakeFiles/PC.dir/clean:
 .PHONY : CMakeFiles/PC.dir/clean
 
 CMakeFiles/PC.dir/depend:
-	cd /home/cho/Desktop/PC_Stepping_Simul/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cho/Desktop/PC_Stepping_Simul /home/cho/Desktop/PC_Stepping_Simul /home/cho/Desktop/PC_Stepping_Simul/build /home/cho/Desktop/PC_Stepping_Simul/build /home/cho/Desktop/PC_Stepping_Simul/build/CMakeFiles/PC.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cho/Desktop/Cho_git/Positron_Counter_Simulation /home/cho/Desktop/Cho_git/Positron_Counter_Simulation /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build /home/cho/Desktop/Cho_git/Positron_Counter_Simulation/build/CMakeFiles/PC.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/PC.dir/depend
 

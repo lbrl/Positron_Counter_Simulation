@@ -1,0 +1,43 @@
+# Macro file to set the detector's condition
+#
+# Can run in batch, without graphic by typing './PositronCounter run_with_setting.mac '
+# or interactively : Idle> /control/execute run_with_setting.mac
+#
+#
+# Initialize Kernel
+/run/initialize
+#
+/control/verbose 2
+/run/verbose 2
+/event/verbose 0
+/tracking/verbose 0
+
+#change Dist of PositronCounters
+# DistToAxisX corresponds to height, DistToAxisY corresponds to horizontal displacement
+# Offset is for fine adjustment of PC's distance from chamber
+/PC/setDistToAxisX -5. mm
+/PC/setDistToAxisY -35. mm
+/PC/setDistToPC_Offset 0. mm
+
+# Determine whether mirror and stopper are 'in the chamber' or 'not'. Default(true) is 'in the chamber'
+/volumes/Mirror true
+/volumes/Stopper true
+
+# set the PC's overall distance(0 : close / 1: far)
+/PC/dist_configuration 0
+
+# set the type of CsI_Tl(0 : foil / 1 : crystal)
+/volumes/CsI_type 0
+
+# set the rotation angle of CsI_Tl. Default is 90.degree
+/volumes/CsI_angle 90. degree
+
+# set the thickness of CsI_Tl. Default is 5. um
+/volumes/CsI_thickness 5. um
+
+# Write the output file name. Default is "Simulation"
+#/analysis/setFileName Default_test
+
+# Now setting is finished. Run beam with a number of muons
+/run/beamOn 10000000
+

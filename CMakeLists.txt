@@ -51,6 +51,7 @@ set(POSITRONCOUNTER_SCRIPTS
   myRun.mac
   mySingleRun.mac
   totalRun.mac
+  run_with_setting.mac
   )
 
 foreach(_script ${POSITRONCOUNTER_SCRIPTS})

@@ -42,7 +42,8 @@ int main(int argc,char** argv)
   // Set mandatory initialization classes
   //
   // Detector construction
-  runManager->SetUserInitialization(new PCDetectorConstruction());
+  PCDetectorConstruction* det = new PCDetectorConstruction();
+  runManager->SetUserInitialization(det);
 
   // Physics list
    G4VModularPhysicsList* physicsList = new QBBC;
@@ -50,7 +51,7 @@ int main(int argc,char** argv)
   runManager->SetUserInitialization(physicsList);
     
   // User action initialization
-  runManager->SetUserInitialization(new PCActionInitialization());
+  runManager->SetUserInitialization(new PCActionInitialization(det));
   
   // Initialize visualization
   //

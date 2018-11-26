@@ -10,6 +10,8 @@
 
 #include "globals.hh"
 
+class HistoManager;
+
 class PCRun : public G4Run {
 
 public:
@@ -30,6 +32,7 @@ private:
   G4int fPCTrackerCollID;
   G4int fMCTrackerCollID;
   G4Box* fDistBox ;
+  HistoManager* fHistoManager;
   
   // G4int fPCTrackerCollID2;
   //  G4int fPCTrackerCollID3;

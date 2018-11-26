@@ -14,10 +14,9 @@
 /event/verbose 0
 /tracking/verbose 0
 
-/run/beamOn 10000
-
 #change Dist
-/PC/setDistToAxisY 30. mm
+/PC/setDistToAxisX -5. mm
+/PC/setDistToAxisY -35. mm
+/PC/setDistToPC_Offset 0. mm
 
-/run/beamOn 10000
-
+/run/beamOn 10000000

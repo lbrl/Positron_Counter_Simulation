@@ -50,7 +50,11 @@ void PCPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 {
   //this function is called at the begining of ecah event
 
+<<<<<<< HEAD
   G4double StartPointY = (-657.4)*mm; // last simulation : -347.25mm is used
+=======
+  G4double StartPointY = (-830.75+75.+219.5/2.-15.)*mm; // where muon launched = MirrorToChmaberCenterY - 0.5*ChamberY - 2*tubeZ1 - tubeZ2 - ... - tubeZ5(end of beam line) -200 
+>>>>>>> 7081a5f4ed225d91f9119723d59e3ff5b985398e
   
 	G4ParticleDefinition* particle;
 	particle = fParticleGun->GetParticleDefinition();

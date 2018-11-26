@@ -1,4 +1,4 @@
-# Macro file for PositronCouner
+# Macro file for example B1
 # 
 # Can be run in batch, without graphic
 # or interactively: Idle> /control/execute run1.mac
@@ -14,15 +14,6 @@
 /event/verbose 0
 /tracking/verbose 0
 
-#change Dist
-/PC/setDistToAxisX -5. mm
-<<<<<<< HEAD
-/PC/setDistToAxisY -35. mm
-/PC/setDistToPC_Offset 0. mm
-=======
-/PC/setDistToAxisY -40. mm
 
 /run/beamOn 10000000
->>>>>>> 7081a5f4ed225d91f9119723d59e3ff5b985398e
 
-/run/beamOn 10000000

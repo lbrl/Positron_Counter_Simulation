@@ -171,6 +171,11 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   S30400->AddMaterial(C,  fraction= 0.04*perCent );
   S30400->AddMaterial(P,  fraction= 0.02*perCent );
   S30400->AddMaterial(S,  fraction= 0.015*perCent);
+
+  density = 1.032*g/cm3;
+  G4Material* Polystyrene = new G4Material(name="Polystyrene", density, ncomp=2);
+  Polystyrene->AddElement(elC, 19);
+  Polystyrene->AddElement(elH, 21);
    
   // Option to switch on/off checking of volumes overlaps
  

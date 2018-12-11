@@ -118,11 +118,13 @@ private:
   G4LogicalVolume* tub17_logic;
   G4LogicalVolume* tub18_logic;
   G4LogicalVolume* tub19_logic;
+  G4LogicalVolume* vacChamEnter1_logic;
+  G4LogicalVolume* vacChamEnter2_logic;
   G4LogicalVolume* tub20_logic;
   G4LogicalVolume* tub21_logic;
   G4LogicalVolume* tub22_logic;
-  G4LogicalVolume* tub23_logic;
-  G4LogicalVolume* tub24_logic;
+  G4LogicalVolume* leadCol16_logic;
+  G4LogicalVolume* leadCol12_logic;
   ///
   
   G4double fEndofTube;

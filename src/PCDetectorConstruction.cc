@@ -715,13 +715,13 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   //  DistToAxisY = MirrorToChamberCenterY - 40.*mm ; // vertical dist to Axis of PCs from center of Mylar in y-direction
   //  DistToAxisX = 0.*mm ;
   //in x-direction, axis is assumed to be at same height with the center of Mylar(Mirror)  
-  fPC_logic[0] = new G4LogicalVolume(PC_solid1,Mylar,"PositronCounter");
+  fPC_logic[0] = new G4LogicalVolume(PC_solid1,Polystyrene,"PositronCounter");
   new G4PVPlacement(0,G4ThreeVector(DistToAxisX,DistToAxisY,DistToPC1),fPC_logic[0],"PositronCounter1", world_logic,false,0,checkOverlaps);
  
-  fPC_logic[1]= new G4LogicalVolume(PC_solid2,Mylar,"PositronCounter");
+  fPC_logic[1]= new G4LogicalVolume(PC_solid2,Polystyrene,"PositronCounter");
   new G4PVPlacement(0,G4ThreeVector(DistToAxisX,DistToAxisY,DistToPC2),fPC_logic[1],"PositronCounter2", world_logic,false,0,checkOverlaps);
 
-  fPC_logic[2]= new G4LogicalVolume(PC_solid3,Mylar,"PositronCounter");
+  fPC_logic[2]= new G4LogicalVolume(PC_solid3,Polystyrene,"PositronCounter");
   new G4PVPlacement(0,G4ThreeVector(DistToAxisX,DistToAxisY,DistToPC3),fPC_logic[2],"PositronCounter3", world_logic,false,0,checkOverlaps);
   
 

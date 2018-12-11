@@ -241,7 +241,8 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   G4double col_LeadRadiusMin1 = 6.*mm, col_LeadRadiusMin2 = 8.3*mm, col_LeadZ = 50.*mm ;
 
   G4VSolid* collimator_solid = new G4Tubs("Collimator", 0., colRadius, 0.5*colZ, 0., 360.*degree);
-  collimator_logic = new G4LogicalVolume(collimator_solid, Al, "Collimator");
+  /// collimator_logic = new G4LogicalVolume(collimator_solid, Al, "Collimator");
+  collimator_logic = new G4LogicalVolume(collimator_solid, S30400, "Collimator");
 
   fColl = collimator_logic;
   
@@ -275,44 +276,52 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
 
   G4VSolid* beamtube11_solid = new G4Tubs("BeamTube11", 0., tubeRadiusMax11, 0.5*tubeZ11, 0., 360.*degree);
   G4VSolid* beamtubeVacuum11_solid = new G4Tubs("BeamTube11_Vacuum", 0., tubeRadiusMin11, 0.5*tubeZ11, 0., 360.*degree);
-  beamtube11_logic = new G4LogicalVolume(beamtube11_solid, Al, "BeamTube11");
+  /// beamtube11_logic = new G4LogicalVolume(beamtube11_solid, Al, "BeamTube11");
+  beamtube11_logic = new G4LogicalVolume(beamtube11_solid, S30400, "BeamTube11");
   beamtubeVacuum11_logic = new G4LogicalVolume(beamtubeVacuum11_solid, vacuum, "BeamTube11_Vacuum");
 
   G4VSolid* beamtube12_solid = new G4Tubs("BeamTube12", 0., tubeRadiusMax12, 0.5*tubeZ12, 0., 360.*degree);
   G4VSolid* beamtubeVacuum12_solid = new G4Tubs("BeamTube12_Vacuum", 0., tubeRadiusMin12, 0.5*tubeZ12, 0., 360.*degree);
-  beamtube12_logic = new G4LogicalVolume(beamtube12_solid, Al, "BeamTube12");
+  /// beamtube12_logic = new G4LogicalVolume(beamtube12_solid, Al, "BeamTube12");
+  beamtube12_logic = new G4LogicalVolume(beamtube12_solid, S30400, "BeamTube12");
   beamtubeVacuum12_logic = new G4LogicalVolume(beamtubeVacuum12_solid, vacuum, "BeamTube12_Vacuum");
 
   G4VSolid* beamtube2_solid = new G4Tubs("BeamTube2", 0., tubeRadiusMax2, 0.5*tubeZ2, 0., 360.*degree);
   G4VSolid* beamtubeVacuum2_solid = new G4Tubs("BeamTube2_Vacuum", 0., tubeRadiusMin2, 0.5*tubeZ2, 0., 360.*degree);
-  beamtube2_logic = new G4LogicalVolume(beamtube2_solid, Al, "BeamTube2");
+  /// beamtube2_logic = new G4LogicalVolume(beamtube2_solid, Al, "BeamTube2");
+  beamtube2_logic = new G4LogicalVolume(beamtube2_solid, S30400, "BeamTube2");
   beamtubeVacuum2_logic = new G4LogicalVolume(beamtubeVacuum2_solid, vacuum, "BeamTube2_Vacuum");
 
   fTube = beamtube2_logic;
 
   G4VSolid* beamtube3_solid = new G4Tubs("BeamTube3", 0., tubeRadiusMax3, 0.5*tubeZ3, 0., 360.*degree);
   G4VSolid* beamtubeVacuum3_solid = new G4Tubs("BeamTube3_Vacuum", 0., tubeRadiusMin3, 0.5*tubeZ3, 0., 360.*degree);
-  beamtube3_logic = new G4LogicalVolume(beamtube3_solid, Al, "BeamTube3");
+  /// beamtube3_logic = new G4LogicalVolume(beamtube3_solid, Al, "BeamTube3");
+  beamtube3_logic = new G4LogicalVolume(beamtube3_solid, S30400, "BeamTube3");
   beamtubeVacuum3_logic = new G4LogicalVolume(beamtubeVacuum3_solid, vacuum, "BeamTube3_Vacuum");
 
   G4VSolid* beamtube41_solid = new G4Tubs("BeamTube41", 0., tubeRadiusMax41, 0.5*tubeZ41, 0., 360.*degree);
   G4VSolid* beamtubeVacuum41_solid = new G4Tubs("BeamTube41_Vacuum", 0., tubeRadiusMin41, 0.5*tubeZ41, 0., 360.*degree);
-  beamtube41_logic = new G4LogicalVolume(beamtube41_solid, Al, "BeamTube41");
+  /// beamtube41_logic = new G4LogicalVolume(beamtube41_solid, Al, "BeamTube41");
+  beamtube41_logic = new G4LogicalVolume(beamtube41_solid, S30400, "BeamTube41");
   beamtubeVacuum41_logic = new G4LogicalVolume(beamtubeVacuum41_solid, vacuum, "BeamTube41_Vacuum");
 
   G4VSolid* beamtube42_solid = new G4Tubs("BeamTube42", 0., tubeRadiusMax42, 0.5*tubeZ42, 0., 360.*degree);
   G4VSolid* beamtubeVacuum42_solid = new G4Tubs("BeamTube42_Vacuum", 0., tubeRadiusMin42, 0.5*tubeZ42, 0., 360.*degree);
-  beamtube42_logic = new G4LogicalVolume(beamtube42_solid, Al, "BeamTube42");
+  /// beamtube42_logic = new G4LogicalVolume(beamtube42_solid, Al, "BeamTube42");
+  beamtube42_logic = new G4LogicalVolume(beamtube42_solid, S30400, "BeamTube42");
   beamtubeVacuum42_logic = new G4LogicalVolume(beamtubeVacuum42_solid, vacuum, "BeamTube42_Vacuum");
 
   G4VSolid* beamtube43_solid = new G4Tubs("BeamTube43", 0., tubeRadiusMax43, 0.5*tubeZ43, 0., 360.*degree);
   G4VSolid* beamtubeVacuum43_solid = new G4Tubs("BeamTube43_Vacuum", 0., tubeRadiusMin43, 0.5*tubeZ43, 0., 360.*degree);
-  beamtube43_logic = new G4LogicalVolume(beamtube43_solid, Al, "BeamTube43");
+  /// beamtube43_logic = new G4LogicalVolume(beamtube43_solid, Al, "BeamTube43");
+  beamtube43_logic = new G4LogicalVolume(beamtube43_solid, S30400, "BeamTube43");
   beamtubeVacuum43_logic = new G4LogicalVolume(beamtubeVacuum43_solid, vacuum, "BeamTube43_Vacuum");
 
   G4VSolid* beamtube5_solid = new G4Tubs("BeamTube5", 0., tubeRadiusMax5, 0.5*tubeZ5, 0., 360.*degree);
   G4VSolid* beamtubeVacuum5_solid = new G4Tubs("BeamTube5_Vacuum", 0., tubeRadiusMin5, 0.5*tubeZ5, 0., 360.*degree);
-  beamtube5_logic = new G4LogicalVolume(beamtube5_solid, Al, "BeamTube5");
+  /// beamtube5_logic = new G4LogicalVolume(beamtube5_solid, Al, "BeamTube5");
+  beamtube5_logic = new G4LogicalVolume(beamtube5_solid, S30400, "BeamTube5");
   beamtubeVacuum5_logic = new G4LogicalVolume(beamtubeVacuum5_solid, vacuum, "BeamTube5_Vacuum");
 
   G4VSolid* beamtube6_solid = new G4Tubs("BeamTube6", tubeRadiusMin6, tubeRadiusMax6, 0.5*tubeZ6, 0., 360.*degree);

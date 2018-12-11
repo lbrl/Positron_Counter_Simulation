@@ -189,7 +189,8 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   G4double innerchamberX = chamberX-2.*gapX, innerchamberY = chamberY-2.*gapY, innerchamberZ = chamberZ-2.*gapZ;
   
   G4VSolid* chamber_solid = new G4Box("Vacuum_Chamber", 0.5*chamberX, 0.5*chamberY, 0.5*chamberZ);
-  chamber_logic = new G4LogicalVolume(chamber_solid, Al, "Vacuum_Chamber");
+  /// chamber_logic = new G4LogicalVolume(chamber_solid, Al, "Vacuum_Chamber");
+  chamber_logic = new G4LogicalVolume(chamber_solid, S30400, "Vacuum_Chamber");
 
   fCham = chamber_logic;
   
@@ -218,14 +219,18 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   G4VSolid* chamber_cap_tube_solid = new G4Tubs("Chamber_Cap_Tube", cap_tube_Radius, hole2_Radius, 0.5*cap_tube_Z, 0., 360.*degree);
   G4VSolid* chamber_inner_cap_tube_solid = new G4Tubs("Chamber_Inner_Cap_Tube", 0., hole2_Radius, 0.5*(cap_tube_Z+0.001*mm), 0., 360.*degree);
 
-  chamber_cap1_logic = new G4LogicalVolume(chamber_cap1_solid, Al ,"Chamber_Cap1") ;
-  chamber_cap2_logic = new G4LogicalVolume(chamber_cap2_solid, Al ,"Chamber_Cap2") ;
-  chamber_cap_tube_logic = new G4LogicalVolume(chamber_cap_tube_solid, Al ,"Chamber_Cap_Tube") ;
+  /// chamber_cap1_logic = new G4LogicalVolume(chamber_cap1_solid, Al ,"Chamber_Cap1") ;
+  chamber_cap1_logic = new G4LogicalVolume(chamber_cap1_solid, S30400 ,"Chamber_Cap1") ;
+  /// chamber_cap2_logic = new G4LogicalVolume(chamber_cap2_solid, Al ,"Chamber_Cap2") ;
+  chamber_cap2_logic = new G4LogicalVolume(chamber_cap2_solid, S30400 ,"Chamber_Cap2") ;
+  /// chamber_cap_tube_logic = new G4LogicalVolume(chamber_cap_tube_solid, Al ,"Chamber_Cap_Tube") ;
+  chamber_cap_tube_logic = new G4LogicalVolume(chamber_cap_tube_solid, S30400 ,"Chamber_Cap_Tube") ;
   chamber_inner_cap_tube_logic = new G4LogicalVolume(chamber_inner_cap_tube_solid, vacuum ,"Chamber_Inner_Cap_Tube") ;
 
   G4double chamber_cap3_Radius = hole3_Radius + 15.*mm, chamber_cap3_Z = 15.*mm;
   G4VSolid* chamber_cap3_solid = new G4Tubs("Chamber_Cap3", hole3_Radius, chamber_cap3_Radius, 0.5*chamber_cap3_Z, 0.,360.*degree);
-  chamber_cap3_logic = new G4LogicalVolume(chamber_cap3_solid, Al, "Chamber_Cap3");
+  /// chamber_cap3_logic = new G4LogicalVolume(chamber_cap3_solid, Al, "Chamber_Cap3");
+  chamber_cap3_logic = new G4LogicalVolume(chamber_cap3_solid, S30400, "Chamber_Cap3");
 
   
 

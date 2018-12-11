@@ -96,6 +96,34 @@ private:
   G4LogicalVolume* LeadShield_logic;
   G4LogicalVolume* Mirror_logic;
   G4LogicalVolume* AlStopper_logic;
+
+
+  /// New beam-line description.
+  G4LogicalVolume* tub1_logic;
+  G4LogicalVolume* tub2_logic;
+  G4LogicalVolume* tub3_logic;
+  G4LogicalVolume* tub4_logic;
+  G4LogicalVolume* tub5_logic;
+  G4LogicalVolume* tub6_logic;
+  G4LogicalVolume* tub7_logic;
+  G4LogicalVolume* tub8_logic;
+  G4LogicalVolume* tub9_logic;
+  G4LogicalVolume* tub10_logic;
+  G4LogicalVolume* tub11_logic;
+  G4LogicalVolume* tub12_logic;
+  G4LogicalVolume* tub13_logic;
+  G4LogicalVolume* tub14_logic;
+  G4LogicalVolume* tub15_logic;
+  G4LogicalVolume* tub16_logic;
+  G4LogicalVolume* tub17_logic;
+  G4LogicalVolume* tub18_logic;
+  G4LogicalVolume* tub19_logic;
+  G4LogicalVolume* tub20_logic;
+  G4LogicalVolume* tub21_logic;
+  G4LogicalVolume* tub22_logic;
+  G4LogicalVolume* tub23_logic;
+  G4LogicalVolume* tub24_logic;
+  ///
   
   G4double fEndofTube;
   G4bool fMirrorOn;

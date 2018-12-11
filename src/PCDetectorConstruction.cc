@@ -146,6 +146,31 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   targetMaterial->AddMaterial(CsI,fraction=99.999*perCent);
   targetMaterial->AddMaterial(Tl,fraction=0.001*perCent);
 
+  G4Material* Fe = nist->FindOrBuildMaterial("G4_Fe");
+  G4Material* Cr = nist->FindOrBuildMaterial("G4_Cr");
+  G4Material* Ni = nist->FindOrBuildMaterial("G4_Ni");
+  G4Material* Mn = nist->FindOrBuildMaterial("G4_Mn");
+  G4Material* Si = nist->FindOrBuildMaterial("G4_Si");
+  G4Material* N  = nist->FindOrBuildMaterial("G4_N" );
+  G4Material* C  = nist->FindOrBuildMaterial("G4_C" );
+  G4Material* P  = nist->FindOrBuildMaterial("G4_P" );
+  G4Material* S  = nist->FindOrBuildMaterial("G4_S" );
+
+  // G4double density;
+  G4int ncomponents;
+  // G4double fraction;
+  /// https://www.makeitfrom.com/material-properties/AISI-304-S30400-Stainless-Steel
+  density=7.8*g/cm3;
+  G4Material* S30400 = new G4Material(name="S30400", density, ncomp=9);
+  S30400->AddMaterial(Fe, fraction=70.25*perCent );
+  S30400->AddMaterial(Cr, fraction=19.*perCent   );
+  S30400->AddMaterial(Ni, fraction= 9.25*perCent );
+  S30400->AddMaterial(Mn, fraction= 1.*perCent   );
+  S30400->AddMaterial(Si, fraction= 0.375*perCent);
+  S30400->AddMaterial(N,  fraction= 0.05*perCent );
+  S30400->AddMaterial(C,  fraction= 0.04*perCent );
+  S30400->AddMaterial(P,  fraction= 0.02*perCent );
+  S30400->AddMaterial(S,  fraction= 0.015*perCent);
    
   // Option to switch on/off checking of volumes overlaps
  
@@ -386,6 +411,102 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   new G4PVPlacement(0, G4ThreeVector(MirrorToCap3CenterX,MirrorToCap3CenterY,MirrorToCap3CenterZ), chamber_cap3_logic, "Chamber_Cap3", world_logic, false, 0, checkOverlaps);
   
 
+  /// New beam-line description.
+  G4VSolid* tub1_solid = new G4Tubs("tub1", 173.8, 178.8, 174.5, 0., 360.*degree);
+  tub1_logic = new G4LogicalVolume(tub1_solid, S30400, "tub1");
+  new G4PVPlacement(xRot, G4ThreeVector(0,397.75,0), tub1_logic, "tub1", world_logic, false, 0, checkOverlaps);
+
+  G4VSolid* tub2_solid = new G4Tubs("tub2", 132.0, 177.8, 3.0, 0., 360.*degree);
+  tub2_logic = new G4LogicalVolume(tub2_solid, S30400, "tub2");
+  new G4PVPlacement(xRot, G4ThreeVector(0,468.5,0), tub2_logic, "tub2", world_logic, false, 0, checkOverlaps);
+
+  G4VSolid* tub3_solid = new G4Tubs("tub3", 130.653, 175.993, 3.0, 0., 360.*degree);
+  tub3_logic = new G4LogicalVolume(tub3_solid, S30400, "tub3");
+  new G4PVPlacement(xRot, G4ThreeVector(0,477.85,0), tub3_logic, "tub3", world_logic, false, 0, checkOverlaps);
+
+  G4VSolid* tub4_solid = new G4Tubs("tub4", 130.653, 133.653, 75.0, 0., 360.*degree);
+  tub4_logic = new G4LogicalVolume(tub4_solid, S30400, "tub4");
+  new G4PVPlacement(xRot, G4ThreeVector(0,508.85,0), tub4_logic, "tub4", world_logic, false, 0, checkOverlaps);
+
+  G4VSolid* tub5_solid = new G4Tubs("tub5", 130.653, 165.0, 13.0, 0., 360.*degree);
+  tub5_logic = new G4LogicalVolume(tub5_solid, S30400, "tub5");
+  new G4PVPlacement(xRot, G4ThreeVector(0,544.85,0), tub5_logic, "tub5", world_logic, false, 0, checkOverlaps);
+
+  G4VSolid* tub6_solid = new G4Tubs("tub6", 124.968, 164.968, 19.0, 0., 360.*degree);
+  tub6_logic = new G4LogicalVolume(tub6_solid, S30400, "tub6");
+  new G4PVPlacement(xRot, G4ThreeVector(0,554.5,0), tub6_logic, "tub6", world_logic, false, 0, checkOverlaps);
+
+  G4VSolid* tub7_solid = new G4Tubs("tub7", 124.968, 131.968, 4.0, 0., 360.*degree);
+  tub7_logic = new G4LogicalVolume(tub7_solid, S30400, "tub7");
+  new G4PVPlacement(xRot, G4ThreeVector(0,566.0,0), tub7_logic, "tub7", world_logic, false, 0, checkOverlaps);
+
+  G4VSolid* tub8_solid = new G4Tubs("tub8", 108.15, 132.0, 5.0, 0., 360.*degree);
+  tub8_logic = new G4LogicalVolume(tub8_solid, S30400, "tub8");
+  new G4PVPlacement(xRot, G4ThreeVector(0,570.5,0), tub8_logic, "tub8", world_logic, false, 0, checkOverlaps);
+
+  G4VSolid* tub9_solid = new G4Tubs("tub9", 101.0, 114.156, 29.7, 0., 360.*degree);
+  tub9_logic = new G4LogicalVolume(tub9_solid, S30400, "tub9");
+  new G4PVPlacement(xRot, G4ThreeVector(0,587.85,0), tub9_logic, "tub9", world_logic, false, 0, checkOverlaps);
+
+  G4VSolid* tub10_solid = new G4Tubs("tub10", 108.446, 132.296, 5.3, 0., 360.*degree);
+  tub10_logic = new G4LogicalVolume(tub10_solid, S30400, "tub10");
+  new G4PVPlacement(xRot, G4ThreeVector(0,605.35,0), tub10_logic, "tub10", world_logic, false, 0, checkOverlaps);
+
+  G4VSolid* tub11_solid = new G4Tubs("tub11", 125.0, 132.0, 107.5, 0., 360.*degree);
+  tub11_logic = new G4LogicalVolume(tub11_solid, S30400, "tub11");
+  new G4PVPlacement(xRot, G4ThreeVector(0,661.75,0), tub11_logic, "tub11", world_logic, false, 0, checkOverlaps);
+
+  G4VSolid* tub12_solid = new G4Tubs("tub12", 80.0, 170.0, 5.0, 0., 360.*degree);
+  tub12_logic = new G4LogicalVolume(tub12_solid, S30400, "tub12");
+  new G4PVPlacement(xRot, G4ThreeVector(0,718.0,0), tub12_logic, "tub12", world_logic, false, 0, checkOverlaps);
+
+  G4VSolid* tub13_solid = new G4Tubs("tub13", 81.0, 177.0, 19.5, 0., 360.*degree);
+  tub13_logic = new G4LogicalVolume(tub13_solid, S30400, "tub13");
+  new G4PVPlacement(xRot, G4ThreeVector(0,730.25,0), tub13_logic, "tub13", world_logic, false, 0, checkOverlaps);
+
+  G4VSolid* tub14_solid = new G4Tubs("tub14", 170.0, 177.0, 63.0, 0., 360.*degree);
+  tub14_logic = new G4LogicalVolume(tub14_solid, S30400, "tub14");
+  new G4PVPlacement(xRot, G4ThreeVector(0,771.5,0), tub14_logic, "tub14", world_logic, false, 0, checkOverlaps);
+
+  G4VSolid* tub15_solid = new G4Tubs("tub15", 55.5, 209.0, 25.0, 0., 360.*degree);
+  tub15_logic = new G4LogicalVolume(tub15_solid, S30400, "tub15");
+  new G4PVPlacement(xRot, G4ThreeVector(0,815.5,0), tub15_logic, "tub15", world_logic, false, 0, checkOverlaps);
+
+  G4VSolid* tub16_solid = new G4Tubs("tub16", 55.5, 104.0, 40.0, 0., 360.*degree);
+  tub16_logic = new G4LogicalVolume(tub16_solid, S30400, "tub16");
+  new G4PVPlacement(xRot, G4ThreeVector(0,848.0,0), tub16_logic, "tub16", world_logic, false, 0, checkOverlaps);
+
+  G4VSolid* tub17_solid = new G4Tubs("tub17", 55.5, 65.5, 72.5, 0., 360.*degree);
+  tub17_logic = new G4LogicalVolume(tub17_solid, S30400, "tub17");
+  new G4PVPlacement(xRot, G4ThreeVector(0,904.25,0), tub17_logic, "tub17", world_logic, false, 0, checkOverlaps);
+
+  G4VSolid* tub18_solid = new G4Tubs("tub18", 55.5, 104.0, 20.0, 0., 360.*degree);
+  tub18_logic = new G4LogicalVolume(tub18_solid, S30400, "tub18");
+  new G4PVPlacement(xRot, G4ThreeVector(0,950.5,0), tub18_logic, "tub18", world_logic, false, 0, checkOverlaps);
+
+  G4VSolid* tub19_solid = new G4Tubs("tub19", 55.5, 61.0, 2.2, 0., 360.*degree);
+  tub19_logic = new G4LogicalVolume(tub19_solid, S30400, "tub19");
+  new G4PVPlacement(xRot, G4ThreeVector(0,961.6,0), tub19_logic, "tub19", world_logic, false, 0, checkOverlaps);
+
+  G4VSolid* tub20_solid = new G4Tubs("tub20", 30.0, 61.0, 10.0, 0., 360.*degree);
+  tub20_logic = new G4LogicalVolume(tub20_solid, S30400, "tub20");
+  new G4PVPlacement(xRot, G4ThreeVector(0,970.2,0), tub20_logic, "tub20", world_logic, false, 0, checkOverlaps);
+
+  G4VSolid* tub21_solid = new G4Tubs("tub21", 30.0, 35.0, 129.8, 0., 360.*degree);
+  tub21_logic = new G4LogicalVolume(tub21_solid, S30400, "tub21");
+  new G4PVPlacement(xRot, G4ThreeVector(0,1040.1,0), tub21_logic, "tub21", world_logic, false, 0, checkOverlaps);
+
+  G4VSolid* tub22_solid = new G4Tubs("tub22", 16.0, 35.0, 25.0, 0., 360.*degree);
+  tub22_logic = new G4LogicalVolume(tub22_solid, S30400, "tub22");
+  new G4PVPlacement(xRot, G4ThreeVector(0,1117.5,0), tub22_logic, "tub22", world_logic, false, 0, checkOverlaps);
+
+  G4VSolid* tub23_solid = new G4Tubs("tub23", 8.136, 30.0, 50.0, 0., 360.*degree);
+  tub23_logic = new G4LogicalVolume(tub23_solid, Pb, "tub23");
+  new G4PVPlacement(xRot, G4ThreeVector(0,1030.0,0), tub23_logic, "tub23", world_logic, false, 0, checkOverlaps);
+
+  G4VSolid* tub24_solid = new G4Tubs("tub24", 6.136, 30.0, 50.0, 0., 360.*degree);
+  tub24_logic = new G4LogicalVolume(tub24_solid, Pb, "tub24");
+  new G4PVPlacement(xRot, G4ThreeVector(0,1080.0,0), tub24_logic, "tub24", world_logic, false, 0, checkOverlaps);
   
   // set the Collimator, BeamTube
   G4double frameThickness = 8.*mm ; // thickness of frame of Foil, Mirror

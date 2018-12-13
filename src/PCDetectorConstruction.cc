@@ -796,10 +796,10 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   new G4PVPlacement(0,G4ThreeVector(DistToAxisX,DistToAxisY,DistToPC1),fPC_logic[0],"PositronCounter1", world_logic,false,0,checkOverlaps);
  
   fPC_logic[1]= new G4LogicalVolume(PC_solid2,Polystyrene,"PositronCounter");
-  new G4PVPlacement(0,G4ThreeVector(DistToAxisX,DistToAxisY,DistToPC2),fPC_logic[1],"PositronCounter2", world_logic,false,0,checkOverlaps);
+  new G4PVPlacement(0,G4ThreeVector(DistToAxisX,DistToAxisY-30./2*mm+60./2*mm,DistToPC2),fPC_logic[1],"PositronCounter2", world_logic,false,0,checkOverlaps);
 
   fPC_logic[2]= new G4LogicalVolume(PC_solid3,Polystyrene,"PositronCounter");
-  new G4PVPlacement(0,G4ThreeVector(DistToAxisX,DistToAxisY,DistToPC3),fPC_logic[2],"PositronCounter3", world_logic,false,0,checkOverlaps);
+  new G4PVPlacement(0,G4ThreeVector(DistToAxisX,DistToAxisY-30./2*mm+60./2*mm,DistToPC3),fPC_logic[2],"PositronCounter3", world_logic,false,0,checkOverlaps);
   
 
   //setting the Visualization attributes, world to invisible

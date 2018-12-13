@@ -796,10 +796,10 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   new G4PVPlacement(0,G4ThreeVector(DistToAxisX,DistToAxisY,DistToPC1),fPC_logic[0],"PositronCounter1", world_logic,false,0,checkOverlaps);
  
   fPC_logic[1]= new G4LogicalVolume(PC_solid2,Polystyrene,"PositronCounter");
-  new G4PVPlacement(0,G4ThreeVector(DistToAxisX,DistToAxisY-30./2*mm+60./2*mm,DistToPC2),fPC_logic[1],"PositronCounter2", world_logic,false,0,checkOverlaps);
+  new G4PVPlacement(0,G4ThreeVector(DistToAxisX+35./2*mm-55./2*mm,DistToAxisY-30./2*mm+60./2*mm,DistToPC2),fPC_logic[1],"PositronCounter2", world_logic,false,0,checkOverlaps);
 
   fPC_logic[2]= new G4LogicalVolume(PC_solid3,Polystyrene,"PositronCounter");
-  new G4PVPlacement(0,G4ThreeVector(DistToAxisX,DistToAxisY-30./2*mm+60./2*mm,DistToPC3),fPC_logic[2],"PositronCounter3", world_logic,false,0,checkOverlaps);
+  new G4PVPlacement(0,G4ThreeVector(DistToAxisX+35./2*mm-65./2*mm,DistToAxisY-30./2*mm+60./2*mm,DistToPC3),fPC_logic[2],"PositronCounter3", world_logic,false,0,checkOverlaps);
   
 
   //setting the Visualization attributes, world to invisible
@@ -919,7 +919,7 @@ void PCDetectorConstruction::VisAttributes(){
   G4VisAttributes* stopper_va = new G4VisAttributes(G4Colour(0,0,1,0.9));
   AlStopper_logic->SetVisAttributes(stopper_va);
 
-  G4VisAttributes* PC_va = new G4VisAttributes(G4Colour(1,0,0,1.));
+  G4VisAttributes* PC_va = new G4VisAttributes(G4Colour(1,0,0,.5));
   fPC_logic[0]->SetVisAttributes(PC_va);
   fPC_logic[1]->SetVisAttributes(PC_va);
   fPC_logic[2]->SetVisAttributes(PC_va);

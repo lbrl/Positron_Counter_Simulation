@@ -776,8 +776,8 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   //define Positron Counters and Arrange each one
 
   G4VSolid* PC_solid1 = new G4Box("PCsolid1",0.5*35.*mm,0.5*30.*mm,0.5*5.*mm);
-  G4VSolid* PC_solid2 = new G4Box("PCsolid2",0.5*65.*mm,0.5*60.*mm,0.5*10.*mm);
-  G4VSolid* PC_solid3 = new G4Box("PCsolid3",0.5*55.*mm,0.5*60.*mm,0.5*5.*mm);
+  G4VSolid* PC_solid2 = new G4Box("PCsolid2",0.5*55.*mm,0.5*60.*mm,0.5*5.*mm);
+  G4VSolid* PC_solid3 = new G4Box("PCsolid3",0.5*65.*mm,0.5*60.*mm,0.5*10.*mm);
 
   G4double DistToPC1;
   

@@ -434,95 +434,167 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   /// G4double zz00 = 1136.7*mm+34.55*mm+55.*mm+9.2*mm;
   G4double zz00 = 1136.7*mm+34.55*mm+9.2*mm+5.2*mm;
 
-  G4VSolid* tub1_solid = new G4Tubs("tub1", 173.8*mm, 178.8*mm, 0.5*174.5*mm, 0., 360.*degree);
+  G4VSolid* tub1_solid = new G4Tubs("tub1", 173.8*mm, 177.8*mm, 0.5*162.0*mm, 0., 360.*degree);
   tub1_logic = new G4LogicalVolume(tub1_solid, S30400, "tub1");
   tub1_logic->SetVisAttributes( G4VisAttributes(G4Colour(75/255.,0/255.,130/255.,0.3)) );
-  new G4PVPlacement(xRot, G4ThreeVector(0,397.75*mm-zz00,0), tub1_logic, "tub1", world_logic, false, 0, checkOverlaps);
+  new G4PVPlacement(xRot, G4ThreeVector(0,386.0*mm-zz00,0), tub1_logic, "tub1", world_logic, false, 0, checkOverlaps);
+  G4VSolid* tub1_vacuum_solid = new G4Tubs("tub1_vacuum", 0.*mm, 173.8*mm, 0.5*162.0*mm, 0., 360.*degree);
+  tub1_vacuum_logic = new G4LogicalVolume(tub1_vacuum_solid, vacuum, "tub1_vacuum");
+  tub1_vacuum_logic->SetVisAttributes( G4VisAttributes(G4Colour(240/255.,255/255.,255/255.,0.3)) );
+  new G4PVPlacement(xRot, G4ThreeVector(0,386.0*mm-zz00,0), tub1_vacuum_logic, "tub1_vacuum", world_logic, false, 0, checkOverlaps);
 
   G4VSolid* tub2_solid = new G4Tubs("tub2", 132.0*mm, 177.8*mm, 0.5*3.0*mm, 0., 360.*degree);
   tub2_logic = new G4LogicalVolume(tub2_solid, S30400, "tub2");
   tub2_logic->SetVisAttributes( G4VisAttributes(G4Colour(173/255.,255/255.,47/255.,0.3)) );
   new G4PVPlacement(xRot, G4ThreeVector(0,468.5*mm-zz00,0), tub2_logic, "tub2", world_logic, false, 0, checkOverlaps);
+  G4VSolid* tub2_vacuum_solid = new G4Tubs("tub2_vacuum", 0.*mm, 132.0*mm, 0.5*3.0*mm, 0., 360.*degree);
+  tub2_vacuum_logic = new G4LogicalVolume(tub2_vacuum_solid, vacuum, "tub2_vacuum");
+  tub2_vacuum_logic->SetVisAttributes( G4VisAttributes(G4Colour(240/255.,255/255.,255/255.,0.3)) );
+  new G4PVPlacement(xRot, G4ThreeVector(0,468.5*mm-zz00,0), tub2_vacuum_logic, "tub2_vacuum", world_logic, false, 0, checkOverlaps);
 
-  G4VSolid* tub3_solid = new G4Tubs("tub3", 130.653*mm, 175.993*mm, 0.5*3.0*mm, 0., 360.*degree);
+  G4VSolid* tub3_solid = new G4Tubs("tub3", 130.653*mm, 176.0*mm, 0.5*3.0*mm, 0., 360.*degree);
   tub3_logic = new G4LogicalVolume(tub3_solid, S30400, "tub3");
   tub3_logic->SetVisAttributes( G4VisAttributes(G4Colour(199/255.,21/255.,133/255.,0.3)) );
-  new G4PVPlacement(xRot, G4ThreeVector(0,477.85*mm-zz00,0), tub3_logic, "tub3", world_logic, false, 0, checkOverlaps);
+  new G4PVPlacement(xRot, G4ThreeVector(0,471.5*mm-zz00,0), tub3_logic, "tub3", world_logic, false, 0, checkOverlaps);
+  G4VSolid* tub3_vacuum_solid = new G4Tubs("tub3_vacuum", 0.*mm, 130.653*mm, 0.5*3.0*mm, 0., 360.*degree);
+  tub3_vacuum_logic = new G4LogicalVolume(tub3_vacuum_solid, vacuum, "tub3_vacuum");
+  tub3_vacuum_logic->SetVisAttributes( G4VisAttributes(G4Colour(240/255.,255/255.,255/255.,0.3)) );
+  new G4PVPlacement(xRot, G4ThreeVector(0,471.5*mm-zz00,0), tub3_vacuum_logic, "tub3_vacuum", world_logic, false, 0, checkOverlaps);
 
-  G4VSolid* tub4_solid = new G4Tubs("tub4", 130.653*mm, 133.653*mm, 0.5*75.0*mm, 0., 360.*degree);
+  G4VSolid* tub4_solid = new G4Tubs("tub4", 130.653*mm, 133.653*mm, 0.5*59.0*mm, 0., 360.*degree);
   tub4_logic = new G4LogicalVolume(tub4_solid, S30400, "tub4");
   tub4_logic->SetVisAttributes( G4VisAttributes(G4Colour(85/255.,107/255.,47/255.,0.3)) );
-  new G4PVPlacement(xRot, G4ThreeVector(0,508.85*mm-zz00,0), tub4_logic, "tub4", world_logic, false, 0, checkOverlaps);
+  new G4PVPlacement(xRot, G4ThreeVector(0,502.5*mm-zz00,0), tub4_logic, "tub4", world_logic, false, 0, checkOverlaps);
+  G4VSolid* tub4_vacuum_solid = new G4Tubs("tub4_vacuum", 0.*mm, 130.653*mm, 0.5*59.0*mm, 0., 360.*degree);
+  tub4_vacuum_logic = new G4LogicalVolume(tub4_vacuum_solid, vacuum, "tub4_vacuum");
+  tub4_vacuum_logic->SetVisAttributes( G4VisAttributes(G4Colour(240/255.,255/255.,255/255.,0.3)) );
+  new G4PVPlacement(xRot, G4ThreeVector(0,502.5*mm-zz00,0), tub4_vacuum_logic, "tub4_vacuum", world_logic, false, 0, checkOverlaps);
 
   G4VSolid* tub5_solid = new G4Tubs("tub5", 130.653*mm, 165.0*mm, 0.5*13.0*mm, 0., 360.*degree);
   tub5_logic = new G4LogicalVolume(tub5_solid, S30400, "tub5");
   tub5_logic->SetVisAttributes( G4VisAttributes(G4Colour(255/255.,20/255.,147/255.,0.3)) );
-  new G4PVPlacement(xRot, G4ThreeVector(0,544.85*mm-zz00,0), tub5_logic, "tub5", world_logic, false, 0, checkOverlaps);
+  new G4PVPlacement(xRot, G4ThreeVector(0,538.5*mm-zz00,0), tub5_logic, "tub5", world_logic, false, 0, checkOverlaps);
+  G4VSolid* tub5_vacuum_solid = new G4Tubs("tub5_vacuum", 0.*mm, 130.653*mm, 0.5*13.0*mm, 0., 360.*degree);
+  tub5_vacuum_logic = new G4LogicalVolume(tub5_vacuum_solid, vacuum, "tub5_vacuum");
+  tub5_vacuum_logic->SetVisAttributes( G4VisAttributes(G4Colour(240/255.,255/255.,255/255.,0.3)) );
+  new G4PVPlacement(xRot, G4ThreeVector(0,538.5*mm-zz00,0), tub5_vacuum_logic, "tub5_vacuum", world_logic, false, 0, checkOverlaps);
 
   G4VSolid* tub6_solid = new G4Tubs("tub6", 124.968*mm, 164.968*mm, 0.5*19.0*mm, 0., 360.*degree);
   tub6_logic = new G4LogicalVolume(tub6_solid, S30400, "tub6");
   tub6_logic->SetVisAttributes( G4VisAttributes(G4Colour(30/255.,144/255.,255/255.,0.3)) );
   new G4PVPlacement(xRot, G4ThreeVector(0,554.5*mm-zz00,0), tub6_logic, "tub6", world_logic, false, 0, checkOverlaps);
+  G4VSolid* tub6_vacuum_solid = new G4Tubs("tub6_vacuum", 0.*mm, 124.968*mm, 0.5*19.0*mm, 0., 360.*degree);
+  tub6_vacuum_logic = new G4LogicalVolume(tub6_vacuum_solid, vacuum, "tub6_vacuum");
+  tub6_vacuum_logic->SetVisAttributes( G4VisAttributes(G4Colour(240/255.,255/255.,255/255.,0.3)) );
+  new G4PVPlacement(xRot, G4ThreeVector(0,554.5*mm-zz00,0), tub6_vacuum_logic, "tub6_vacuum", world_logic, false, 0, checkOverlaps);
 
   G4VSolid* tub7_solid = new G4Tubs("tub7", 124.968*mm, 131.968*mm, 0.5*4.0*mm, 0., 360.*degree);
   tub7_logic = new G4LogicalVolume(tub7_solid, S30400, "tub7");
   tub7_logic->SetVisAttributes( G4VisAttributes(G4Colour(147/255.,112/255.,219/255.,0.3)) );
   new G4PVPlacement(xRot, G4ThreeVector(0,566.0*mm-zz00,0), tub7_logic, "tub7", world_logic, false, 0, checkOverlaps);
+  G4VSolid* tub7_vacuum_solid = new G4Tubs("tub7_vacuum", 0.*mm, 124.968*mm, 0.5*4.0*mm, 0., 360.*degree);
+  tub7_vacuum_logic = new G4LogicalVolume(tub7_vacuum_solid, vacuum, "tub7_vacuum");
+  tub7_vacuum_logic->SetVisAttributes( G4VisAttributes(G4Colour(240/255.,255/255.,255/255.,0.3)) );
+  new G4PVPlacement(xRot, G4ThreeVector(0,566.0*mm-zz00,0), tub7_vacuum_logic, "tub7_vacuum", world_logic, false, 0, checkOverlaps);
 
   G4VSolid* tub8_solid = new G4Tubs("tub8", 108.15*mm, 132.0*mm, 0.5*5.0*mm, 0., 360.*degree);
   tub8_logic = new G4LogicalVolume(tub8_solid, S30400, "tub8");
   tub8_logic->SetVisAttributes( G4VisAttributes(G4Colour(152/255.,251/255.,152/255.,0.3)) );
   new G4PVPlacement(xRot, G4ThreeVector(0,570.5*mm-zz00,0), tub8_logic, "tub8", world_logic, false, 0, checkOverlaps);
+  G4VSolid* tub8_vacuum_solid = new G4Tubs("tub8_vacuum", 0.*mm, 108.15*mm, 0.5*5.0*mm, 0., 360.*degree);
+  tub8_vacuum_logic = new G4LogicalVolume(tub8_vacuum_solid, vacuum, "tub8_vacuum");
+  tub8_vacuum_logic->SetVisAttributes( G4VisAttributes(G4Colour(240/255.,255/255.,255/255.,0.3)) );
+  new G4PVPlacement(xRot, G4ThreeVector(0,570.5*mm-zz00,0), tub8_vacuum_logic, "tub8_vacuum", world_logic, false, 0, checkOverlaps);
 
   G4VSolid* tub9_solid = new G4Tubs("tub9", 101.0*mm, 114.156*mm, 0.5*29.7*mm, 0., 360.*degree);
   tub9_logic = new G4LogicalVolume(tub9_solid, S30400, "tub9");
   tub9_logic->SetVisAttributes( G4VisAttributes(G4Colour(221/255.,160/255.,211/255.,0.3)) );
   new G4PVPlacement(xRot, G4ThreeVector(0,587.85*mm-zz00,0), tub9_logic, "tub9", world_logic, false, 0, checkOverlaps);
+  G4VSolid* tub9_vacuum_solid = new G4Tubs("tub9_vacuum", 0.*mm, 101.0*mm, 0.5*29.7*mm, 0., 360.*degree);
+  tub9_vacuum_logic = new G4LogicalVolume(tub9_vacuum_solid, vacuum, "tub9_vacuum");
+  tub9_vacuum_logic->SetVisAttributes( G4VisAttributes(G4Colour(240/255.,255/255.,255/255.,0.3)) );
+  new G4PVPlacement(xRot, G4ThreeVector(0,587.85*mm-zz00,0), tub9_vacuum_logic, "tub9_vacuum", world_logic, false, 0, checkOverlaps);
 
   G4VSolid* tub10_solid = new G4Tubs("tub10", 108.446*mm, 132.296*mm, 0.5*5.3*mm, 0., 360.*degree);
   tub10_logic = new G4LogicalVolume(tub10_solid, S30400, "tub10");
   tub10_logic->SetVisAttributes( G4VisAttributes(G4Colour(64/255.,224/255.,208/255.,0.3)) );
   new G4PVPlacement(xRot, G4ThreeVector(0,605.35*mm-zz00,0), tub10_logic, "tub10", world_logic, false, 0, checkOverlaps);
+  G4VSolid* tub10_vacuum_solid = new G4Tubs("tub10_vacuum", 0.*mm, 108.446*mm, 0.5*5.3*mm, 0., 360.*degree);
+  tub10_vacuum_logic = new G4LogicalVolume(tub10_vacuum_solid, vacuum, "tub10_vacuum");
+  tub10_vacuum_logic->SetVisAttributes( G4VisAttributes(G4Colour(240/255.,255/255.,255/255.,0.3)) );
+  new G4PVPlacement(xRot, G4ThreeVector(0,605.35*mm-zz00,0), tub10_vacuum_logic, "tub10_vacuum", world_logic, false, 0, checkOverlaps);
 
   G4VSolid* tub11_solid = new G4Tubs("tub11", 125.0*mm, 132.0*mm, 0.5*107.5*mm, 0., 360.*degree);
   tub11_logic = new G4LogicalVolume(tub11_solid, S30400, "tub11");
   tub11_logic->SetVisAttributes( G4VisAttributes(G4Colour(75/255.,0/255.,130/255.,0.3)) );
   new G4PVPlacement(xRot, G4ThreeVector(0,661.75*mm-zz00,0), tub11_logic, "tub11", world_logic, false, 0, checkOverlaps);
+  G4VSolid* tub11_vacuum_solid = new G4Tubs("tub11_vacuum", 0.*mm, 125.0*mm, 0.5*107.5*mm, 0., 360.*degree);
+  tub11_vacuum_logic = new G4LogicalVolume(tub11_vacuum_solid, vacuum, "tub11_vacuum");
+  tub11_vacuum_logic->SetVisAttributes( G4VisAttributes(G4Colour(240/255.,255/255.,255/255.,0.3)) );
+  new G4PVPlacement(xRot, G4ThreeVector(0,661.75*mm-zz00,0), tub11_vacuum_logic, "tub11_vacuum", world_logic, false, 0, checkOverlaps);
 
   G4VSolid* tub12_solid = new G4Tubs("tub12", 80.0*mm, 170.0*mm, 0.5*5.0*mm, 0., 360.*degree);
   tub12_logic = new G4LogicalVolume(tub12_solid, S30400, "tub12");
   tub12_logic->SetVisAttributes( G4VisAttributes(G4Colour(173/255.,255/255.,47/255.,0.3)) );
   new G4PVPlacement(xRot, G4ThreeVector(0,718.0*mm-zz00,0), tub12_logic, "tub12", world_logic, false, 0, checkOverlaps);
+  G4VSolid* tub12_vacuum_solid = new G4Tubs("tub12_vacuum", 0.*mm, 80.0*mm, 0.5*5.0*mm, 0., 360.*degree);
+  tub12_vacuum_logic = new G4LogicalVolume(tub12_vacuum_solid, vacuum, "tub12_vacuum");
+  tub12_vacuum_logic->SetVisAttributes( G4VisAttributes(G4Colour(240/255.,255/255.,255/255.,0.3)) );
+  new G4PVPlacement(xRot, G4ThreeVector(0,718.0*mm-zz00,0), tub12_vacuum_logic, "tub12_vacuum", world_logic, false, 0, checkOverlaps);
 
   G4VSolid* tub13_solid = new G4Tubs("tub13", 81.0*mm, 177.0*mm, 0.5*19.5*mm, 0., 360.*degree);
   tub13_logic = new G4LogicalVolume(tub13_solid, S30400, "tub13");
   tub13_logic->SetVisAttributes( G4VisAttributes(G4Colour(199/255.,21/255.,133/255.,0.3)) );
   new G4PVPlacement(xRot, G4ThreeVector(0,730.25*mm-zz00,0), tub13_logic, "tub13", world_logic, false, 0, checkOverlaps);
+  G4VSolid* tub13_vacuum_solid = new G4Tubs("tub13_vacuum", 0.*mm, 81.0*mm, 0.5*19.5*mm, 0., 360.*degree);
+  tub13_vacuum_logic = new G4LogicalVolume(tub13_vacuum_solid, vacuum, "tub13_vacuum");
+  tub13_vacuum_logic->SetVisAttributes( G4VisAttributes(G4Colour(240/255.,255/255.,255/255.,0.3)) );
+  new G4PVPlacement(xRot, G4ThreeVector(0,730.25*mm-zz00,0), tub13_vacuum_logic, "tub13_vacuum", world_logic, false, 0, checkOverlaps);
 
   G4VSolid* tub14_solid = new G4Tubs("tub14", 170.0*mm, 177.0*mm, 0.5*63.0*mm, 0., 360.*degree);
   tub14_logic = new G4LogicalVolume(tub14_solid, S30400, "tub14");
   tub14_logic->SetVisAttributes( G4VisAttributes(G4Colour(85/255.,107/255.,47/255.,0.3)) );
   new G4PVPlacement(xRot, G4ThreeVector(0,771.5*mm-zz00,0), tub14_logic, "tub14", world_logic, false, 0, checkOverlaps);
+  G4VSolid* tub14_vacuum_solid = new G4Tubs("tub14_vacuum", 0.*mm, 170.0*mm, 0.5*63.0*mm, 0., 360.*degree);
+  tub14_vacuum_logic = new G4LogicalVolume(tub14_vacuum_solid, vacuum, "tub14_vacuum");
+  tub14_vacuum_logic->SetVisAttributes( G4VisAttributes(G4Colour(240/255.,255/255.,255/255.,0.3)) );
+  new G4PVPlacement(xRot, G4ThreeVector(0,771.5*mm-zz00,0), tub14_vacuum_logic, "tub14_vacuum", world_logic, false, 0, checkOverlaps);
 
   G4VSolid* tub15_solid = new G4Tubs("tub15", 55.5*mm, 209.0*mm, 0.5*25.0*mm, 0., 360.*degree);
   tub15_logic = new G4LogicalVolume(tub15_solid, S30400, "tub15");
   tub15_logic->SetVisAttributes( G4VisAttributes(G4Colour(255/255.,20/255.,147/255.,0.3)) );
   new G4PVPlacement(xRot, G4ThreeVector(0,815.5*mm-zz00,0), tub15_logic, "tub15", world_logic, false, 0, checkOverlaps);
+  G4VSolid* tub15_vacuum_solid = new G4Tubs("tub15_vacuum", 0.*mm, 55.5*mm, 0.5*25.0*mm, 0., 360.*degree);
+  tub15_vacuum_logic = new G4LogicalVolume(tub15_vacuum_solid, vacuum, "tub15_vacuum");
+  tub15_vacuum_logic->SetVisAttributes( G4VisAttributes(G4Colour(240/255.,255/255.,255/255.,0.3)) );
+  new G4PVPlacement(xRot, G4ThreeVector(0,815.5*mm-zz00,0), tub15_vacuum_logic, "tub15_vacuum", world_logic, false, 0, checkOverlaps);
 
   G4VSolid* tub16_solid = new G4Tubs("tub16", 55.5*mm, 104.0*mm, 0.5*40.0*mm, 0., 360.*degree);
   tub16_logic = new G4LogicalVolume(tub16_solid, S30400, "tub16");
   tub16_logic->SetVisAttributes( G4VisAttributes(G4Colour(30/255.,144/255.,255/255.,0.3)) );
   new G4PVPlacement(xRot, G4ThreeVector(0,848.0*mm-zz00,0), tub16_logic, "tub16", world_logic, false, 0, checkOverlaps);
+  G4VSolid* tub16_vacuum_solid = new G4Tubs("tub16_vacuum", 0.*mm, 55.5*mm, 0.5*40.0*mm, 0., 360.*degree);
+  tub16_vacuum_logic = new G4LogicalVolume(tub16_vacuum_solid, vacuum, "tub16_vacuum");
+  tub16_vacuum_logic->SetVisAttributes( G4VisAttributes(G4Colour(240/255.,255/255.,255/255.,0.3)) );
+  new G4PVPlacement(xRot, G4ThreeVector(0,848.0*mm-zz00,0), tub16_vacuum_logic, "tub16_vacuum", world_logic, false, 0, checkOverlaps);
 
   G4VSolid* tub17_solid = new G4Tubs("tub17", 55.5*mm, 65.5*mm, 0.5*72.5*mm, 0., 360.*degree);
   tub17_logic = new G4LogicalVolume(tub17_solid, S30400, "tub17");
   tub17_logic->SetVisAttributes( G4VisAttributes(G4Colour(147/255.,112/255.,219/255.,0.3)) );
   new G4PVPlacement(xRot, G4ThreeVector(0,904.25*mm-zz00,0), tub17_logic, "tub17", world_logic, false, 0, checkOverlaps);
+  G4VSolid* tub17_vacuum_solid = new G4Tubs("tub17_vacuum", 0.*mm, 55.5*mm, 0.5*72.5*mm, 0., 360.*degree);
+  tub17_vacuum_logic = new G4LogicalVolume(tub17_vacuum_solid, vacuum, "tub17_vacuum");
+  tub17_vacuum_logic->SetVisAttributes( G4VisAttributes(G4Colour(240/255.,255/255.,255/255.,0.3)) );
+  new G4PVPlacement(xRot, G4ThreeVector(0,904.25*mm-zz00,0), tub17_vacuum_logic, "tub17_vacuum", world_logic, false, 0, checkOverlaps);
 
   G4VSolid* tub18_solid = new G4Tubs("tub18", 55.5*mm, 104.0*mm, 0.5*20.0*mm, 0., 360.*degree);
   tub18_logic = new G4LogicalVolume(tub18_solid, S30400, "tub18");
   tub18_logic->SetVisAttributes( G4VisAttributes(G4Colour(152/255.,251/255.,152/255.,0.3)) );
   new G4PVPlacement(xRot, G4ThreeVector(0,950.5*mm-zz00,0), tub18_logic, "tub18", world_logic, false, 0, checkOverlaps);
+  G4VSolid* tub18_vacuum_solid = new G4Tubs("tub18_vacuum", 0.*mm, 55.5*mm, 0.5*20.0*mm, 0., 360.*degree);
+  tub18_vacuum_logic = new G4LogicalVolume(tub18_vacuum_solid, vacuum, "tub18_vacuum");
+  tub18_vacuum_logic->SetVisAttributes( G4VisAttributes(G4Colour(240/255.,255/255.,255/255.,0.3)) );
+  new G4PVPlacement(xRot, G4ThreeVector(0,950.5*mm-zz00,0), tub18_vacuum_logic, "tub18_vacuum", world_logic, false, 0, checkOverlaps);
 
   G4VSolid* vacChamEnter1_solid = new G4Tubs("vacChamEnter1", 62.0*mm, 109.0*mm, 0.5*12.2*mm, 0., 360.*degree);
   vacChamEnter1_logic = new G4LogicalVolume(vacChamEnter1_solid, S30400, "vacChamEnter1");
@@ -538,6 +610,10 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   tub20_logic = new G4LogicalVolume(tub20_solid, S30400, "tub20");
   tub20_logic->SetVisAttributes( G4VisAttributes(G4Colour(75/255.,0/255.,130/255.,0.3)) );
   new G4PVPlacement(xRot, G4ThreeVector(0,967.7*mm-zz00,0), tub20_logic, "tub20", world_logic, false, 0, checkOverlaps);
+  G4VSolid* tub20_vacuum_solid = new G4Tubs("tub20_vacuum", 0.*mm, 30.0*mm, 0.5*10.0*mm, 0., 360.*degree);
+  tub20_vacuum_logic = new G4LogicalVolume(tub20_vacuum_solid, vacuum, "tub20_vacuum");
+  tub20_vacuum_logic->SetVisAttributes( G4VisAttributes(G4Colour(240/255.,255/255.,255/255.,0.3)) );
+  new G4PVPlacement(xRot, G4ThreeVector(0,967.7*mm-zz00,0), tub20_vacuum_logic, "tub20_vacuum", world_logic, false, 0, checkOverlaps);
 
   G4VSolid* tub21_solid = new G4Tubs("tub21", 30.0*mm, 35.0*mm, 0.5*129.8*mm, 0., 360.*degree);
   tub21_logic = new G4LogicalVolume(tub21_solid, S30400, "tub21");
@@ -558,6 +634,7 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   leadCol12_logic = new G4LogicalVolume(leadCol12_solid, Pb, "leadCol12");
   leadCol12_logic->SetVisAttributes( G4VisAttributes(G4Colour(255/255.,20/255.,147/255.,0.3)) );
   new G4PVPlacement(xRot, G4ThreeVector(0,1077.5*mm-zz00,0), leadCol12_logic, "leadCol12", world_logic, false, 0, checkOverlaps);
+
 
   ///
   

@@ -100,31 +100,50 @@ private:
 
   /// New beam-line description.
   G4LogicalVolume* tub1_logic;
+  G4LogicalVolume* tub1_vacuum_logic;
   G4LogicalVolume* tub2_logic;
+  G4LogicalVolume* tub2_vacuum_logic;
   G4LogicalVolume* tub3_logic;
+  G4LogicalVolume* tub3_vacuum_logic;
   G4LogicalVolume* tub4_logic;
+  G4LogicalVolume* tub4_vacuum_logic;
   G4LogicalVolume* tub5_logic;
+  G4LogicalVolume* tub5_vacuum_logic;
   G4LogicalVolume* tub6_logic;
+  G4LogicalVolume* tub6_vacuum_logic;
   G4LogicalVolume* tub7_logic;
+  G4LogicalVolume* tub7_vacuum_logic;
   G4LogicalVolume* tub8_logic;
+  G4LogicalVolume* tub8_vacuum_logic;
   G4LogicalVolume* tub9_logic;
+  G4LogicalVolume* tub9_vacuum_logic;
   G4LogicalVolume* tub10_logic;
+  G4LogicalVolume* tub10_vacuum_logic;
   G4LogicalVolume* tub11_logic;
+  G4LogicalVolume* tub11_vacuum_logic;
   G4LogicalVolume* tub12_logic;
+  G4LogicalVolume* tub12_vacuum_logic;
   G4LogicalVolume* tub13_logic;
+  G4LogicalVolume* tub13_vacuum_logic;
   G4LogicalVolume* tub14_logic;
+  G4LogicalVolume* tub14_vacuum_logic;
   G4LogicalVolume* tub15_logic;
+  G4LogicalVolume* tub15_vacuum_logic;
   G4LogicalVolume* tub16_logic;
+  G4LogicalVolume* tub16_vacuum_logic;
   G4LogicalVolume* tub17_logic;
+  G4LogicalVolume* tub17_vacuum_logic;
   G4LogicalVolume* tub18_logic;
-  G4LogicalVolume* tub19_logic;
+  G4LogicalVolume* tub18_vacuum_logic;
   G4LogicalVolume* vacChamEnter1_logic;
   G4LogicalVolume* vacChamEnter2_logic;
   G4LogicalVolume* tub20_logic;
+  G4LogicalVolume* tub20_vacuum_logic;
   G4LogicalVolume* tub21_logic;
   G4LogicalVolume* tub22_logic;
   G4LogicalVolume* leadCol16_logic;
   G4LogicalVolume* leadCol12_logic;
+
   ///
   
   G4double fEndofTube;

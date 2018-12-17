@@ -340,7 +340,7 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   G4double targetRadius, halfThickness;
   G4double crystalXY = 20.*mm;
   
-  G4double StopperXY = 120.*mm ; // It's not sure
+  G4double StopperXY = 200.*mm ; // It's not sure
   G4double StopperZ = 4.*mm ;
   
   G4VSolid* Foil_solid = new G4Tubs("CsI_Tl", 0., targetRadius = 60.*mm, halfThickness = 0.5*fThickness, 0., 360.*degree);
@@ -836,7 +836,7 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
 	
       else
 	new G4PVPlacement(xRot2,
-            G4ThreeVector(tcx, tcy+76.2635, tcz+16.2635),
+            G4ThreeVector(tcx+33, tcy+81.3741, tcz+11.1528),
             AlStopper_logic, "Al_Stopper", innerVacuum_logic, false, 0, checkOverlaps);
        
     }

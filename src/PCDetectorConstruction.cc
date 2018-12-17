@@ -784,6 +784,14 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
         new G4PVPlacement(xRot3,
 	            G4ThreeVector(tcx,tcy+61.4142*mm,tcz+1.4142*mm),
                 target_support_ring_logic, "mirror_support_ring", innerVacuum_logic, false, 0, checkOverlaps);
+
+        /// Add a support rings' table.
+        G4VSolid* support_rings_table_solid = new G4Box("support_rings_table", .5*8.*mm, .5*60.*mm, 0.5*160.0*mm);
+        support_rings_table_logic = new G4LogicalVolume(support_rings_table_solid, Al, "support_rings_table");
+        support_rings_table_logic->SetVisAttributes( G4VisAttributes(G4Colour(255/255.,20/255.,147/255.,0.6)) );
+        new G4PVPlacement(xRot,
+                G4ThreeVector(tcx-71.*mm, tcy+47.8*mm, tcz),
+                support_rings_table_logic, "support_rings_table", innerVacuum_logic, false, 0, checkOverlaps);
 	  }
 	else
 	  {

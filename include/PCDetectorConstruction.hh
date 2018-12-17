@@ -153,6 +153,8 @@ private:
   G4LogicalVolume* target_support_ring_p2_logic;
   G4LogicalVolume* target_support_ring_p3_logic;
   G4LogicalVolume* mirror_support_ring_logic;
+
+  G4LogicalVolume* support_rings_table_logic;
   ///
   
   G4double fEndofTube;

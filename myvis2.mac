@@ -16,7 +16,8 @@
 # /vis/open VRML2FILE
 # /vis/open HepRepFile
 # /vis/open RayTracer 400x400
-/vis/open RayTracer 1000x1000
+/vis/open RayTracer 600x600
+# /vis/open RayTracer 1000x1000
 # /vis/open RayTracer 1600x1600
 # /vis/open RayTracer 4000x4000
 
@@ -24,16 +25,17 @@
 # /vis/viewer/set/viewpointVector -.2 0 0
 /vis/viewer/set/lightsVector 1 -1 -1
 
-/vis/viewer/zoom 4
+/vis/viewer/zoom 3
 
 /vis/viewer/set/style surface
 # /vis/viewer/set/style wireframe
 
 /vis/viewer/set/hiddenMarker true
-/vis/viewer/set/viewpointThetaPhi 125 -30
+# /vis/viewer/set/viewpointThetaPhi 125 -30
+/vis/viewer/set/viewpointThetaPhi 180 0
 
 
-/vis/geometry/set/colour Vacuum_Chamber 0 0 0 0 0
+/vis/geometry/set/colour Vacuum_Chamber 0 .6 .6 .6 0.2
 
 /vis/geometry/set/colour ring_opravka_target 0 1 1 0 1
 /vis/geometry/set/colour ring_opravka_mirror 0 1 1 0 1
@@ -41,8 +43,6 @@
 /vis/geometry/set/colour mirror_support_ring 0 0 1 1 1
 /vis/geometry/set/colour support_rings_rigidity 0 1 0 1 1
 /vis/geometry/set/colour support_rings_table 0 1 0 1 1
-
-/vis/scene/add/axes 0 0 0 .1m
 
 
 /vis/viewer/refresh

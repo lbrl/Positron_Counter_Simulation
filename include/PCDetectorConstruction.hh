@@ -143,7 +143,16 @@ private:
   G4LogicalVolume* tub22_logic;
   G4LogicalVolume* leadCol16_logic;
   G4LogicalVolume* leadCol12_logic;
+  ///
 
+  /// Target support description.
+  G4LogicalVolume* ring_opravka_target_logic;
+  G4LogicalVolume* ring_opravka_mirror_logic;
+  G4LogicalVolume* target_support_ring_logic;
+  G4LogicalVolume* target_support_ring_p1_logic;
+  G4LogicalVolume* target_support_ring_p2_logic;
+  G4LogicalVolume* target_support_ring_p3_logic;
+  G4LogicalVolume* mirror_support_ring_logic;
   ///
   
   G4double fEndofTube;

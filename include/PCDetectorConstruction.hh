@@ -155,6 +155,8 @@ private:
   G4LogicalVolume* mirror_support_ring_logic;
 
   G4LogicalVolume* support_rings_table_logic;
+  G4LogicalVolume* support_rings_rigidity_logic;
+  G4LogicalVolume* bpm_base_logic;
   ///
   
   G4double fEndofTube;

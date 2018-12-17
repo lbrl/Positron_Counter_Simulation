@@ -792,6 +792,20 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
         new G4PVPlacement(xRot,
                 G4ThreeVector(tcx-71.*mm, tcy+47.8*mm, tcz),
                 support_rings_table_logic, "support_rings_table", innerVacuum_logic, false, 0, checkOverlaps);
+        /// Add a support rings' rigidity.
+        G4VSolid* support_rings_rigidity_solid = new G4Box("support_rings_rigidity", .5*4.*mm, .5*20.*mm, 0.5*72.0*mm);
+        support_rings_rigidity_logic = new G4LogicalVolume(support_rings_rigidity_solid, Al, "support_rings_rigidity");
+        support_rings_rigidity_logic->SetVisAttributes( G4VisAttributes(G4Colour(255/255.,20/255.,147/255.,0.6)) );
+        new G4PVPlacement(xRot,
+                G4ThreeVector(tcx+69.*mm, tcy+30.*mm, tcz),
+                support_rings_rigidity_logic, "support_rings_rigidity", innerVacuum_logic, false, 0, checkOverlaps);
+        /// Add a BPM base.
+        G4VSolid* bpm_base_solid = new G4Box("bpm_base", .5*5.*mm, .5*200.*mm, 0.5*248.0*mm);
+        bpm_base_logic = new G4LogicalVolume(bpm_base_solid, Al, "bpm_base");
+        bpm_base_logic->SetVisAttributes( G4VisAttributes(G4Colour(255/255.,20/255.,147/255.,0.6)) );
+        new G4PVPlacement(xRot,
+                G4ThreeVector(tcx-87.5*mm, tcy+73.8*mm, tcz),
+                bpm_base_logic, "bpm_base", innerVacuum_logic, false, 0, checkOverlaps);
 	  }
 	else
 	  {

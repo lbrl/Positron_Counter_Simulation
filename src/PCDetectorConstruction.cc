@@ -713,24 +713,28 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
   G4RotationMatrix* xRot_CsI = new G4RotationMatrix();
   xRot_CsI->rotateX(fAngle);
   
+  /// Target centre.
+  G4double tcx = -MirrorToChamberCenterX, tcy = -MirrorToChamberCenterY+MirrorToTarget, tcz = -MirrorToChamberCenterZ;
   if(fCsIType == 0) // foil
     {
         if(fMirrorOn == true)
 	  {
-	    new G4PVPlacement(xRot2, G4ThreeVector(-MirrorToChamberCenterX,-MirrorToChamberCenterY,
-						   -MirrorToChamberCenterZ), Mirror_logic, "Mirror",
-			      innerVacuum_logic, false, 0, checkOverlaps);
+
+	    new G4PVPlacement(xRot2,
+                G4ThreeVector(tcx, tcy+62.8584*mm, tcz+2.8284*mm),
+                Mirror_logic, "Mirror", innerVacuum_logic, false, 0, checkOverlaps);
 	
-	    new G4PVPlacement(xRot, G4ThreeVector(-MirrorToChamberCenterX,-MirrorToChamberCenterY+MirrorToTarget,
-						  -MirrorToChamberCenterZ), fTarget, "CsI_Tl", innerVacuum_logic,
-			      false, 0, checkOverlaps);
+	    new G4PVPlacement(xRot,
+                G4ThreeVector(tcx, tcy, tcz),
+                fTarget, "CsI_Tl", innerVacuum_logic, false, 0, checkOverlaps);
 
         /// Add the ring to which the foil is glued.
         G4VSolid* ring_opravka_target_solid = new G4Tubs("ring_opravka_target", 60.*mm, 65.*mm, 0.5*4.0*mm, 0., 360.*degree);
         ring_opravka_target_logic = new G4LogicalVolume(ring_opravka_target_solid, Al, "ring_opravka_target");
         ring_opravka_target_logic->SetVisAttributes( G4VisAttributes(G4Colour(255/255.,20/255.,147/255.,0.6)) );
         new G4PVPlacement(xRot,
-                G4ThreeVector(-MirrorToChamberCenterX,-MirrorToChamberCenterY+MirrorToTarget-4./2*mm,-MirrorToChamberCenterZ),
+                // G4ThreeVector(-MirrorToChamberCenterX,-MirrorToChamberCenterY+MirrorToTarget-4./2*mm,-MirrorToChamberCenterZ),
+                G4ThreeVector(tcx,tcy-4./2*mm,tcz),
                 ring_opravka_target_logic, "ring_opravka_target", innerVacuum_logic, false, 0, checkOverlaps);
 
         /// Add the target support ring.
@@ -738,11 +742,6 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
         G4VSolid* target_support_ring_p1_boxframe_solid = new G4Box("target_support_ring_boxframe_p1", .5*134.*mm, .5*134.*mm, .5*7.0*mm);
         G4VSolid* target_support_ring_p1_solid = new G4IntersectionSolid("target_support_ring_p1",
                 target_support_ring_p1_tub_solid, target_support_ring_p1_boxframe_solid);
-        // target_support_ring_p1_logic = new G4LogicalVolume(target_support_ring_p1_solid, Al, "target_support_ring_p1");
-        // target_support_ring_p1_logic->SetVisAttributes( G4VisAttributes(G4Colour(255/255.,20/255.,147/255.,0.3)) );
-        // new G4PVPlacement(xRot,
-                // G4ThreeVector(-MirrorToChamberCenterX,-MirrorToChamberCenterY+MirrorToTarget+4./2*mm,-MirrorToChamberCenterZ),
-                // target_support_ring_p1_logic, "target_support_ring_p1", innerVacuum_logic, false, 0, checkOverlaps);
 
         G4VSolid* target_support_ring_p2_tub_solid = new G4Tubs("target_support_ring_tub_p2", 65.*mm, 69.*mm, 0.5*7.0*mm, 0., 360.*degree);
         G4VSolid* target_support_ring_p2_box_solid = new G4Box("target_support_ring_box_p2", .5*30.*mm, 69.*mm, 0.5*7.1*mm);
@@ -751,21 +750,11 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
         G4VSolid* target_support_ring_p2_boxframe_solid = new G4Box("target_support_ring_boxframe_p2", .5*134.*mm, .5*134.*mm, .5*7.0*mm);
         G4VSolid* target_support_ring_p2_solid = new G4IntersectionSolid("target_support_ring_p2",
                 target_support_ring_p2_tubbox_solid, target_support_ring_p2_boxframe_solid);
-        // target_support_ring_p2_logic = new G4LogicalVolume(target_support_ring_p2_solid, Al, "target_support_ring_p2");
-        // target_support_ring_p2_logic->SetVisAttributes( G4VisAttributes(G4Colour(0, 0, 1., 0.3)) );
-        // new G4PVPlacement(xRot,
-                // G4ThreeVector(-MirrorToChamberCenterX,-MirrorToChamberCenterY+MirrorToTarget-7./2*mm,-MirrorToChamberCenterZ),
-                // target_support_ring_p2_logic, "target_support_ring_p2", innerVacuum_logic, false, 0, checkOverlaps);
 
         G4VSolid* target_support_ring_p3_tub_solid = new G4Tubs("target_support_ring_tub_p3", 65.*mm, 69.*mm, 0.5*6.0*mm, 0., 360.*degree);
         G4VSolid* target_support_ring_p3_box_solid = new G4Box("target_support_ring_box_p3", .5*134.*mm, .5*32.9848*mm, 0.5*6.0*mm);
         G4VSolid* target_support_ring_p3_solid = new G4IntersectionSolid("target_support_ring_p3",
                 target_support_ring_p3_tub_solid, target_support_ring_p3_box_solid);
-        // target_support_ring_p3_logic = new G4LogicalVolume(target_support_ring_p3_solid, Al, "target_support_ring_p3");
-        // target_support_ring_p3_logic->SetVisAttributes( G4VisAttributes(G4Colour(0, 0, 1., 0.4)) );
-        // new G4PVPlacement(xRot,
-                // G4ThreeVector(-MirrorToChamberCenterX,-MirrorToChamberCenterY+MirrorToTarget+4.*mm+6./2*mm,-MirrorToChamberCenterZ),
-                // target_support_ring_p3_logic, "target_support_ring_p3", innerVacuum_logic, false, 0, checkOverlaps);
 
         G4VSolid* target_support_ring_p1p2_solid = new G4UnionSolid("target_support_ring_p1p2",
                 target_support_ring_p1_solid, target_support_ring_p2_solid,
@@ -776,14 +765,16 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
         target_support_ring_logic = new G4LogicalVolume(target_support_ring_p1p2p3_solid, Al, "target_support_ring");
         target_support_ring_logic->SetVisAttributes( G4VisAttributes(G4Colour(0, 0, 1., 0.4)) );
         new G4PVPlacement(xRot,
-                G4ThreeVector(-MirrorToChamberCenterX,-MirrorToChamberCenterY+MirrorToTarget+4./2*mm,-MirrorToChamberCenterZ),
+                // G4ThreeVector(-MirrorToChamberCenterX,-MirrorToChamberCenterY+MirrorToTarget+4./2*mm,-MirrorToChamberCenterZ),
+                G4ThreeVector(tcx,tcy+4./2*mm,tcz),
                 target_support_ring_logic, "target_support_ring", innerVacuum_logic, false, 0, checkOverlaps);
 
         /// Add the ring to which the mirror foil is glued.
         ring_opravka_mirror_logic = new G4LogicalVolume(ring_opravka_target_solid, Al, "ring_opravka_mirror");
         ring_opravka_mirror_logic->SetVisAttributes( G4VisAttributes(G4Colour(255/255.,20/255.,147/255.,0.6)) );
         new G4PVPlacement(xRot2,
-	            G4ThreeVector(-MirrorToChamberCenterX,-MirrorToChamberCenterY+4.*mm,-MirrorToChamberCenterZ),
+	            // G4ThreeVector(-MirrorToChamberCenterX,-MirrorToChamberCenterY+4.*mm,-MirrorToChamberCenterZ),
+	            G4ThreeVector(tcx,tcy+64.2426*mm,tcz+4.2426*mm),
                 ring_opravka_mirror_logic, "ring_opravka_mirror", innerVacuum_logic, false, 0, checkOverlaps);
         /// Add the mirror support ring.
         mirror_support_ring_logic = new G4LogicalVolume(target_support_ring_p1p2p3_solid, Al, "mirror_support_ring");
@@ -791,7 +782,7 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
         G4RotationMatrix* xRot3 = new G4RotationMatrix();
         xRot3->rotateX((45.+180.)*degree); // rotation matrix of the Mirror support ring.
         new G4PVPlacement(xRot3,
-	            G4ThreeVector(-MirrorToChamberCenterX,-MirrorToChamberCenterY-1.4142*mm,-MirrorToChamberCenterZ+1.4142*mm),
+	            G4ThreeVector(tcx,tcy+61.4142*mm,tcz+1.4142*mm),
                 target_support_ring_logic, "mirror_support_ring", innerVacuum_logic, false, 0, checkOverlaps);
 	  }
 	else
@@ -822,9 +813,9 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
 			  innerVacuum_logic, false, 0, checkOverlaps);
 	
       else
-	new G4PVPlacement(xRot2, G4ThreeVector(-MirrorToChamberCenterX,-MirrorToChamberCenterY+10.*1.414,
-					       -MirrorToChamberCenterZ), AlStopper_logic, "Al_Stopper",
-			  innerVacuum_logic, false, 0, checkOverlaps);
+	new G4PVPlacement(xRot2,
+            G4ThreeVector(tcx, tcy+76.2635, tcz+16.2635),
+            AlStopper_logic, "Al_Stopper", innerVacuum_logic, false, 0, checkOverlaps);
        
     }
    

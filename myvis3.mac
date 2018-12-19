@@ -32,7 +32,7 @@
 
 /vis/viewer/set/hiddenMarker true
 # /vis/viewer/set/viewpointThetaPhi 125 -30
-/vis/viewer/set/viewpointThetaPhi 180 0
+/vis/viewer/set/viewpointThetaPhi 135 -30
 
 
 /vis/geometry/set/colour Vacuum_Chamber 0 .6 .6 .6 0.2

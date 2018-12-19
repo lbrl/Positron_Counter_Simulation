@@ -137,9 +137,13 @@ private:
   G4LogicalVolume* tub18_vacuum_logic;
   G4LogicalVolume* vacChamEnter1_logic;
   G4LogicalVolume* vacChamEnter2_logic;
+  G4LogicalVolume* vacChamEnter2vacuum_logic;
   G4LogicalVolume* tub20_logic;
   G4LogicalVolume* tub20_vacuum_logic;
-  G4LogicalVolume* tub21_logic;
+  G4LogicalVolume* tub21a_logic;
+  G4LogicalVolume* tub21a_vacuum_logic;
+  G4LogicalVolume* tub21b_logic;
+  G4LogicalVolume* tub21c_logic;
   G4LogicalVolume* tub22_logic;
   G4LogicalVolume* leadCol16_logic;
   G4LogicalVolume* leadCol12_logic;

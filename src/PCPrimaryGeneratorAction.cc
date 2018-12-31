@@ -9,6 +9,7 @@
 #include "G4ParticleDefinition.hh"
 #include "G4SystemOfUnits.hh"
 #include "Randomize.hh"
+#include <fstream>
 
 
 PCPrimaryGeneratorAction::PCPrimaryGeneratorAction()
@@ -36,12 +37,16 @@ PCPrimaryGeneratorAction::PCPrimaryGeneratorAction()
 //  fParticleGun->SetParticlePosition(G4ThreeVector(0.,-30.*cm, 0.));
 //  fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,1.,0.));
   fParticleGun->SetParticleEnergy(3.5*MeV); // Kinematic Energy for muon momentum = 27.4 MeV
+	
+	/// Open a file with primaries.
+	fin_primaries.open( "thefile.txt" );
 }
 
 
 PCPrimaryGeneratorAction::~PCPrimaryGeneratorAction()
 {
   delete fParticleGun;
+  fin_primaries.close();
 }
 
 

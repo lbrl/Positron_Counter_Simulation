@@ -6,6 +6,8 @@
 #include "G4ParticleGun.hh"
 #include "globals.hh"
 
+#include <fstream>
+
 class G4ParticleGun;
 class G4Event;
 class G4Box;
@@ -22,6 +24,7 @@ class PCPrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
      const G4ParticleGun* GetParticleGun() const { return fParticleGun; }
   
   private:
+    std::ifstream ifin_primaries;
     G4ParticleGun*  fParticleGun; 
 };
 

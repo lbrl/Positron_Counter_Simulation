@@ -784,14 +784,53 @@ G4VPhysicalVolume* PCDetectorConstruction::Construct()
 
   else // fCsIType == 1 : crystal
     {
-      new G4PVPlacement(xRot_CsI, G4ThreeVector(-MirrorToChamberCenterX,-MirrorToChamberCenterY+MirrorToTarget,
-						-MirrorToChamberCenterZ), fTarget, "CsI_Tl", innerVacuum_logic,
-			false, 0, checkOverlaps);
+        new G4PVPlacement(xRot_CsI,
+                // G4ThreeVector(-MirrorToChamberCenterX,-MirrorToChamberCenterY+MirrorToTarget, -MirrorToChamberCenterZ),
+                G4ThreeVector(tcx, tcy+fThickness/2*mm, tcz),
+                fTarget, "CsI_Tl", innerVacuum_logic, false, 0, checkOverlaps);
 
+        G4VSolid* crystal_support_base_solid = new G4Tubs("crystal_support_base", .5*19.*mm, 65.*mm, 0.5*4.0*mm, 0., 360.*degree);
+        crystal_support_base_logic = new G4LogicalVolume(crystal_support_base_solid, S30400, "crystal_support_base");
+        crystal_support_base_logic->SetVisAttributes( G4VisAttributes(G4Colour(255/255.,20/255.,147/255.,0.6)) );
+        new G4PVPlacement(xRot,
+            G4ThreeVector(tcx,tcy-4./2*mm,tcz),
+            crystal_support_base_logic, "crystal_support_base", innerVacuum_logic, false, 0, checkOverlaps);
+
+        G4VSolid* crystal_support_shelf_solid = new G4Box("crystal_support_shelf", .5*10.*mm, .5*10.*mm, .5*60.*mm);
+        crystal_support_shelf_logic = new G4LogicalVolume(crystal_support_shelf_solid, S30400, "crystal_support_shelf");
+        crystal_support_shelf_logic->SetVisAttributes( G4VisAttributes(G4Colour(178/255.,255/255.,102/255.,1)) );
+        new G4PVPlacement(0,
+            G4ThreeVector(tcx-10.*mm-10./2*mm, tcy+10./2*mm, tcz),
+            crystal_support_shelf_logic, "crystal_support_shelf", innerVacuum_logic, false, 0, checkOverlaps);
+
+        G4VSolid* crystal_support_press_solid = new G4Box("crystal_support_press", .5*3.*mm, .5*8.*mm, .5*40.*mm);
+        crystal_support_press_logic = new G4LogicalVolume(crystal_support_press_solid, S30400, "crystal_support_press");
+        crystal_support_press_logic->SetVisAttributes( G4VisAttributes(G4Colour(178/255.,255/255.,102/255.,1)) );
+        new G4PVPlacement(0,
+            G4ThreeVector(tcx+10.*mm+3./2*mm, tcy+10./2*mm, tcz),
+            crystal_support_press_logic, "crystal_support_press", innerVacuum_logic, false, 0, checkOverlaps);
+
+        G4RotationMatrix* RotBolt = new G4RotationMatrix();
+        RotBolt->rotateY(90.*degree);
+        G4VSolid* crystal_support_long_bolt_solid = new G4Tubs("crystal_support_long_bolt", 0.*mm, .5*(3.-0.649519*0.35)*mm, 0.5*20.0*mm, 0., 360.*degree);
+        crystal_support_long_bolt_left_logic = new G4LogicalVolume(crystal_support_long_bolt_solid, S30400, "crystal_support_long_left_bolt");
+        crystal_support_long_bolt_left_logic->SetVisAttributes( G4VisAttributes(G4Colour(178/255.,255/255.,102/255.,1)) );
+        new G4PVPlacement(RotBolt,
+            G4ThreeVector(tcx, tcy+10./2*mm, tcz+15.*mm),
+            crystal_support_long_bolt_left_logic, "crystal_support_long_bolt_left", innerVacuum_logic, false, 0, checkOverlaps);
+        crystal_support_long_bolt_right_logic = new G4LogicalVolume(crystal_support_long_bolt_solid, S30400, "crystal_support_long_right_bolt");
+        crystal_support_long_bolt_right_logic->SetVisAttributes( G4VisAttributes(G4Colour(178/255.,255/255.,102/255.,1)) );
+        new G4PVPlacement(RotBolt,
+            G4ThreeVector(tcx, tcy+10./2*mm, tcz-15.*mm),
+            crystal_support_long_bolt_right_logic, "crystal_support_long_bolt_right", innerVacuum_logic, false, 0, checkOverlaps);
+
+
+        /*
       if(fMirrorOn == true)
 	new G4PVPlacement(xRot2, G4ThreeVector(-MirrorToChamberCenterX,-MirrorToChamberCenterY,
 					       -MirrorToChamberCenterZ), Mirror_logic, "Mirror",
 			  innerVacuum_logic, false, 0, checkOverlaps);
+        */
     }
   
   if(fStopperOn == true)

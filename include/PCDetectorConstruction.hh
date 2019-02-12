@@ -162,7 +162,14 @@ private:
   G4LogicalVolume* support_rings_table_logic;
   G4LogicalVolume* support_rings_rigidity_logic;
   G4LogicalVolume* bpm_base_logic;
-  ///
+ 
+    /// Crystal support.
+    G4LogicalVolume * crystal_support_base_logic;
+    G4LogicalVolume * crystal_support_shelf_logic;
+    G4LogicalVolume * crystal_support_press_logic;
+    G4LogicalVolume * crystal_support_long_bolt_left_logic;
+    G4LogicalVolume * crystal_support_long_bolt_right_logic;
+    ///
   
   G4double fEndofTube;
   G4bool fMirrorOn;

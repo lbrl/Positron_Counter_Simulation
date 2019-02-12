@@ -18,6 +18,33 @@ import math
 # R.gSystem.Load('libRooFit')
 
 
+HEADER = '\033[95m'
+OKBLUE = '\033[94m'
+OKGREEN = '\033[92m'
+WARNING = '\033[93m'
+FAIL = '\033[91m'
+ENDC = '\033[0m'
+BOLD = '\033[1m'
+UNDERLINE = '\033[4m'
+CBLACK  = '\33[30m'
+CRED    = '\33[31m'
+CGREEN  = '\33[32m'
+CYELLOW = '\33[33m'
+CBLUE   = '\33[34m'
+CVIOLET = '\33[35m'
+CBEIGE  = '\33[36m'
+CWHITE  = '\33[37m'
+CBLACKBG  = '\33[40m'
+CREDBG    = '\33[41m'
+CGREENBG  = '\33[42m'
+CYELLOWBG = '\33[43m'
+CBLUEBG   = '\33[44m'
+CVIOLETBG = '\33[45m'
+CBEIGEBG  = '\33[46m'
+CWHITEBG  = '\33[47m'
+
+
+
 def read_tubs():
     finname = 'beamtest2017B-tubs.tsv'
     fin = open( finname )
@@ -61,18 +88,154 @@ def getCanvas( name, cw=600, ch=600, margins=-1 ):
     return c1
 
 
+hp = r.TH1I( 'hp', 'hp', 1, 0, 1 )
+ht = r.TH1I( 'hp', 'hp', 1, 0, 1 )
+def getEffErr( p, t ):
+    hp.SetBinContent( 1, p )
+    ht.SetBinContent( 1, t )
+    eff = r.TEfficiency( hp, ht )
+    eu = eff.GetEfficiencyErrorUp( 1 )
+    el = eff.GetEfficiencyErrorLow( 1 )
+    return [el, eu]
+
+
+def getHits( t, strict='loose', isTot=False, af=-1 ):
+    # cutplate = '10<OriginX&&OriginX<60 && -20<OriginY&&OriginY<20 && 10<OriginZ&&OriginZ<60'
+    # cutplate = '10<OriginX&&OriginX<60 && -20<OriginY&&OriginY<20'
+    if strict == 'loose':
+        cutplate = '10<OriginY&&OriginY<60 && -20<OriginX&&OriginX<20'
+    elif strict == 'normal':
+        cutplate = '20<OriginY&&OriginY<50 && -10<OriginX&&OriginX<13'
+    else:
+        return 2
+    print strict
+    cut1 = 'PC1Edep>200'
+    cut2 = 'PC2Edep>200'
+    cut3 = 'PC3Edep>200'
+    #
+    n1 = t.Draw( '', cut1, 'goff' )
+    n1p = t.Draw( '', cut1+' && '+cutplate, 'goff' )
+    n2 = t.Draw( '', cut2, 'goff' )
+    n2p = t.Draw( '', cut2+' && '+cutplate, 'goff' )
+    n3 = t.Draw( '', cut3, 'goff' )
+    n3p = t.Draw( '', cut3+' && '+cutplate, 'goff' )
+    #
+    n12 = t.Draw( '', cut1+' && '+cut2, 'goff' )
+    n12p = t.Draw( '', cut1+' && '+cut2+' && '+cutplate, 'goff' )
+    n13 = t.Draw( '', cut1+' && '+cut3, 'goff' )
+    n13p = t.Draw( '', cut1+' && '+cut3+' && '+cutplate, 'goff' )
+    n23 = t.Draw( '', cut2+' && '+cut3, 'goff' )
+    n23p = t.Draw( '', cut2+' && '+cut3+' && '+cutplate, 'goff' )
+    #
+    n123 = t.Draw( '', cut1+' && '+cut2+' && '+cut3, 'goff' )
+    n123p = t.Draw( '', cut1+' && '+cut2+' && '+cut3+' && '+cutplate, 'goff' )
+    #
+    foilhit = isTot
+    if isTot:
+        e1 = getEffErr(n1p, foilhit)
+        e2 = getEffErr(n2p, foilhit)
+        e3 = getEffErr(n3p, foilhit)
+        e12 = getEffErr(n12p, foilhit)
+        e13 = getEffErr(n13p, foilhit)
+        e23 = getEffErr(n23p, foilhit)
+        e123 = getEffErr(n123p, foilhit)
+    else:
+        e1 = getEffErr(n1p, n1)
+        e2 = getEffErr(n2p, n2)
+        e3 = getEffErr(n3p, n3)
+        e12 = getEffErr(n12p, n12)
+        e13 = getEffErr(n13p, n13)
+        e23 = getEffErr(n23p, n23)
+        e123 = getEffErr(n123p, n123)
+    #
+    if isTot:
+        pri( '1', n1p, foilhit, 100.*n1p/foilhit, 100.*e1[0], 100.*e1[1], isTot, af=af )
+        pri( '2', n2p, foilhit, 100.*n2p/foilhit, 100.*e2[0], 100.*e2[1], isTot, af=af )
+        pri( '3', n3p, foilhit, 100.*n3p/foilhit, 100.*e3[0], 100.*e3[1], isTot, af=af )
+        pri( '12', n12p, foilhit, 100.*n12p/foilhit, 100.*e12[0], 100.*e12[1], isTot, af=af )
+        pri( '13', n13p, foilhit, 100.*n13p/foilhit, 100.*e13[0], 100.*e13[1], isTot, af=af )
+        pri( '23', n23p, foilhit, 100.*n23p/foilhit, 100.*e23[0], 100.*e23[1], isTot, af=af )
+        pri( '123', n123p, foilhit, 100.*n123p/foilhit, 100.*e123[0], 100.*e123[1], isTot, af=af )
+    else:
+        pri( '1', n1p, n1, 100.*n1p/n1, 100.*e1[0], 100.*e1[1], isTot )
+        pri( '2', n2p, n2, 100.*n2p/n2, 100.*e2[0], 100.*e2[1], isTot )
+        pri( '3', n3p, n3, 100.*n3p/n3, 100.*e3[0], 100.*e3[1], isTot )
+        pri( '12', n12p, n12, 100.*n12p/n12, 100.*e12[0], 100.*e12[1], isTot )
+        pri( '13', n13p, n13, 100.*n13p/n13, 100.*e13[0], 100.*e13[1], isTot )
+        pri( '23', n23p, n23, 100.*n23p/n23, 100.*e23[0], 100.*e23[1], isTot )
+        pri( '123', n123p, n123, 100.*n123p/n123, 100.*e123[0], 100.*e123[1], isTot )
+
+
+def pri( name, np, n, npn, el, eu, isTot=False, isLatex=False, af=-1):
+    if 'latex' in sys.argv:
+        isLatex = True
+    amper = CGREEN + '&' + ENDC
+    if isLatex:
+        out = '{:>10} {amper} '.format( name, amper=amper )
+        out += '\\num{{ {} }} {amper} \\num{{ {} }} {amper} '.format(np, n, amper=amper)
+        out += '$'
+        if af < 0:
+            out += '{:.3f}_{{-{:.3f}}}^{{+{:.3f}}}'.format(npn, el, eu)
+        else:
+            out += '{:.{af}f}_{{-{:.{af}f}}}^{{+{:.{af}f}}}'.format(npn, el, eu, af=af)
+        out += r' \, \si{\percent}$ \\'
+    else:
+        out = '{:>10} : '.format( name )
+        if isTot:
+            if af < 0:
+                out += '{}  /  {}  =  {:.3f} - {:.3f} + {:.3f}  %%'.format(np, n, 10*npn, 10*el, 10*eu)
+            else:
+                out += '{}  /  {}  =  {:.{af}f} - {:.{af}f} + {:.{af}f}  %%'.format(np, n, 10*npn, 10*el, 10*eu, af=af)
+        else:
+            out += '{}  /  {}  =  {:.2f} - {:.2f} + {:.2f}  %'.format(np, n, npn, el, eu)
+    print out
+    return
+    out = '{:>10} : '.format( name )
+    out += '{:>10} / {:<10} = {:>10.2f}'.format( np, n, npn )
+    le = len(out)
+    outu = ' '*le + '+ {:<10.2f}'.format( eu )
+    outl = ' '*le + '- {:<10.2f}'.format( el )
+    print outu
+    print out + '        %'
+    print outl
+
+
 def main():
     tubs = read_tubs()
     Fin = r.TFile( 'build/Simulation.root' )
     t = Fin.Get( 'PC' )
+    #
+    getHits( t, 'loose' )
+    getHits( t, 'normal' )
+    getHits( t, 'loose', 32677 )
+    getHits( t, 'normal', 32677 )
+    getHits( t, 'loose', 1632287, af=5 )
+    getHits( t, 'normal', 1632287, af=5 )
+    #
     # c1 = getCanvas( 'c1', 9*120, 9*110, [.1/(12./11), .1, .1/(12./11), .1] )
     c1 = getCanvas( 'c1', 9*120, 9*90, [.1/(12./9), .1, .1/(12./9), .1] )
+    #
     cut = ''
     sel = 'OriginX:OriginY'
-    t.Draw( '{sel}>>h(120,-250,350,90,-250,200)'.format( sel=sel ), cut )
+    hopt = '(120,-500,700,90,-500,400)'
+    hopt = '(120,-250,350,90,-250,200)'
+    t.Draw( '{sel}>>h{hopt}'.format( sel=sel, hopt=hopt ), cut )
+    #
+    cut = 'PC1Edep>200 || PC2Edep>200 || PC3Edep>200'
+    t.SetMarkerStyle( 7 )
+    t.SetMarkerColor( r.kMagenta )
+    t.Draw( sel, cut, 'same' )
+    #
+    cut = 'PC2Edep>200 && PC3Edep>200'
+    t.SetMarkerColor( r.kBlue )
+    t.SetMarkerStyle( 24 )
+    t.Draw( sel, cut, 'same' )
+    #
     cut = 'PC1Edep>200 && PC2Edep>200 && PC3Edep>200'
     t.SetMarkerColor( r.kGreen )
+    t.SetMarkerStyle( 24 )
     t.Draw( sel, cut, 'same' )
+    #
     line = r.TLine()
     line.SetLineColor( r.kRed )
     line.SetLineWidth( 2 )
@@ -96,7 +259,8 @@ def main():
     lat = r.TLatex()
     lat.SetTextFont( 12 )
     lat.SetTextSize( .03 )
-    lat.DrawLatexNDC( .2, .92, 'Positron origin, 10 million e^{+} are simulated' )
+    # lat.DrawLatexNDC( .2, .92, 'Positron origin, 10 million e^{+} are simulated' )
+    lat.DrawLatexNDC( .2, .92, 'Positron origin' )
     lat.DrawLatexNDC( .32, .31, 'All positrons' )
     lat.SetTextColor( r.kGreen+1 )
     lat.DrawLatexNDC( .32, .28, r'Positrons which hit all three positron counters with E_{dep, i}>200 keV' )
@@ -156,7 +320,8 @@ def main():
     lat.DrawLatexNDC( .7, .75, 'PC3, thin' )
     c3.Update()
     #
-    raw_input( 'Press ENTER to continue, please.' )
+    if not '-b' in sys.argv:
+        raw_input( 'Press ENTER to continue, please.' )
     if 'save' in sys.argv:
         c1.SaveAs( 'originx_originy.png' )
         c2.SaveAs( 'edep.png' )

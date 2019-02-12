@@ -33,7 +33,8 @@
 PCDetectorConstruction::PCDetectorConstruction()
   : G4VUserDetectorConstruction(),
     fPC_logic(NULL),
-    fTube(NULL), fColl(NULL), fCham(NULL)
+    fTube(NULL), fColl(NULL), fCham(NULL),
+    fTarget(NULL)
 {
   world_logic = NULL;
   fTarget = NULL;  
@@ -88,6 +89,7 @@ PCDetectorConstruction::~PCDetectorConstruction()
   delete fTube;
   delete fColl;
   delete fCham;
+  delete fTarget;
 }
 
 

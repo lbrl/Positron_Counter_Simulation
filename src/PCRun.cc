@@ -146,7 +146,7 @@ void PCRun::RecordEvent(const G4Event* event)
        fallCoin+=1;
 
      fHistoManager->FillNtupleHC(PC1time/ns, PC2time/ns, PC3time/ns,
-				 PC1Edep/keV, PC2Edep/keV , PC3Edep/keV );		 
+				 PC1Edep/keV, PC2Edep/keV , PC3Edep/keV);		 
      
      /*     auto man = G4AnalysisManager::Instance();
      man -> FillNtupleDColumn(4,PC1time);

@@ -24,7 +24,7 @@ class PCPrimaryGeneratorAction : public G4VUserPrimaryGeneratorAction
      const G4ParticleGun* GetParticleGun() const { return fParticleGun; }
   
   private:
-    std::ifstream ifin_primaries;
+    std::ifstream fin_primaries;
     G4ParticleGun*  fParticleGun; 
 };
 

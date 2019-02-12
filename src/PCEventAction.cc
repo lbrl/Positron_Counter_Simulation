@@ -14,7 +14,9 @@
 PCEventAction::PCEventAction(HistoManager* histo)
 : G4UserEventAction(),
   fPCTrackerCollID(-1), fTubeEdep(0.), fCollEdep(0.), fChamEdep(0.),
-  fVtxPositionX(0.), fVtxPositionY(0.),
+  fTargetEdep(-666.),
+  fVtxPositionX(0.), fVtxPositionY(0.), fVtxPositionZ(0.),
+  fTargetX(0.), fTargetY(0.), fTargetZ(0.),
   fHistoManager(histo)
 {}
 
@@ -26,7 +28,13 @@ PCEventAction::~PCEventAction()
 void PCEventAction::BeginOfEventAction(const G4Event*)
 {
   fTubeEdep = 0.;  fCollEdep = 0.;  fChamEdep = 0.;
-  fVtxPositionX = 0. ; fVtxPositionY = 0. ;
+  fTargetEdep = -666.;
+  fVtxPositionX = 0. ;
+  fVtxPositionY = 0. ;
+  fVtxPositionZ = 0. ;
+  fTargetX = 0.;
+  fTargetY = 0.;
+  fTargetZ = 0.;
   //  fOrigin   = 3 ; // others
 }
 
@@ -39,6 +47,7 @@ void PCEventAction::EndOfEventAction(const G4Event* event)
     {    G4cout << ">>> Event: " << eventID  << G4endl;    }
   
 
-  fHistoManager->FillNtupleEvent(fVtxPositionX, fVtxPositionY, fTubeEdep, fCollEdep, fChamEdep);
+  fHistoManager->FillNtupleEvent(fVtxPositionX, fVtxPositionY, fVtxPositionZ, fTubeEdep, fCollEdep, fChamEdep,
+          fTargetEdep, fTargetX, fTargetY, fTargetZ);
 }  
 

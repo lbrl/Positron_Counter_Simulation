@@ -23,6 +23,7 @@ class PCDetectorConstruction : public G4VUserDetectorConstruction
   G4LogicalVolume* GetColl() const { return fColl; }
   G4LogicalVolume* GetTube() const { return fTube; }
   G4LogicalVolume* GetCham() const { return fCham; }
+  G4LogicalVolume* GetTarget() const { return fTarget; }
 
    // Set methods
 
@@ -59,7 +60,7 @@ private:
   G4VPhysicalVolume* ConstructDetector();
 
   G4LogicalVolume** fPC_logic;
-  G4LogicalVolume* fTarget;
+  // G4LogicalVolume* fTarget;
   G4LogicalVolume* world_logic;
   G4LogicalVolume* chamber_logic;
   G4LogicalVolume* innerVacuum_logic;
@@ -178,6 +179,7 @@ protected:
   G4LogicalVolume* fTube;
   G4LogicalVolume* fColl;
   G4LogicalVolume* fCham;
+  G4LogicalVolume* fTarget;
 
   
   //  G4LogicalVolume* PC_logic1;

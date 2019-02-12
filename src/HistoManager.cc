@@ -59,6 +59,11 @@ void HistoManager::Book()
   analysisManager->CreateNtupleDColumn("PC1Edep"); // column Id = 8
   analysisManager->CreateNtupleDColumn("PC2Edep"); // column Id = 9
   analysisManager->CreateNtupleDColumn("PC3Edep"); // column Id = 10
+  analysisManager->CreateNtupleDColumn("OriginZ") ; // column Id = 11
+  analysisManager->CreateNtupleDColumn("TargetEdep"); // column Id = 12
+  analysisManager->CreateNtupleDColumn("TargetX"); // column Id = 13
+  analysisManager->CreateNtupleDColumn("TargetY"); // column Id = 14
+  analysisManager->CreateNtupleDColumn("TargetZ"); // column Id = 15
 
   analysisManager->FinishNtuple();
 
@@ -82,15 +87,21 @@ void HistoManager::Save()
 }
 
 
-void HistoManager::FillNtupleEvent(G4double OriginX, G4double OriginY, G4double TubeEdep, G4double CollEdep, G4double ChamEdep)
+void HistoManager::FillNtupleEvent(G4double OriginX, G4double OriginY, G4double OriginZ, G4double TubeEdep, G4double CollEdep, G4double ChamEdep,
+        G4double TargetEdep, G4double TargetX, G4double TargetY, G4double TargetZ)
 {                
   G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
   // Fill ntuple
   analysisManager->FillNtupleDColumn(0, OriginX);
   analysisManager->FillNtupleDColumn(1, OriginY);
+  analysisManager->FillNtupleDColumn(11, OriginZ);
   analysisManager->FillNtupleDColumn(2, TubeEdep);
   analysisManager->FillNtupleDColumn(3, CollEdep);
   analysisManager->FillNtupleDColumn(4, ChamEdep);
+  analysisManager->FillNtupleDColumn(12, TargetEdep);
+  analysisManager->FillNtupleDColumn(13, TargetX);
+  analysisManager->FillNtupleDColumn(14, TargetY);
+  analysisManager->FillNtupleDColumn(15, TargetZ);
   //  analysisManager->AddNtupleRow();  
  
 }
@@ -100,12 +111,12 @@ void HistoManager::FillNtupleHC(G4double time1, G4double time2, G4double time3,
 {
   G4AnalysisManager* analysisManager = G4AnalysisManager::Instance();
 
-  analysisManager->FillNtupleDColumn(5,time1);
-  analysisManager->FillNtupleDColumn(6,time2);
-  analysisManager->FillNtupleDColumn(7,time3);
-  analysisManager->FillNtupleDColumn(8,Edep1);
-  analysisManager->FillNtupleDColumn(9,Edep2);
-  analysisManager->FillNtupleDColumn(10,Edep3);
+  analysisManager->FillNtupleDColumn(5, time1);
+  analysisManager->FillNtupleDColumn(6, time2);
+  analysisManager->FillNtupleDColumn(7, time3);
+  analysisManager->FillNtupleDColumn(8, Edep1);
+  analysisManager->FillNtupleDColumn(9, Edep2);
+  analysisManager->FillNtupleDColumn(10, Edep3);
   analysisManager->AddNtupleRow();
 
 }

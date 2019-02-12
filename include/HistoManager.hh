@@ -17,7 +17,8 @@ class HistoManager
     void Book();
     void Save();
     
-  void FillNtupleEvent(G4double OriginX, G4double OriginY,  G4double TubeEdep, G4double CollEdep, G4double ChamEdep);
+  void FillNtupleEvent(G4double OriginX, G4double OriginY, G4double OriginZ, G4double TubeEdep, G4double CollEdep, G4double ChamEdep,
+          G4double TargetEdep, G4double TargetX, G4double TargetY, G4double TargetZ);
   void FillNtupleHC(G4double time1, G4double time2, G4double time3,
 		    G4double Edep1, G4double Edep2, G4double Edep3);
 
